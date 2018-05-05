@@ -42,6 +42,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -122,11 +123,47 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        TextView hometxt = (TextView) findViewById(R.id.hometxt);
+        String str = "";
+        try {
+            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            int c = 0;
+            do {
+                c++;
+                String title = "" + c;
+                JSONArray m_jArry = obj.getJSONArray(title);
+                ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
+                HashMap<String, String> m_li;
+                for (int i = 0; i < m_jArry.length(); i++) {
+                    JSONObject jo_inside = m_jArry.getJSONObject(i);
+                    str = str + jo_inside.get("titolo") + " ";
+                }
+            } while (true);
+        } catch (JSONException e) {
+            Log.d("JSON", "End");
+            hometxt.setText(str);
+        }
     }
 
     @Override
     public void onBackPressed() {
         //TODO tasto indietro
         super.onBackPressed();
+    }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("document.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
     }
 }
