@@ -128,16 +128,26 @@ public class HomeActivity extends AppCompatActivity {
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
             int c = 0;
+            ArrayList<String> titoli = new ArrayList<>();
+            ArrayList<String> descrizioni = new ArrayList<>();
+            ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
+            ArrayList<ArrayList<String>> npc = new ArrayList<>();
+
             do {
                 c++;
                 String title = "" + c;
                 JSONArray m_jArry = obj.getJSONArray(title);
-                ArrayList<HashMap<String, String>> formList = new ArrayList<HashMap<String, String>>();
-                HashMap<String, String> m_li;
-                for (int i = 0; i < m_jArry.length(); i++) {
-                    JSONObject jo_inside = m_jArry.getJSONObject(i);
-                    str = str + jo_inside.get("titolo") + " ";
-                }
+                Log.d("JSONOBJECT", m_jArry.toString());
+                titoli.add(m_jArry.getString(0));
+                descrizioni.add(m_jArry.getString(1));
+                ArrayList<String> locos = new ArrayList<>(); luoghi.add(locos);
+                JSONArray luoghiarray = m_jArry.getJSONArray(2);
+                for (int i = 0; i < luoghiarray.length(); i++) locos.add(luoghiarray.getString(i));
+                ArrayList<String> porsos = new ArrayList<>(); npc.add(porsos);
+                JSONArray npciarray = m_jArry.getJSONArray(3);
+                for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
+
+                str = str + titoli.get(c-1) + "\n" + descrizioni.get(c-1) + "\n" + luoghi.get(c-1).toString() + "\n" + npc.get(c-1).toString() + "\n\n\n";
             } while (true);
         } catch (JSONException e) {
             Log.d("JSON", "End");

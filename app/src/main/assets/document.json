@@ -1,18 +1,18 @@
 {"1" :[
-  {"titolo":"Risveglio"},
-  {"desc":"Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc)"},
-  {"luoghi" : ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia"]},
-  {"npc" : ["MinMonOc"]}
+  "Risveglio",
+  "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc)",
+  ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia"],
+  ["MinMonOc"]
 ],
 "2" :[
-  {"titolo":"Atterraggio"},
-  {"desc":"Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc"},
-  {"luoghi" : ["Cratere di Ocrilia"]},
-  {"npc" : []}
+  "Atterraggio",
+  "Vi hanno fatto salire su delle navicelle e trasportato fino al <b>Cratere di Ocrilia</b>, dove si trovano le stazioni di partenza e arrivo per il MinMonOc",
+  ["Cratere di Ocrilia"],
+  []
 ], 
 "3" :[
-  {"titolo":"Ritrovo"},
-  {"desc":"asbhgakfgaf"},
-  {"luoghi" : []},
-  {"npc" : ["Virion"]}
+  "Ritrovo",
+  "asbhgakfgaf",
+  [],
+  ["Virion", "Soldati"]
 ]}
