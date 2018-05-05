@@ -2,17 +2,41 @@
   "Risveglio",
   "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc)",
   ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia"],
-  ["MinMonOc"]
+  ["MinMonOc", "Soldati del MinMonOc"]
 ],
 "2" :[
   "Atterraggio",
-  "Vi hanno fatto salire su delle navicelle e trasportato fino al <b>Cratere di Ocrilia</b>, dove si trovano le stazioni di partenza e arrivo per il MinMonOc",
+  "Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc. Vi hanno poi invitato a ritrare il vostro equipaggiamento",
   ["Cratere di Ocrilia"],
   []
 ], 
 "3" :[
   "Ritrovo",
-  "asbhgakfgaf",
+  "Dei soldati vi hanno fatto radunare all'interno di un edificio e un certo Virion, un rapper e politico molto famoso, vi ha dato la colpa di qualcosa chiamandovi \"MIM\"",
   [],
-  ["Virion", "Soldati"]
+  ["Virion"]
+],
+"4" :[
+  "Black Out",
+  "Avete provato ad attaccare Virion, e le guardie vi hanno stordito facendovi svenire",
+  [],
+  []
+],
+"5" :[
+  "Sottomarino",
+  "Vi siete risvegliati all'interno di una piccola stanza. Siete riusciti ad uscire ritrovandovi all'interno di un sottomarino, che avete prontamente hackerato e fatto risalire, ritrovandovi in mare aperto a 500Km da Nova Aeria",
+  ["Sottomarino"],
+  []
+],
+"6" :[
+  "Capitale",
+  "Avete chiamato un taxi che vi ha velocemente portato a Nova Aeria",
+  ["Nova Aeria"],
+  ["Tassista di Nova Aeria", "Società di Taxi di Nova Aeria"]
+],
+"7" :[
+  "Avvistamento",
+  "Un cubo enorme è comparso nei cieli della capitale e, a sentire i notiziari, anche in svariate altre città di Quria",
+  [],
+  ["UFO?"]
 ]}

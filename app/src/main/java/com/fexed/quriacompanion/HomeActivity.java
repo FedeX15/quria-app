@@ -7,6 +7,10 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.LinearSnapHelper;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SnapHelper;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -57,8 +61,6 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     vf.setDisplayedChild(0);
-                    //https://drive.google.com/open?id=1VM2WluVks1qC9g3BFLvpmvWI-9wG79sH
-
                     return true;
                 case R.id.navigation_atlante:
                     vf.setDisplayedChild(1);
@@ -89,21 +91,6 @@ public class HomeActivity extends AppCompatActivity {
                         }
                     });
 
-                    atlasView.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View view, MotionEvent motionEvent) {
-                            /*float curX = (motionEvent.getX() / atlasView.getScale()) - (atlasView.getLeft() * atlasView.getScale());
-                            float curY = (motionEvent.getY() / atlasView.getScale()) - (atlasView.getTop() * atlasView.getScale());
-
-                            coordtxt.setText("X " + curX + " - Y " + curY);
-                            Canvas mCanvas = new Canvas();
-                            mCanvas.drawCircle(((curX / atlasView.getScale())), ((curY / atlasView.getScale())), atlasView.getWidth() / 2 / atlasView.getScale(), new Paint(Color.RED));
-                            atlasView.draw(mCanvas);*/
-
-                            return false;
-                        }
-                    });
-
                     return true;
                 case R.id.navigation_risorse:
                     vf.setDisplayedChild(2);
@@ -123,21 +110,19 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        TextView hometxt = (TextView) findViewById(R.id.hometxt);
-        String str = "";
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<String> descrizioni = new ArrayList<>();
+        ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
+        ArrayList<ArrayList<String>> npc = new ArrayList<>();
+
         try {
             JSONObject obj = new JSONObject(loadJSONFromAsset());
             int c = 0;
-            ArrayList<String> titoli = new ArrayList<>();
-            ArrayList<String> descrizioni = new ArrayList<>();
-            ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
-            ArrayList<ArrayList<String>> npc = new ArrayList<>();
 
             do {
                 c++;
                 String title = "" + c;
                 JSONArray m_jArry = obj.getJSONArray(title);
-                Log.d("JSONOBJECT", m_jArry.toString());
                 titoli.add(m_jArry.getString(0));
                 descrizioni.add(m_jArry.getString(1));
                 ArrayList<String> locos = new ArrayList<>(); luoghi.add(locos);
@@ -146,12 +131,46 @@ public class HomeActivity extends AppCompatActivity {
                 ArrayList<String> porsos = new ArrayList<>(); npc.add(porsos);
                 JSONArray npciarray = m_jArry.getJSONArray(3);
                 for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
-
-                str = str + titoli.get(c-1) + "\n" + descrizioni.get(c-1) + "\n" + luoghi.get(c-1).toString() + "\n" + npc.get(c-1).toString() + "\n\n\n";
             } while (true);
         } catch (JSONException e) {
             Log.d("JSON", "End");
-            hometxt.setText(str);
+            RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
+            recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc));
+            recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            SnapHelper helper = new LinearSnapHelper() {
+                @Override
+                public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int velocityX, int velocityY) {
+                    View centerView = findSnapView(layoutManager);
+                    if (centerView == null)
+                        return RecyclerView.NO_POSITION;
+
+                    int position = layoutManager.getPosition(centerView);
+                    int targetPosition = -1;
+                    if (layoutManager.canScrollHorizontally()) {
+                        if (velocityX < 0) {
+                            targetPosition = position - 1;
+                        } else {
+                            targetPosition = position + 1;
+                        }
+                    }
+                    if (layoutManager.canScrollVertically()) {
+                        if (velocityY < 0) {
+                            targetPosition = position - 1;
+                        } else {
+                            targetPosition = position + 1;
+                        }
+                    }
+
+                    final int firstItem = 0;
+                    final int lastItem = layoutManager.getItemCount() - 1;
+                    targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
+                    return targetPosition;
+                }
+            };
+            helper.attachToRecyclerView(recview);
+
+
+
         }
     }
 
