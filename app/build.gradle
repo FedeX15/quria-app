@@ -26,4 +26,8 @@ dependencies {
     implementation 'com.android.support:support-vector-drawable:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
     implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.4.1'
+    implementation 'com.google.http-client:google-http-client-android:1.23.0'
+    implementation 'com.google.api-client:google-api-client-android:1.23.0'
+    implementation 'com.google.api-client:google-api-client-gson:1.23.0'
+
 }

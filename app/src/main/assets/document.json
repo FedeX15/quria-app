@@ -1,0 +1,12 @@
+{"1" :[
+  {"titolo":"Risveglio"},
+  {"desc":"Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc)"},
+  {"Luoghi" : ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia"]},
+  {"NPC e Organizzazioni" : ["MinMonOc"]}
+],
+"2" :[
+  {"titolo":"Atterraggio"},
+  {"desc":"Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc"},
+  {"Luoghi" : ["Cratere di Ocrilia"]},
+  {"NPC e Organizzazioni" : []}
+]}
