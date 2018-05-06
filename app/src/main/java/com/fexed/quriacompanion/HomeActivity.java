@@ -1,7 +1,11 @@
 package com.fexed.quriacompanion;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,11 +15,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.text.InputType;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -51,7 +58,7 @@ import java.util.HashMap;
 public class HomeActivity extends AppCompatActivity {
 
     private ViewFlipper vf;
-    ProgressDialog progressDialog;
+    static SharedPreferences state;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -93,6 +100,255 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_risorse:
                     vf.setDisplayedChild(2);
+                    final TextView FOR = (TextView) findViewById(R.id.FOR);
+                    final TextView FORmod = (TextView) findViewById(R.id.FORmod);
+                    final TextView DEX = (TextView) findViewById(R.id.DEX);
+                    final TextView DEXmod = (TextView) findViewById(R.id.DEXmod);
+                    final TextView COS = (TextView) findViewById(R.id.COS);
+                    final TextView COSmod = (TextView) findViewById(R.id.COSmod);
+                    final TextView INT = (TextView) findViewById(R.id.INT);
+                    final TextView INTmod = (TextView) findViewById(R.id.INTmod);
+                    final TextView SAG = (TextView) findViewById(R.id.SAG);
+                    final TextView SAGmod = (TextView) findViewById(R.id.SAGmod);
+                    final TextView CAR = (TextView) findViewById(R.id.CAR);
+                    final TextView CARmod = (TextView) findViewById(R.id.CARmod);
+                    final TextView lvtxt = (TextView) findViewById(R.id.pglvtxt);
+
+                    lvtxt.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci il livello di " + state.getString("pgname", null));
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int lv = Integer.parseInt(input.getText().toString());
+
+                                    lvtxt.setText(lv + "");
+                                    state.edit().putInt("pglv", lv).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    FOR.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci FOR");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    FOR.setText(pnt + "");
+                                    FORmod.setText(suffix + mod);
+                                    state.edit().putInt("FOR", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    DEX.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci DEX");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    DEX.setText(pnt + "");
+                                    DEXmod.setText(suffix + mod);
+                                    state.edit().putInt("DEX", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    COS.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci COS");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    COS.setText(pnt + "");
+                                    COSmod.setText(suffix + mod);
+                                    state.edit().putInt("COS", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    INT.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci INT");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    INT.setText(pnt + "");
+                                    INTmod.setText(suffix + mod);
+                                    state.edit().putInt("INT", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    SAG.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci SAG");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    SAG.setText(pnt + "");
+                                    SAGmod.setText(suffix + mod);
+                                    state.edit().putInt("SAG", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
+                    CAR.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(final View view) {
+                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                            input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                            input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                            alert.setView(input);
+                            alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for CANCEL button here, or leave in blank
+                                }
+                            });
+                            final AlertDialog alertd = alert.create();
+                            alert.setTitle("Inserisci CAR");
+                            alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    //Put actions for OK button here
+                                    int pnt = Integer.parseInt(input.getText().toString());
+                                    int mod = (pnt - 10)/2;
+                                    String suffix = (mod > 0) ? "+" : "";
+
+                                    CAR.setText(pnt + "");
+                                    CARmod.setText(suffix + mod);
+                                    state.edit().putInt("CAR", pnt).apply();
+                                    dialog.cancel();
+                                    alertd.dismiss();
+                                }
+                            });
+                            alert.show();
+                            return true;
+                        }
+                    });
+
                     return true;
             }
             return false;
@@ -103,6 +359,61 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        state = getApplicationContext().getSharedPreferences(getString(R.string.state), Context.MODE_PRIVATE);
+
+        String pgname = state.getString("pgname", null);
+
+        if (pgname == null) {
+            PGDialog inputdialog = new PGDialog(this, state);
+            inputdialog.show();
+        } else {
+            TextView pgnametxt = findViewById(R.id.pgnametxt);
+            TextView pgclasstxt = findViewById(R.id.pgclasstxt);
+            TextView pglvtxt = findViewById(R.id.pglvtxt);
+            pgnametxt.setText(state.getString("pgname", "errore"));
+            pgclasstxt.setText(state.getString("pgclass", "errore"));
+            pglvtxt.setText(state.getInt("pglv", 0) + "");
+
+            TextView FOR = (TextView) findViewById(R.id.FOR);
+            TextView FORmod = (TextView) findViewById(R.id.FORmod);
+            TextView DEX = (TextView) findViewById(R.id.DEX);
+            TextView DEXmod = (TextView) findViewById(R.id.DEXmod);
+            TextView COS = (TextView) findViewById(R.id.COS);
+            TextView COSmod = (TextView) findViewById(R.id.COSmod);
+            TextView INT = (TextView) findViewById(R.id.INT);
+            TextView INTmod = (TextView) findViewById(R.id.INTmod);
+            TextView SAG = (TextView) findViewById(R.id.SAG);
+            TextView SAGmod = (TextView) findViewById(R.id.SAGmod);
+            TextView CAR = (TextView) findViewById(R.id.CAR);
+            TextView CARmod = (TextView) findViewById(R.id.CARmod);
+
+            int pnt = state.getInt("FOR", 20);
+            int mod = (pnt - 10)/2;
+            String suffix = (mod > 0) ? "+" : "";
+            FOR.setText("" + pnt); FORmod.setText(suffix + mod);
+            pnt = state.getInt("DEX", 20);
+            mod = (pnt - 10)/2;
+            suffix = (mod > 0) ? "+" : "";
+            DEX.setText("" + pnt); DEXmod.setText(suffix + mod);
+            pnt = state.getInt("COS", 20);
+            mod = (pnt - 10)/2;
+            suffix = (mod > 0) ? "+" : "";
+            COS.setText("" + pnt); COSmod.setText(suffix + mod);
+            pnt = state.getInt("INT", 20);
+            mod = (pnt - 10)/2;
+            suffix = (mod > 0) ? "+" : "";
+            INT.setText("" + pnt); INTmod.setText(suffix + mod);
+            pnt = state.getInt("SAG", 20);
+            mod = (pnt - 10)/2;
+            suffix = (mod > 0) ? "+" : "";
+            SAG.setText("" + pnt); SAGmod.setText(suffix + mod);
+            pnt = state.getInt("CAR", 20);
+            mod = (pnt - 10)/2;
+            suffix = (mod > 0) ? "+" : "";
+            CAR.setText("" + pnt); CARmod.setText(suffix + mod);
+
+
+        }
 
         vf = (ViewFlipper) findViewById(R.id.vf);
 
