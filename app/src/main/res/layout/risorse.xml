@@ -18,7 +18,8 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/minmonoclogoimg" />
+            app:layout_constraintTop_toBottomOf="@+id/quriabandiera"
+            tools:layout_editor_absoluteY="48dp" />
 
         <TextView
             android:id="@+id/pgclasstxt"
@@ -331,17 +332,29 @@
             </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/minpopan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="serif-monospace"
+            android:text="Ministero per\nla Popolazione\ne l'Anagrafe"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/quriabandiera"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <ImageView
-            android:id="@+id/minmonoclogoimg"
+            android:id="@+id/quriabandiera"
             android:layout_width="100dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/minmonoclogo" />
+            app:srcCompat="@drawable/quria_bandiera" />
 
     </android.support.constraint.ConstraintLayout>
 

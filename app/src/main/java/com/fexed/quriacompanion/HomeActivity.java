@@ -55,10 +55,13 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static java.lang.Math.floor;
+
 public class HomeActivity extends AppCompatActivity {
 
     private ViewFlipper vf;
     static SharedPreferences state;
+    static int[] prof = {2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6};
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -117,7 +120,7 @@ public class HomeActivity extends AppCompatActivity {
                     lvtxt.setOnLongClickListener(new View.OnLongClickListener() {
                         @Override
                         public boolean onLongClick(View view) {
-                            AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                            final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
                             final EditText input = new EditText(HomeActivity.this.getApplicationContext());
                             input.setInputType(InputType.TYPE_CLASS_NUMBER);
                             input.setRawInputType(Configuration.KEYBOARD_12KEY);
@@ -133,6 +136,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int lv = Integer.parseInt(input.getText().toString());
+                                    if (lv <= 0) lv = 1;
 
                                     lvtxt.setText(lv + "");
                                     state.edit().putInt("pglv", lv).apply();
@@ -164,7 +168,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     FOR.setText(pnt + "");
@@ -198,7 +202,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     DEX.setText(pnt + "");
@@ -232,7 +236,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     COS.setText(pnt + "");
@@ -266,7 +270,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     INT.setText(pnt + "");
@@ -300,7 +304,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     SAG.setText(pnt + "");
@@ -334,7 +338,7 @@ public class HomeActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     //Put actions for OK button here
                                     int pnt = Integer.parseInt(input.getText().toString());
-                                    int mod = (pnt - 10)/2;
+                                    int mod = (int) floor((pnt - 10)/2);
                                     String suffix = (mod > 0) ? "+" : "";
 
                                     CAR.setText(pnt + "");
@@ -372,7 +376,7 @@ public class HomeActivity extends AppCompatActivity {
             TextView pglvtxt = findViewById(R.id.pglvtxt);
             pgnametxt.setText(state.getString("pgname", "errore"));
             pgclasstxt.setText(state.getString("pgclass", "errore"));
-            pglvtxt.setText(state.getInt("pglv", 0) + "");
+            pglvtxt.setText(state.getInt("pglv", 1) + "");
 
             TextView FOR = (TextView) findViewById(R.id.FOR);
             TextView FORmod = (TextView) findViewById(R.id.FORmod);
@@ -388,27 +392,27 @@ public class HomeActivity extends AppCompatActivity {
             TextView CARmod = (TextView) findViewById(R.id.CARmod);
 
             int pnt = state.getInt("FOR", 20);
-            int mod = (pnt - 10)/2;
+            int mod = (int) floor((pnt - 10)/2);
             String suffix = (mod > 0) ? "+" : "";
             FOR.setText("" + pnt); FORmod.setText(suffix + mod);
             pnt = state.getInt("DEX", 20);
-            mod = (pnt - 10)/2;
+            mod = (int) floor((pnt - 10)/2);
             suffix = (mod > 0) ? "+" : "";
             DEX.setText("" + pnt); DEXmod.setText(suffix + mod);
             pnt = state.getInt("COS", 20);
-            mod = (pnt - 10)/2;
+            mod = (int) floor((pnt - 10)/2);
             suffix = (mod > 0) ? "+" : "";
             COS.setText("" + pnt); COSmod.setText(suffix + mod);
             pnt = state.getInt("INT", 20);
-            mod = (pnt - 10)/2;
+            mod = (int) floor((pnt - 10)/2);
             suffix = (mod > 0) ? "+" : "";
             INT.setText("" + pnt); INTmod.setText(suffix + mod);
             pnt = state.getInt("SAG", 20);
-            mod = (pnt - 10)/2;
+            mod = (int) floor((pnt - 10)/2);
             suffix = (mod > 0) ? "+" : "";
             SAG.setText("" + pnt); SAGmod.setText(suffix + mod);
             pnt = state.getInt("CAR", 20);
-            mod = (pnt - 10)/2;
+            mod = (int) floor((pnt - 10)/2);
             suffix = (mod > 0) ? "+" : "";
             CAR.setText("" + pnt); CARmod.setText(suffix + mod);
 

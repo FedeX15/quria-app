@@ -5,11 +5,17 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import junit.framework.Assert;
 
 public class PGDialog extends Dialog implements android.view.View.OnClickListener {
 
@@ -41,23 +47,67 @@ public class PGDialog extends Dialog implements android.view.View.OnClickListene
                 EditText pgclassinput = findViewById(R.id.pgclassinput);
                 EditText pglvinput = findViewById(R.id.pglvinput);
 
-                if (pgnameinput.getText().toString() == "" || pgclassinput.getText().toString() == "" || pglvinput.getText().toString() == "") break;
+                if (TextUtils.isEmpty(pgnameinput.getText().toString())) {
+                    pgnameinput.setError("Il nome del PG non può essere vuoto");
+                    this.dismiss();
+                    Toast.makeText(this.c.getApplicationContext(), "Il nome del PG non può essere vuoto", Toast.LENGTH_SHORT).show();
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            PGDialog.this.show();
+                        }
+                    });
+                    break;
+                } else if (TextUtils.isEmpty(pgclassinput.getText().toString())) {
+                    pgclassinput.setError("La classe del PG non può essere vuoto");
+                    this.dismiss();
+                    Toast.makeText(this.c.getApplicationContext(), "La classe del PG non può essere vuota", Toast.LENGTH_SHORT).show();
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            PGDialog.this.show();
+                        }
+                    });
+                    break;
+                } else if (TextUtils.isEmpty(pglvinput.getText().toString())) {
+                    pglvinput.setError("Il livello del PG non può essere vuoto");
+                    this.dismiss();
+                    Toast.makeText(this.c.getApplicationContext(), "Il livello del PG non può essere vuoto", Toast.LENGTH_SHORT).show();
+                    Handler handler = new Handler();
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            PGDialog.this.show();
+                        }
+                    });
+                    break;
+                } else {
+                    Assert.assertTrue("ERRORE input non valdio", !(pgnameinput.getText().toString().equals("")));
+                    Assert.assertNotNull("ERRORE input nullo", pgnameinput.getText().toString());
+                    Assert.assertTrue("ERRORE input non valdio", !(pgclassinput.getText().toString().equals("")));
+                    Assert.assertNotNull("ERRORE input nullo", pgclassinput.getText().toString());
+                    Assert.assertTrue("ERRORE input non valdio", !(pglvinput.getText().toString().equals("")));
+                    Assert.assertNotNull("ERRORE input nullo", pglvinput.getText().toString());
+                    int lv = Integer.parseInt(pglvinput.getText().toString());
+                    if (lv <= 0) lv = 1;
+                    state.edit().putString("pgname", pgnameinput.getText().toString()).apply();
+                    state.edit().putString("pgclass", pgclassinput.getText().toString()).apply();
+                    state.edit().putInt("pglv", lv).apply();
+                    state.edit().commit();
 
-                state.edit().putString("pgname", pgnameinput.getText().toString()).apply();
-                state.edit().putString("pgclass", pgclassinput.getText().toString()).apply();
-                state.edit().putInt("pglv", Integer.parseInt(pglvinput.getText().toString())).apply();
-                state.edit().commit();
+                    TextView pgnametxt = c.findViewById(R.id.pgnametxt);
+                    TextView pgclasstxt = c.findViewById(R.id.pgclasstxt);
+                    TextView pglvtxt = c.findViewById(R.id.pglvtxt);
 
-                TextView pgnametxt = c.findViewById(R.id.pgnametxt);
-                TextView pgclasstxt = c.findViewById(R.id.pgclasstxt);
-                TextView pglvtxt = c.findViewById(R.id.pglvtxt);
+                    pgnametxt.setText(state.getString("pgname", "errore"));
+                    pgclasstxt.setText(state.getString("pgclass", "errore"));
+                    pglvtxt.setText(state.getInt("pglv", 0) + "");
 
-                pgnametxt.setText(state.getString("pgname", "errore"));
-                pgclasstxt.setText(state.getString("pgclass", "errore"));
-                pglvtxt.setText(state.getInt("pglv", 0) + "");
-
-                this.dismiss();
-                break;
+                    this.dismiss();
+                    break;
+                }
             default:
                 break;
         }
