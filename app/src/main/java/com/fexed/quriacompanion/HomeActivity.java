@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,12 +25,15 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -61,6 +65,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static java.lang.Math.exp;
 import static java.lang.Math.floor;
@@ -82,38 +87,16 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_atlante:
                     vf.setDisplayedChild(1);
-                    final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
-                    Button fisicobtn = (Button) findViewById(R.id.fisicotbtn);
-                    Button geograbtn = (Button) findViewById(R.id.geogrbtn);
-                    Button politibtn = (Button) findViewById(R.id.politicbtn);
-                    final TextView coordtxt = (TextView) findViewById(R.id.coord);
-
-                    atlasView.setImage(ImageSource.resource(R.drawable.quria_fisica));
-                    fisicobtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            atlasView.setImage(ImageSource.resource(R.drawable.quria_fisica));
-                        }
-                    });
-                    geograbtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            atlasView.setImage(ImageSource.resource(R.drawable.quria_geografica));
-                        }
-                    });
-                    politibtn.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            atlasView.setImage(ImageSource.resource(R.drawable.quria_politica));
-                        }
-                    });
-
+                    SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
+                    atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
                     return true;
                 case R.id.navigation_scheda:
                     vf.setDisplayedChild(2);
                     ScrollView mainscrollv = (ScrollView) findViewById(R.id.mainscroll);
                     mainscrollv.smoothScrollTo(0, 0);
-
+                    return true;
+                case R.id.navigation_risorse:
+                    vf.setDisplayedChild(3);
                     return true;
             }
             return false;
@@ -126,6 +109,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         state = getApplicationContext().getSharedPreferences(getString(R.string.state), Context.MODE_PRIVATE);
 
+        preparaAtlante();
         preparaSchedaPG();
 
         vf = (ViewFlipper) findViewById(R.id.vf);
@@ -192,6 +176,53 @@ public class HomeActivity extends AppCompatActivity {
             };
             helper.attachToRecyclerView(recview);
         }
+    }
+
+    private void preparaAtlante() {
+        final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
+        Button fisicobtn = (Button) findViewById(R.id.quriafisica);
+        Button geograbtn = (Button) findViewById(R.id.quriageografica);
+        Button politibtn = (Button) findViewById(R.id.quriapolitica);
+        Button ayonbtn = (Button) findViewById(R.id.ayon);
+        Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
+        Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
+
+        fisicobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
+            }
+        });
+        geograbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
+            }
+        });
+        politibtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
+            }
+        });
+        ayonbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
+            }
+        });
+        faeshorisbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
+            }
+        });
+        novaaeriabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
+            }
+        });
     }
 
     private void preparaSchedaPG() {

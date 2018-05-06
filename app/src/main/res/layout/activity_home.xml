@@ -29,8 +29,14 @@
             android:layout_height="match_parent" />
 
         <include
-            android:id="@+id/risorse"
+            android:id="@+id/scheda"
             layout="@layout/scheda"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <include
+            android:id="@+id/risorse"
+            layout="@layout/risorse"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -16,4 +16,10 @@
         android:icon="@drawable/ic_library_books_black_24dp"
         android:title="@string/title_schedaPG" />
 
+    <item
+        android:id="@+id/navigation_risorse"
+        android:icon="@drawable/ic_folder_shared_black_24dp"
+        android:title="@string/title_risorse" />
+
+
 </menu>

@@ -35,7 +35,7 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/quria_bandiera" />
+                app:srcCompat="@drawable/bandiera_quria" />
 
             <TextView
                 android:id="@+id/pgnametxt"
