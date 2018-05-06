@@ -6,6 +6,13 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -87,8 +94,19 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_atlante:
                     vf.setDisplayedChild(1);
-                    SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
+                    final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
                     atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
+                    /*atlasView.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View view, MotionEvent motionEvent) {
+                            PointF point = atlasView.viewToSourceCoord(motionEvent.getX(), motionEvent.getY());
+                            Canvas canvas = new Canvas();
+                            canvas.drawPoint(point.x, point.y, new Paint(Color.RED));
+                            atlasView.draw(canvas);
+                            return true;
+                        }
+                    });*/
+
                     return true;
                 case R.id.navigation_scheda:
                     vf.setDisplayedChild(2);

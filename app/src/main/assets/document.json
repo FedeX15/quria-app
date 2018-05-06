@@ -1,42 +1,48 @@
 {"1" :[
   "Risveglio",
-  "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc)",
-  ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia"],
+  "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc). Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc. Vi hanno poi invitato a ritrare il vostro equipaggiamento",
+  ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia", "Cratere di Ocrilia"],
   ["MinMonOc", "Milizia del MinMonOc"]
 ],
 "2" :[
-  "Atterraggio",
-  "Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc. Vi hanno poi invitato a ritrare il vostro equipaggiamento",
-  ["Cratere di Ocrilia"],
-  []
-], 
-"3" :[
   "Ritrovo",
-  "Dei soldati vi hanno fatto radunare all'interno di un edificio e un certo Virion, un rapper e politico molto famoso, vi ha dato la colpa di qualcosa chiamandovi \"MIM\"",
+  "Dei soldati vi hanno fatto radunare all'interno di un edificio e un certo Virion, un rapper e politico molto famoso, vi ha dato la colpa di qualcosa chiamandovi \"MIM\". Di tutta risposta, avete attaccato lui e le sue guardie ma l'anno passato nel monitoraggio si è fatto sentire: le guardie hanno avuto la meglio e siete svenuti uno dopo l'altro",
   [],
   ["Virion"]
-],
-"4" :[
+], 
+"3" :[
   "Black Out",
-  "Avete provato ad attaccare Virion, e le guardie vi hanno stordito facendovi svenire",
-  [],
-  []
-],
-"5" :[
-  "Sottomarino",
   "Vi siete risvegliati all'interno di una piccola stanza. Siete riusciti ad uscire ritrovandovi all'interno di un sottomarino, che avete prontamente hackerato e fatto risalire, ritrovandovi in mare aperto a 500Km da Nova Aeria",
   ["Sottomarino"],
   []
 ],
-"6" :[
+"4" :[
   "Capitale",
-  "Avete chiamato un taxi che vi ha velocemente portato a Nova Aeria",
-  ["Nova Aeria"],
+  "Avete chiamato un taxi che vi ha velocemente portato a Nova Aeria. Siete atterrati al Distretto Dogana, avete superato i controlli e vi siete diretti al tunnel di entrata per la città, prendendo il treno. Una volta saliti, il notiziario ha iniziato a trasmettere notizie riguardanti un cubo enorme volante sopra la città e altri luoghi in tutto il pianeta. Viene definito un \"drone militare fuori controllo\" e i cittadini vengono invitati ad avere prudenza e rispettare le indicazioni della milizia",
+  ["Nova Aeria", "Distretto Dogana di Nova Aeria"],
   ["Tassista di Nova Aeria", "Società di Taxi di Nova Aeria"]
 ],
-"7" :[
+"5" :[
   "Avvistamento",
-  "Un cubo enorme è comparso nei cieli della capitale e, a sentire i notiziari, anche in svariate altre città di Quria",
-  [],
+  "Usciti dal treno vedete anche voi il cubo, che è ora circondato da caccia militari che lo tengono sotto tiro. Un pilone enorme viene sparato dal cubo e atterra nel mezzo del Distretto Centrale. Il pilone è elettrizzato, lo testimonia un bambino che lo ha toccato, ma subito delle guardie lo circondano intimandovi di allontanarvi. Dopo aver provato a convincerle, decidete di lasciare perdere e andare a fare shopping",
+  ["Distretto Centrale di Nova Aeria"],
   ["UFO?"]
+],
+"6" :[
+  "Shopping",
+  "Dopo aver cercato online, vi siete diretti nel Distretto Commerciale A per visitare il Buon Vecchio Frank, un negozio di armi e armature piccolo ma molto fornito. Avete anche conosciuto il proprietario, Frank: un vecchietto vivace e alla mano che vi ha servito con passione e al meglio delle sue capacità",
+  ["Distretto Commerciale A di Nova Aeria"],
+  ["Frankyard Raonull Druimen II"]
+],
+"7" :[
+  "",
+  "",
+  [""],
+  [""]
+],
+"8" :[
+  "",
+  "",
+  [],
+  []
 ]}
