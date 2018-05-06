@@ -12,8 +12,8 @@
         android:title="@string/title_atlante" />
 
     <item
-        android:id="@+id/navigation_risorse"
+        android:id="@+id/navigation_scheda"
         android:icon="@drawable/ic_library_books_black_24dp"
-        android:title="@string/title_risorsePG" />
+        android:title="@string/title_schedaPG" />
 
 </menu>
