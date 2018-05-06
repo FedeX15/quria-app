@@ -13,7 +13,8 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/app_name"
-            android:theme="@style/Tema">
+            android:theme="@style/Tema"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

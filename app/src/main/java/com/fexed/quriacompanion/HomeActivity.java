@@ -16,7 +16,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.text.Editable;
 import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -27,6 +29,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
@@ -108,7 +111,8 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_scheda:
                     vf.setDisplayedChild(2);
-
+                    ScrollView mainscrollv = (ScrollView) findViewById(R.id.mainscroll);
+                    mainscrollv.smoothScrollTo(0, 0);
 
                     return true;
             }
@@ -1235,6 +1239,109 @@ public class HomeActivity extends AppCompatActivity {
         suffix = (bonus >= 0) ? "+" : "";
         persuadere.setText(suffix + bonus);
 
+        EditText linguetxt = (EditText) findViewById(R.id.linguetxt);
+        linguetxt.setText(state.getString("linguetxt", ""));
+        linguetxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("linguetxt", editable.toString()).apply();
+            }
+        });
+        linguetxt.clearFocus();
+
+        EditText armitxt = (EditText) findViewById(R.id.armitxt);
+        armitxt.setText(state.getString("armitxt", ""));
+        armitxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("armitxt", editable.toString()).apply();
+            }
+        });
+        armitxt.clearFocus();
+
+        EditText talentitxt = (EditText) findViewById(R.id.talentitxt);
+        talentitxt.setText(state.getString("talentitxt", ""));
+        talentitxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("talentitxt", editable.toString()).apply();
+            }
+        });
+        talentitxt.clearFocus();
+
+        EditText abilitatxt = (EditText) findViewById(R.id.abilitatxt);
+        abilitatxt.setText(state.getString("abilitatxt", ""));
+        abilitatxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("abilitatxt", editable.toString()).apply();
+            }
+        });
+        abilitatxt.clearFocus();
+
+        EditText credititxt = (EditText) findViewById(R.id.credititxt);
+        credititxt.setText(state.getInt("crediti", 0) + "");
+        credititxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                try {
+                    state.edit().putInt("crediti", Integer.parseInt(editable.toString())).apply();
+                } catch (NumberFormatException ex) {
+                    state.edit().putInt("crediti", 0).apply();
+                }
+            }
+        });
+        credititxt.clearFocus();
     }
 
     @Override
