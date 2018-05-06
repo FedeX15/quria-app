@@ -76,6 +76,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/pgnametxt" />
 
+            <TextView
+                android:id="@+id/proftxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="+0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/pglvtxt"
+                app:layout_constraintStart_toStartOf="@+id/pglvtxt"
+                app:layout_constraintTop_toBottomOf="@+id/pglvtxt" />
+
             <LinearLayout
                 android:id="@+id/stats"
                 android:layout_width="match_parent"
