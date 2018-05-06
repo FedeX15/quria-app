@@ -69,7 +69,6 @@ public class HomeActivity extends AppCompatActivity {
                     Button geograbtn = (Button) findViewById(R.id.geogrbtn);
                     Button politibtn = (Button) findViewById(R.id.politicbtn);
                     final TextView coordtxt = (TextView) findViewById(R.id.coord);
-                    float x, y;
 
                     atlasView.setImage(ImageSource.resource(R.drawable.quria_fisica));
                     fisicobtn.setOnClickListener(new View.OnClickListener() {
@@ -168,9 +167,6 @@ public class HomeActivity extends AppCompatActivity {
                 }
             };
             helper.attachToRecyclerView(recview);
-
-
-
         }
     }
 
