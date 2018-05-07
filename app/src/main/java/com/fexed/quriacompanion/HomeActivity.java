@@ -1,6 +1,7 @@
 package com.fexed.quriacompanion;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -236,7 +237,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void preparaSchedaPG() {
-
         final TextView FOR = (TextView) findViewById(R.id.FOR);
         final TextView FORmod = (TextView) findViewById(R.id.FORmod);
         final TextView DEX = (TextView) findViewById(R.id.DEX);
@@ -253,6 +253,9 @@ public class HomeActivity extends AppCompatActivity {
         final TextView nametxt = (TextView) findViewById(R.id.pgnametxt);
         final TextView classtxt = (TextView) findViewById(R.id.pgclasstxt);
         final TextView proftxt = (TextView) findViewById(R.id.proftxt);
+        final TextView CA = (TextView) findViewById(R.id.CA);
+        final TextView PF = (TextView) findViewById(R.id.PF);
+        final TextView PFmax = (TextView) findViewById(R.id.PFmax);
         int pntfor; int modfor;
         int pntdex; int moddex;
         int pntcos; int modcos;
@@ -273,38 +276,46 @@ public class HomeActivity extends AppCompatActivity {
             pgnametxt.setText(state.getString("pgname", "errore"));
             pgclasstxt.setText(state.getString("pgclass", "errore"));
             pglvtxt.setText(state.getInt("pglv", 1) + "");
-            proftxt.setText(prof[state.getInt("pglv", 1) - 1] + "");
+            //proftxt.setText(prof[state.getInt("pglv", 1) - 1] + "");
 
-            pntfor = state.getInt("FOR", 20);
+            pntfor = state.getInt("FOR", 10);
             modfor = mod(pntfor);
             String suffix = (modfor >= 0) ? "+" : "";
             FOR.setText("" + pntfor); FORmod.setText(suffix + modfor);
 
-            pntdex = state.getInt("DEX", 20);
+            pntdex = state.getInt("DEX", 10);
             moddex = mod(pntdex);
             suffix = (moddex >= 0) ? "+" : "";
             DEX.setText("" + pntdex); DEXmod.setText(suffix + moddex);
 
-            pntcos = state.getInt("COS", 20);
+            pntcos = state.getInt("COS", 10);
             modcos = mod(pntcos);
             suffix = (modcos >= 0) ? "+" : "";
             COS.setText("" + pntcos); COSmod.setText(suffix + modcos);
 
-            pntint = state.getInt("INT", 20);
+            pntint = state.getInt("INT", 10);
             modint = mod(pntint);
             suffix = (modint >= 0) ? "+" : "";
             INT.setText("" + pntint); INTmod.setText(suffix + modint);
 
-            pntsag = state.getInt("SAG", 20);
+            pntsag = state.getInt("SAG", 10);
             modsag = mod(pntsag);
             suffix = (modsag >= 0) ? "+" : "";
             SAG.setText("" + pntsag); SAGmod.setText(suffix + modsag);
 
-            pntcar = state.getInt("CAR", 20);
+            pntcar = state.getInt("CAR", 10);
             modcar = mod(pntcar);
             suffix = (modcar >= 0) ? "+" : "";
             CAR.setText("" + pntcar); CARmod.setText(suffix + modcar);
 
+            int ca = state.getInt("CA", 10);
+            CA.setText("" + ca);
+
+            int pf = state.getInt("PF", 0);
+            PF.setText("" + pf);
+
+            int pfmax = state.getInt("PFMAX", 0);
+            PFmax.setText("" + pfmax);
 
         }
 
@@ -392,6 +403,108 @@ public class HomeActivity extends AppCompatActivity {
                         state.edit().putString("pgclass", classs).apply();
                         dialog.cancel();
                         alertd.dismiss();
+                    }
+                });
+                alert.show();
+                return true;
+            }
+        });
+
+        CA.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                alert.setView(input);
+                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for CANCEL button here, or leave in blank
+                    }
+                });
+                final AlertDialog alertd = alert.create();
+                alert.setTitle("Inserisci CA");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for OK button here
+                        int pnt = Integer.parseInt(input.getText().toString());
+
+                        CA.setText(pnt + "");
+                        state.edit().putInt("CA", pnt).apply();
+                        dialog.cancel();
+                        alertd.dismiss();
+                        preparaSchedaPG();
+                    }
+                });
+                alert.show();
+                return true;
+            }
+        });
+
+        PF.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                alert.setView(input);
+                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for CANCEL button here, or leave in blank
+                    }
+                });
+                final AlertDialog alertd = alert.create();
+                alert.setTitle("Inserisci PF");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for OK button here
+                        int pnt = Integer.parseInt(input.getText().toString());
+                        if (pnt > state.getInt("PFMAX", pnt)) {
+                            Toast.makeText(HomeActivity.this, "I PF attuali non possono essere maggiori dei PF massimi", Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                            alertd.dismiss();
+                        }
+                        else {
+                            PF.setText(pnt + "");
+                            state.edit().putInt("PF", pnt).apply();
+                            dialog.cancel();
+                            alertd.dismiss();
+                            preparaSchedaPG();
+                        }
+                    }
+                });
+                alert.show();
+                return true;
+            }
+        });
+
+        PFmax.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(final View view) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                alert.setView(input);
+                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for CANCEL button here, or leave in blank
+                    }
+                });
+                final AlertDialog alertd = alert.create();
+                alert.setTitle("Inserisci PF massimi");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for OK button here
+                        int pnt = Integer.parseInt(input.getText().toString());
+
+                        PFmax.setText(pnt + "");
+                        state.edit().putInt("PFMAX", pnt).apply();
+                        dialog.cancel();
+                        alertd.dismiss();
+                        preparaSchedaPG();
                     }
                 });
                 alert.show();
@@ -1385,6 +1498,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         credititxt.clearFocus();
+        saveSchedaPG();
     }
 
     private void preparaRisorse() {
@@ -1435,15 +1549,73 @@ public class HomeActivity extends AppCompatActivity {
     private void saveSchedaPG() {
         String str = new StringBuilder("").append(state.getString("pgname", null)).append("|")
                 .append(state.getString("pgclass", null)).append("|")
-                .append(state.getInt("pglv", 1)).append("\n")
+                .append(state.getInt("pglv", 1)).append("|")
+                .append(state.getInt("CA", 10)).append("|")
+                .append(state.getInt("PF", -1)).append("|")
+                .append(state.getInt("PFMAX", -1)).append("|")
+                .append(state.getInt("FOR", 10)).append("|")
+                .append(state.getInt("DEX", 10)).append("|")
+                .append(state.getInt("COS", 10)).append("|")
+                .append(state.getInt("INT", 10)).append("|")
+                .append(state.getInt("SAG", 10)).append("|")
+                .append(state.getInt("CAR", 10)).append("|")
+                .append(state.getBoolean("comptsfor", false)).append("|")
+                .append(state.getBoolean("comptsdex", false)).append("|")
+                .append(state.getBoolean("comptscos", false)).append("|")
+                .append(state.getBoolean("comptsint", false)).append("|")
+                .append(state.getBoolean("comptssag", false)).append("|")
+                .append(state.getBoolean("comptscar", false)).append("|")
+                .append(state.getBoolean("compatletica", false)).append("|")
+                .append(state.getBoolean("expatletica", false)).append("|")
+                .append(state.getBoolean("compacrobazia", false)).append("|")
+                .append(state.getBoolean("expacrobazia", false)).append("|")
+                .append(state.getBoolean("compfurtivita", false)).append("|")
+                .append(state.getBoolean("expfurtivita", false)).append("|")
+                .append(state.getBoolean("comprapiditadimano", false)).append("|")
+                .append(state.getBoolean("exprapiditadimano", false)).append("|")
+                .append(state.getBoolean("compresistenzafisica", false)).append("|")
+                .append(state.getBoolean("expresistenzafisica", false)).append("|")
+                .append(state.getBoolean("compinvestigare", false)).append("|")
+                .append(state.getBoolean("expinvestigare", false)).append("|")
+                .append(state.getBoolean("comparcano", false)).append("|")
+                .append(state.getBoolean("exparcano", false)).append("|")
+                .append(state.getBoolean("compstoria", false)).append("|")
+                .append(state.getBoolean("expstoria", false)).append("|")
+                .append(state.getBoolean("compreligionefolklore", false)).append("|")
+                .append(state.getBoolean("expreligionefolklore", false)).append("|")
+                .append(state.getBoolean("compreligionefolklore", false)).append("|")
+                .append(state.getBoolean("expreligionefolklore", false)).append("|")
+                .append(state.getBoolean("compnatura", false)).append("|")
+                .append(state.getBoolean("expnatura", false)).append("|")
+                .append(state.getBoolean("compfauna", false)).append("|")
+                .append(state.getBoolean("expfauna", false)).append("|")
+                .append(state.getBoolean("compsopravvivenza", false)).append("|")
+                .append(state.getBoolean("expsopravvivenza", false)).append("|")
+                .append(state.getBoolean("compmedicina", false)).append("|")
+                .append(state.getBoolean("expmedicina", false)).append("|")
+                .append(state.getBoolean("comppercezione", false)).append("|")
+                .append(state.getBoolean("exppercezione", false)).append("|")
+                .append(state.getBoolean("compintuizione", false)).append("|")
+                .append(state.getBoolean("expintuizione", false)).append("|")
+                .append(state.getBoolean("compintimidire", false)).append("|")
+                .append(state.getBoolean("expintimidire", false)).append("|")
+                .append(state.getBoolean("compingannare", false)).append("|")
+                .append(state.getBoolean("expingannare", false)).append("|")
+                .append(state.getBoolean("compintrattenere", false)).append("|")
+                .append(state.getBoolean("expintrattenere", false)).append("|")
+                .append(state.getBoolean("comppersuadere", false)).append("|")
+                .append(state.getBoolean("exppersuadere", false)).append("|")
+                .append(state.getInt("crediti", 0)).append("\n")
                 .toString();
-        FileHelper.saveToFile(str, getApplicationContext(), "PGDATA.txt");
+        Log.d("FILE", str);
+        FileHelper.saveToFile(str, getApplicationContext(), state.getString("pgname", null) + "PGDATA.txt");
     }
     
     public int mod(int punteggio) {
         double pnt = punteggio;
         return (int) floor(((pnt - 10) / 2));
     }
+
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -1460,12 +1632,14 @@ public class HomeActivity extends AppCompatActivity {
         return json;
     }
 
-    public boolean updateFromWEB() {
+    public void updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
         final String filestory = "story.json";
-        Thread t = new Thread(new Runnable(){
+        final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
 
+        Thread t = new Thread(new Runnable(){
             public void run() {
+                dialog.show();
                 StringBuilder data = new StringBuilder(""); //to read each line
                 try {
                     // Create a URL for the desired page
@@ -1486,29 +1660,22 @@ public class HomeActivity extends AppCompatActivity {
                         public void run(){
                             Toast.makeText(HomeActivity.this.getApplicationContext(), "Dati aggiornati dall'interlink", Toast.LENGTH_SHORT).show();
                             putJsonInRecview(json);
+                            dialog.dismiss();
                         }
                     });
                 } catch (Exception e) {
-                    Log.d("WEBUPDATE",e.toString());HomeActivity.this.runOnUiThread(new Runnable(){
+                    Log.d("WEBUPDATE",e.toString());
+                    HomeActivity.this.runOnUiThread(new Runnable(){
                         public void run(){
                             Toast.makeText(HomeActivity.this.getApplicationContext(), "Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
                             putJsonInRecview("");
+                            dialog.dismiss();
                         }
                     });
                 }
-
-
             }
         });
-
         t.start();
-        try {
-            t.join();
-        } catch (InterruptedException e) {
-            return false;
-        }
-
-        return true;
     }
 
     @Override
@@ -1519,8 +1686,6 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        //TODO salva stato quando app chiusa
-        saveSchedaPG();
         super.onPause();
     }
 
