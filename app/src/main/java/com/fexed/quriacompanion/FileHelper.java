@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -20,30 +21,29 @@ public class FileHelper {
     final static String TAG = FileHelper.class.getName();
 
     public static String ReadFile(Context context, String fileName){
-        String line = null;
-
         try {
-            FileInputStream fileInputStream = new FileInputStream (new File(context.getFilesDir(), fileName));
-            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-            StringBuilder stringBuilder = new StringBuilder();
+            File file = new File(context.getFilesDir(), fileName);
+            if (!file.exists()) return "-error";
 
-            while ( (line = bufferedReader.readLine()) != null )
-            {
-                stringBuilder.append(line + System.getProperty("line.separator"));
+            StringBuilder text = new StringBuilder("");
+            String line = null;
+            BufferedReader br = new BufferedReader(new FileReader(file));
+
+            while ((line = br.readLine()) != null) {
+                text.append(line);
             }
-            fileInputStream.close();
-            line = stringBuilder.toString();
+            br.close();
 
-            bufferedReader.close();
+            return text.toString();
         }
         catch(FileNotFoundException ex) {
             Log.d(TAG, ex.getMessage());
+            return "-error";
         }
         catch(IOException ex) {
             Log.d(TAG, ex.getMessage());
+            return "-error";
         }
-        return line;
     }
 
     public static boolean saveToFile(String data, Context context, String fileName){

@@ -43,6 +43,7 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -112,15 +113,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void preparaHome() {
-        if (updateFromWEB()) {
-            Toast.makeText(this.getApplicationContext(), "Informazioni aggiornate dall'interlink", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this.getApplicationContext(), "Impossibile aggiornare dall'interlink", Toast.LENGTH_SHORT).show();
-            putJsonInRecview(loadJSONFromAsset());
-        }
+        updateFromWEB();
     }
 
     private void putJsonInRecview(String json) {
+        if (json == "") {
+            json = FileHelper.ReadFile(this.getApplicationContext(), "story.json");
+            if (json == "-error") json = loadJSONFromAsset();
+        }
+
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<String> descrizioni = new ArrayList<>();
         ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
@@ -1443,20 +1444,6 @@ public class HomeActivity extends AppCompatActivity {
         double pnt = punteggio;
         return (int) floor(((pnt - 10) / 2));
     }
-
-    @Override
-    public void onBackPressed() {
-        //TODO tasto indietro
-        super.onBackPressed();
-    }
-
-    @Override
-    public void onPause() {
-        //TODO salva stato quando app chiusa
-        saveSchedaPG();
-        super.onPause();
-    }
-
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -1473,28 +1460,12 @@ public class HomeActivity extends AppCompatActivity {
         return json;
     }
 
-    public String loadJSON(InputStream is) {
-        String json = null;
-        try {
-            is = getAssets().open("document.json");
-            int size = is.available();
-            byte[] buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            json = new String(buffer, "UTF-8");
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            return null;
-        }
-        return json;
-    }
-
     public boolean updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
-        String filestory = "story.json";
+        final String filestory = "story.json";
         Thread t = new Thread(new Runnable(){
 
-            public void run(){
+            public void run() {
                 StringBuilder data = new StringBuilder(""); //to read each line
                 try {
                     // Create a URL for the desired page
@@ -1508,17 +1479,24 @@ public class HomeActivity extends AppCompatActivity {
                         data.append(str);
                     }
                     in.close();
+                    final String json = data.toString();
+                    FileHelper.saveToFile(json, HomeActivity.this.getApplicationContext(), filestory);
+
+                    HomeActivity.this.runOnUiThread(new Runnable(){
+                        public void run(){
+                            Toast.makeText(HomeActivity.this.getApplicationContext(), "Dati aggiornati dall'interlink", Toast.LENGTH_SHORT).show();
+                            putJsonInRecview(json);
+                        }
+                    });
                 } catch (Exception e) {
-                    Log.d("WEBUPDATE",e.toString());
+                    Log.d("WEBUPDATE",e.toString());HomeActivity.this.runOnUiThread(new Runnable(){
+                        public void run(){
+                            Toast.makeText(HomeActivity.this.getApplicationContext(), "Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
+                            putJsonInRecview("");
+                        }
+                    });
                 }
 
-                final String json = data.toString();
-                HomeActivity.this.runOnUiThread(new Runnable(){
-                    public void run(){
-                        //Toast.makeText(HomeActivity.this.getApplicationContext(), "Scaricati dati dall'interlink", Toast.LENGTH_SHORT).show();
-                        putJsonInRecview(json);
-                    }
-                });
 
             }
         });
@@ -1532,4 +1510,18 @@ public class HomeActivity extends AppCompatActivity {
 
         return true;
     }
+
+    @Override
+    public void onBackPressed() {
+        //TODO tasto indietro
+        super.onBackPressed();
+    }
+
+    @Override
+    public void onPause() {
+        //TODO salva stato quando app chiusa
+        saveSchedaPG();
+        super.onPause();
+    }
+
 }
