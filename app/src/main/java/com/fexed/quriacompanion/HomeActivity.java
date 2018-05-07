@@ -1,24 +1,11 @@
 package com.fexed.quriacompanion;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import android.graphics.PointF;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -35,54 +22,34 @@ import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.RadioButton;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.google.api.client.testing.http.javanet.MockHttpURLConnection;
+import com.google.api.client.util.IOUtils;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
-import static java.lang.Math.exp;
 import static java.lang.Math.floor;
 
 public class HomeActivity extends AppCompatActivity {
@@ -134,23 +101,32 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         state = getApplicationContext().getSharedPreferences(getString(R.string.state), Context.MODE_PRIVATE);
+        vf = (ViewFlipper) findViewById(R.id.vf);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         preparaAtlante();
         preparaSchedaPG();
         preparaRisorse();
+        preparaHome();
+    }
 
-        vf = (ViewFlipper) findViewById(R.id.vf);
+    private void preparaHome() {
+        if (updateFromWEB()) {
+            Toast.makeText(this.getApplicationContext(), "Informazioni aggiornate dall'interlink", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this.getApplicationContext(), "Impossibile aggiornare dall'interlink", Toast.LENGTH_SHORT).show();
+            putJsonInRecview(loadJSONFromAsset());
+        }
+    }
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
+    private void putJsonInRecview(String json) {
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<String> descrizioni = new ArrayList<>();
         ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
         ArrayList<ArrayList<String>> npc = new ArrayList<>();
-
         try {
-            JSONObject obj = new JSONObject(loadJSONFromAsset());
+            JSONObject obj = new JSONObject(json);
             int c = 0;
 
             do {
@@ -159,16 +135,21 @@ public class HomeActivity extends AppCompatActivity {
                 JSONArray m_jArry = obj.getJSONArray(title);
                 titoli.add(m_jArry.getString(0));
                 descrizioni.add(m_jArry.getString(1));
-                ArrayList<String> locos = new ArrayList<>(); luoghi.add(locos);
+                ArrayList<String> locos = new ArrayList<>();
+                luoghi.add(locos);
                 JSONArray luoghiarray = m_jArry.getJSONArray(2);
-                for (int i = 0; i < luoghiarray.length(); i++) locos.add(luoghiarray.getString(i));
-                ArrayList<String> porsos = new ArrayList<>(); npc.add(porsos);
+                for (int i = 0; i < luoghiarray.length(); i++)
+                    locos.add(luoghiarray.getString(i));
+                ArrayList<String> porsos = new ArrayList<>();
+                npc.add(porsos);
                 JSONArray npciarray = m_jArry.getJSONArray(3);
                 for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
             } while (true);
         } catch (JSONException e) {
             Log.d("JSON", "End");
             RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
+            recview.setOnFlingListener(null);
+            recview.setAdapter(null);
             recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
@@ -202,6 +183,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             };
             helper.attachToRecyclerView(recview);
+            recview.getAdapter().notifyDataSetChanged();
         }
     }
 
@@ -1454,7 +1436,7 @@ public class HomeActivity extends AppCompatActivity {
                 .append(state.getString("pgclass", null)).append("|")
                 .append(state.getInt("pglv", 1)).append("\n")
                 .toString();
-        FileHelper.saveToFile(str, getApplicationContext());
+        FileHelper.saveToFile(str, getApplicationContext(), "PGDATA.txt");
     }
     
     public int mod(int punteggio) {
@@ -1489,5 +1471,65 @@ public class HomeActivity extends AppCompatActivity {
             return null;
         }
         return json;
+    }
+
+    public String loadJSON(InputStream is) {
+        String json = null;
+        try {
+            is = getAssets().open("document.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    public boolean updateFromWEB() {
+        final String urlstory = "http://quria.altervista.org/story.json";
+        String filestory = "story.json";
+        Thread t = new Thread(new Runnable(){
+
+            public void run(){
+                StringBuilder data = new StringBuilder(""); //to read each line
+                try {
+                    // Create a URL for the desired page
+                    URL url = new URL(urlstory); //My text file location
+                    //First open the connection
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String str;
+                    while ((str = in.readLine()) != null) {
+                        data.append(str);
+                    }
+                    in.close();
+                } catch (Exception e) {
+                    Log.d("WEBUPDATE",e.toString());
+                }
+
+                final String json = data.toString();
+                HomeActivity.this.runOnUiThread(new Runnable(){
+                    public void run(){
+                        //Toast.makeText(HomeActivity.this.getApplicationContext(), "Scaricati dati dall'interlink", Toast.LENGTH_SHORT).show();
+                        putJsonInRecview(json);
+                    }
+                });
+
+            }
+        });
+
+        t.start();
+        try {
+            t.join();
+        } catch (InterruptedException e) {
+            return false;
+        }
+
+        return true;
     }
 }

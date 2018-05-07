@@ -16,11 +16,10 @@ import java.io.InputStreamReader;
  * Created by Tan on 2/18/2016.
  */
 public class FileHelper {
-    final static String fileName = "data.txt";
     //final static String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/fmdev/quriacompanion/";
     final static String TAG = FileHelper.class.getName();
 
-    public static String ReadFile(Context context){
+    public static String ReadFile(Context context, String fileName){
         String line = null;
 
         try {
@@ -47,7 +46,7 @@ public class FileHelper {
         return line;
     }
 
-    public static boolean saveToFile(String data, Context context){
+    public static boolean saveToFile(String data, Context context, String fileName){
         try {
             File file = new File(context.getFilesDir(), fileName);
             if (!file.exists()) file.createNewFile();
