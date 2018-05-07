@@ -1395,6 +1395,14 @@ public class HomeActivity extends AppCompatActivity {
         });
         credititxt.clearFocus();
     }
+
+    private void saveSchedaPG() {
+        String str = new StringBuilder("").append(state.getString("pgname", null)).append("|")
+                .append(state.getString("pgclass", null)).append("|")
+                .append(state.getInt("pglv", 1)).append("\n")
+                .toString();
+        FileHelper.saveToFile(str, getApplicationContext());
+    }
     
     public int mod(int punteggio) {
         double pnt = punteggio;
@@ -1405,6 +1413,13 @@ public class HomeActivity extends AppCompatActivity {
     public void onBackPressed() {
         //TODO tasto indietro
         super.onBackPressed();
+    }
+
+    @Override
+    public void onPause() {
+        //TODO salva stato quando app chiusa
+        saveSchedaPG();
+        super.onPause();
     }
 
     public String loadJSONFromAsset() {
