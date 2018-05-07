@@ -19,6 +19,10 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
@@ -38,6 +42,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -130,6 +135,7 @@ public class HomeActivity extends AppCompatActivity {
 
         preparaAtlante();
         preparaSchedaPG();
+        preparaRisorse();
 
         vf = (ViewFlipper) findViewById(R.id.vf);
 
@@ -1394,6 +1400,51 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         credititxt.clearFocus();
+    }
+
+    private void preparaRisorse() {
+        FrameLayout simpleFrameLayout = (FrameLayout) findViewById(R.id.framelyt);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
+
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.framelyt, new QuriaFragment());
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit();
+
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Fragment fragment = null;
+                switch (tab.getPosition()) {
+                    case 0:
+                        fragment = new QuriaFragment();
+                        break;
+                    case 1:
+                        fragment = new PGFragment();
+                        break;
+                    case 2:
+                        fragment = new CampagnaFragment();
+                        break;
+                }
+                FragmentManager fm = getSupportFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                ft.replace(R.id.framelyt, fragment);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit();
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
     }
 
     private void saveSchedaPG() {
