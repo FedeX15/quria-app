@@ -31,6 +31,16 @@ public class CampagnaFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/NVbkZG-ZICI")));
+
+            }
+        });
+
+        Button gof = (Button) view.findViewById(R.id.gof_btn);
+        gof.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://drive.google.com/open?id=1ygbvNHZdT_byOzxcSAvScbFWKJVHfRrg")));
+
             }
         });
 
