@@ -1767,7 +1767,9 @@
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/atktitle"></LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/atktitle">
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/invtitle"
