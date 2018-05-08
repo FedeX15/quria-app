@@ -505,6 +505,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Tiri Salvezza"
+                        android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -688,7 +689,7 @@
                         android:layout_weight="1"
                         android:text="Lingue"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -698,6 +699,7 @@
                         android:ems="10"
                         android:fontFamily="monospace"
                         android:inputType="textMultiLine"
+                        android:textSize="12sp"
                         tools:text="Quriano\nDraconico" />
 
                     <TextView
@@ -707,7 +709,7 @@
                         android:layout_weight="1"
                         android:text="Competenze"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -717,6 +719,7 @@
                         android:ems="10"
                         android:fontFamily="monospace"
                         android:inputType="textMultiLine"
+                        android:textSize="12sp"
                         tools:text="Armi Semplici\nArmature esplosive gigantesche" />
 
                     <TextView
@@ -726,7 +729,7 @@
                         android:layout_weight="1"
                         android:text="Talenti"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -736,6 +739,7 @@
                         android:ems="10"
                         android:fontFamily="monospace"
                         android:inputType="textMultiLine"
+                        android:textSize="12sp"
                         tools:text="Scurovisione\n\nPregare" />
 
                     <TextView
@@ -745,7 +749,7 @@
                         android:layout_weight="1"
                         android:text="Abilità di Classe e Razza"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <EditText
@@ -755,6 +759,7 @@
                         android:ems="10"
                         android:fontFamily="monospace"
                         android:inputType="textMultiLine"
+                        android:textSize="12sp"
                         tools:text="Programmare\nDormire poco" />
                 </LinearLayout>
 
@@ -770,7 +775,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Abilità"
-                        android:textAlignment="textEnd"
+                        android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -1700,7 +1705,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:orientation="horizontal">
@@ -1726,6 +1731,23 @@
                         android:singleLine="true"
                         android:textAlignment="textEnd" />
                 </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Inventario"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/invtxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -1734,10 +1756,30 @@
                 android:layout_height="match_parent"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                android:orientation="horizontal"
+                android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inventory"></LinearLayout>
+                app:layout_constraintTop_toBottomOf="@+id/inventory">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Background e note"
+                    android:textAlignment="textStart"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/backgroundtxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textMultiLine"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

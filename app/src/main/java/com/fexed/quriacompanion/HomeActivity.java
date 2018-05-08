@@ -1488,6 +1488,46 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         credititxt.clearFocus();
+
+        EditText invtxt = (EditText) findViewById(R.id.invtxt);
+        invtxt.setText(state.getString("inv", ""));
+        invtxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("inv", editable.toString()).apply();
+            }
+        });
+        invtxt.clearFocus();
+
+        EditText backgroundtxt = (EditText) findViewById(R.id.backgroundtxt);
+        backgroundtxt.setText(state.getString("background", ""));
+        backgroundtxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("background", editable.toString()).apply();
+            }
+        });
+        backgroundtxt.clearFocus();
         saveSchedaPG();
     }
 
@@ -1499,7 +1539,6 @@ public class HomeActivity extends AppCompatActivity {
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.framelyt, new QuriaFragment());
         ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit();
-
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -1514,6 +1553,9 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case 2:
                         fragment = new CampagnaFragment();
+                        break;
+                    case 3:
+                        fragment = new PersonalFragment();
                         break;
                 }
                 FragmentManager fm = getSupportFragmentManager();
@@ -1595,7 +1637,8 @@ public class HomeActivity extends AppCompatActivity {
                 .append(state.getBoolean("expintrattenere", false)).append("|")
                 .append(state.getBoolean("comppersuadere", false)).append("|")
                 .append(state.getBoolean("exppersuadere", false)).append("|")
-                .append(state.getInt("crediti", 0)).append("\n")
+                .append(state.getInt("crediti", 0)).append("|")
+                .append(state.getString("inv", "")).append("\n")
                 .toString();
         Log.d("FILE", str);
         FileHelper.saveToFile(str, getApplicationContext(), state.getString("pgname", null) + "PGDATA.txt");

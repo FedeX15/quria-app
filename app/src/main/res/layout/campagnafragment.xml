@@ -18,7 +18,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Serie di carte e documenti rivenuti all'interno di un edificio durante il Progetto Mirage"
+        android:text="Serie di note e documenti rivenuti all'interno di un edificio durante il Progetto Mirage"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/gelogo"
