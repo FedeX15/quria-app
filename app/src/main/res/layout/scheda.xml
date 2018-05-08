@@ -15,16 +15,18 @@
 
             <TextView
                 android:id="@+id/minpopan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="serif-monospace"
-                android:text="Ministero per\nla Popolazione\ne l'Anagrafe"
+                android:text="Ministero per la Popolazione e l'Anagrafe"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/quriabandiera"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/quriabandiera"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
@@ -109,7 +111,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -123,7 +125,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -155,7 +157,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -169,7 +171,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -202,7 +204,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -216,7 +218,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -248,7 +250,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -262,7 +264,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -294,7 +296,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -308,7 +310,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -340,7 +342,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="20"
+                        android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="24sp"
@@ -354,7 +356,7 @@
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
                         android:background="@color/semitrasp2"
-                        android:text="+5"
+                        android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
@@ -421,19 +423,49 @@
                     android:layout_weight="0.5"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/PF"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="0dp"
                         android:layout_weight="1"
                         android:background="@color/semitraspred"
-                        android:text="0"
-                        android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textSize="24sp"
-                        android:textStyle="bold" />
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/pfminus"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:foregroundGravity="right"
+                            android:text="-"
+                            android:textAlignment="textEnd"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/PF"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="clip_vertical"
+                            android:layout_marginLeft="2dp"
+                            android:layout_marginRight="0dp"
+                            android:layout_weight="1"
+                            android:text="0"
+                            android:textAlignment="center"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/pfplus"
+                            style="@style/Widget.AppCompat.Button.Borderless"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:foregroundGravity="left"
+                            android:text="+"
+                            android:textAlignment="textStart"
+                            android:textSize="12sp" />
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/PFtag"
@@ -482,15 +514,32 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/skillstitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Abilità e talenti"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/capf" />
+
             <LinearLayout
                 android:id="@+id/skills"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:orientation="horizontal"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/capf">
+                app:layout_constraintTop_toBottomOf="@+id/skillstitle">
 
                 <LinearLayout
                     android:id="@+id/ts"
@@ -502,6 +551,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tstitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Tiri Salvezza"
@@ -772,6 +822,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/abilitatitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Abilità"
@@ -1691,6 +1742,50 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/atktitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Attacchi e incantesimi"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/skills" />
+
+            <LinearLayout
+                android:id="@+id/atk"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/atktitle"></LinearLayout>
+
+            <TextView
+                android:id="@+id/invtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Inventario"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/atk" />
+
             <LinearLayout
                 android:id="@+id/inventory"
                 android:layout_width="match_parent"
@@ -1699,9 +1794,10 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/skills">
+                app:layout_constraintTop_toBottomOf="@+id/invtitle">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1732,14 +1828,6 @@
                         android:textAlignment="textEnd" />
                 </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Inventario"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
-
                 <EditText
                     android:id="@+id/invtxt"
                     android:layout_width="match_parent"
@@ -1750,6 +1838,23 @@
 
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/bgtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:text="Background e note"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inventory" />
+
             <LinearLayout
                 android:id="@+id/background"
                 android:layout_width="match_parent"
@@ -1757,19 +1862,10 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:orientation="vertical"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inventory">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Background e note"
-                    android:textAlignment="textStart"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                app:layout_constraintTop_toBottomOf="@+id/bgtitle">
 
                 <EditText
                     android:id="@+id/backgroundtxt"
@@ -1780,6 +1876,16 @@
                     android:inputType="textMultiLine"
                     android:textSize="14sp" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/pgfirma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="cursive"
+                android:text="nome cognome"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/background" />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>

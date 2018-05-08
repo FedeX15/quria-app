@@ -29,6 +29,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -246,6 +247,13 @@ public class HomeActivity extends AppCompatActivity {
         final TextView CA = (TextView) findViewById(R.id.CA);
         final TextView PF = (TextView) findViewById(R.id.PF);
         final TextView PFmax = (TextView) findViewById(R.id.PFmax);
+        final TextView pgfirma = (TextView) findViewById(R.id.pgfirma);
+        final TextView abilitatalenti = (TextView) findViewById(R.id.skillstitle);
+        final TextView inventario = (TextView) findViewById(R.id.invtitle);
+        final TextView background = (TextView) findViewById(R.id.bgtitle);
+        final TextView attacchi = (TextView) findViewById(R.id.atktitle);
+        final Button PFplus = (Button) findViewById(R.id.pfplus);
+        final Button PFminus = (Button) findViewById(R.id.pfminus);
         int pntfor; int modfor;
         int pntdex; int moddex;
         int pntcos; int modcos;
@@ -264,9 +272,10 @@ public class HomeActivity extends AppCompatActivity {
             TextView pgclasstxt = findViewById(R.id.pgclasstxt);
             TextView pglvtxt = findViewById(R.id.pglvtxt);
             pgnametxt.setText(state.getString("pgname", "errore"));
+            pgfirma.setText(state.getString("pgname", "errore"));
             pgclasstxt.setText(state.getString("pgclass", "errore"));
             pglvtxt.setText(state.getInt("pglv", 1) + "");
-            //proftxt.setText(prof[state.getInt("pglv", 1) - 1] + "");
+            proftxt.setText("+" + prof[state.getInt("pglv", 1) - 1]);
 
             pntfor = state.getInt("FOR", 10);
             modfor = mod(pntfor);
@@ -309,6 +318,43 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+        abilitatalenti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout skilllyt = (LinearLayout) findViewById(R.id.skills);
+                if (skilllyt.getVisibility() == View.VISIBLE) skilllyt.setVisibility(View.GONE);
+                else skilllyt.setVisibility(View.VISIBLE);
+            }
+        });
+
+        inventario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout invlyt = (LinearLayout) findViewById(R.id.inventory);
+                if (invlyt.getVisibility() == View.VISIBLE) invlyt.setVisibility(View.GONE);
+                else invlyt.setVisibility(View.VISIBLE);
+            }
+        });
+
+        background.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout bglyt = (LinearLayout) findViewById(R.id.background);
+                if (bglyt.getVisibility() == View.VISIBLE) bglyt.setVisibility(View.GONE);
+                else bglyt.setVisibility(View.VISIBLE);
+            }
+        });
+
+        attacchi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayout atklyt = (LinearLayout) findViewById(R.id.atk);
+                if (atklyt.getVisibility() == View.VISIBLE) atklyt.setVisibility(View.GONE);
+                else atklyt.setVisibility(View.VISIBLE);
+            }
+        });
+
+
         lvtxt.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -331,6 +377,7 @@ public class HomeActivity extends AppCompatActivity {
                         if (lv <= 0) lv = 1;
 
                         lvtxt.setText(lv + "");
+                        proftxt.setText("+" + prof[lv-1]);
                         state.edit().putInt("pglv", lv).apply();
                         dialog.cancel();
                         alertd.dismiss();
@@ -341,6 +388,8 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        proftxt.setText("+" + prof[state.getInt("pglv",1)-1]);
 
         nametxt.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -361,6 +410,7 @@ public class HomeActivity extends AppCompatActivity {
                         String name = input.getText().toString();
 
                         nametxt.setText(name);
+                        pgfirma.setText(name);
                         state.edit().putString("pgname", name).apply();
                         dialog.cancel();
                         alertd.dismiss();
@@ -407,6 +457,7 @@ public class HomeActivity extends AppCompatActivity {
                 final EditText input = new EditText(HomeActivity.this.getApplicationContext());
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                input.setText(state.getInt("CA", 0) + "");
                 alert.setView(input);
                 alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -439,6 +490,7 @@ public class HomeActivity extends AppCompatActivity {
                 final EditText input = new EditText(HomeActivity.this.getApplicationContext());
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                input.setText(state.getInt("PF", 0) + "");
                 alert.setView(input);
                 alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
@@ -470,6 +522,31 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        PFplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pf = state.getInt("PF", 0);
+                pf++;
+                int pfmax = state.getInt("PFMAX", pf);
+                if (pf > pfmax) pf = pfmax;
+                state.edit().putInt("PF", pf).apply();
+                PF.setText(pf + "");
+                saveSchedaPG();
+            }
+        });
+
+        PFminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int pf = state.getInt("PF", 0);
+                pf--;
+                state.edit().putInt("PF", pf).apply();
+                PF.setText(pf + "");
+                saveSchedaPG();
+            }
+        });
+
+
         PFmax.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(final View view) {
@@ -477,6 +554,7 @@ public class HomeActivity extends AppCompatActivity {
                 final EditText input = new EditText(HomeActivity.this.getApplicationContext());
                 input.setInputType(InputType.TYPE_CLASS_NUMBER);
                 input.setRawInputType(Configuration.KEYBOARD_12KEY);
+                input.setText(state.getInt("PFMAX", 0) + "");
                 alert.setView(input);
                 alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
