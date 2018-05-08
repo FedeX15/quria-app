@@ -35,7 +35,7 @@ public class PGDialog extends Dialog implements android.view.View.OnClickListene
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.pgedit);
-        yes = (Button) findViewById(R.id.Okinputbtn);
+        yes = findViewById(R.id.Okinputbtn);
         yes.setOnClickListener(this);
     }
 

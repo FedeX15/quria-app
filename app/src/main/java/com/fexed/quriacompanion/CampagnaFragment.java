@@ -26,7 +26,7 @@ public class CampagnaFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.campagnafragment, container, false);
 
-        Button el1 = (Button) view.findViewById(R.id.el1_btn);
+        Button el1 = view.findViewById(R.id.el1_btn);
         el1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,7 +35,7 @@ public class CampagnaFragment extends Fragment {
             }
         });
 
-        Button gof = (Button) view.findViewById(R.id.gof_btn);
+        Button gof = view.findViewById(R.id.gof_btn);
         gof.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
