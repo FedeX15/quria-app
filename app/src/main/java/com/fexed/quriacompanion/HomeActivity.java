@@ -73,16 +73,6 @@ public class HomeActivity extends AppCompatActivity {
                     vf.setDisplayedChild(1);
                     final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
                     atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
-                    /*atlasView.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View view, MotionEvent motionEvent) {
-                            PointF point = atlasView.viewToSourceCoord(motionEvent.getX(), motionEvent.getY());
-                            Canvas canvas = new Canvas();
-                            canvas.drawPoint(point.x, point.y, new Paint(Color.RED));
-                            atlasView.draw(canvas);
-                            return true;
-                        }
-                    });*/
 
                     return true;
                 case R.id.navigation_scheda:
