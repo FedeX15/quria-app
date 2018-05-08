@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -24,6 +25,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -31,6 +33,7 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -252,6 +255,9 @@ public class HomeActivity extends AppCompatActivity {
         final TextView inventario = (TextView) findViewById(R.id.invtitle);
         final TextView background = (TextView) findViewById(R.id.bgtitle);
         final TextView attacchi = (TextView) findViewById(R.id.atktitle);
+        final TextView spellatk = (TextView) findViewById(R.id.spellatktxt);
+        final TextView spellcd = (TextView) findViewById(R.id.spellcdtxt);
+        final TextView spellstat = (TextView) findViewById(R.id.spelstatselection);
         final Button PFplus = (Button) findViewById(R.id.pfplus);
         final Button PFminus = (Button) findViewById(R.id.pfminus);
         int pntfor; int modfor;
@@ -318,6 +324,52 @@ public class HomeActivity extends AppCompatActivity {
 
         }
 
+        String stat = state.getString("SPELLSTAT", "INT");
+        spellstat.setText(stat);
+        int lv = state.getInt("pglv", 1);
+        int bonus = prof[lv-1] + mod(state.getInt(stat, 10));
+        String suffix = (bonus < 0) ? "" : "+";
+        spellatk.setText(suffix + bonus);
+        spellcd.setText("" + (8 + bonus));
+
+        spellstat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder b = new AlertDialog.Builder(HomeActivity.this);
+                b.setTitle("Seleziona la statistica con cui lanci incantesimi");
+                String[] types = {"INT", "SAG", "CAR"};
+                b.setItems(types, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        String stat = "";
+                        switch(which) {
+                            case 0:
+                                stat = "INT";
+                                break;
+                            case 1:
+                                stat = "SAG";
+                                break;
+                            case 2:
+                                stat = "CAR";
+                                break;
+                        }
+                        int lv = state.getInt("pglv", 1);
+                        state.edit().putString("SPELLSTAT", stat).apply();
+                        spellstat.setText(stat);
+                        int bonus = prof[lv-1] + mod(state.getInt(stat, 10));
+                        String suffix = (bonus < 0) ? "" : "+";
+                        spellatk.setText(suffix + bonus);
+                        spellcd.setText("" + (8 + bonus));
+                    }
+
+                });
+
+                b.show();
+
+            }
+        });
+
         abilitatalenti.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -375,6 +427,7 @@ public class HomeActivity extends AppCompatActivity {
                         //Put actions for OK button here
                         int lv = Integer.parseInt(input.getText().toString());
                         if (lv <= 0) lv = 1;
+                        if (lv > 45) lv = 45;
 
                         lvtxt.setText(lv + "");
                         proftxt.setText("+" + prof[lv-1]);
@@ -792,10 +845,9 @@ public class HomeActivity extends AppCompatActivity {
 
         final TextView tsfortxt = (TextView) findViewById(R.id.TSFOR);
         final CheckBox comptsfor = (CheckBox) findViewById(R.id.comptsfor);
-        int lv = state.getInt("pglv", 1);
         comptsfor.setChecked(state.getBoolean("comptsfor", false));
         int ts = mod(state.getInt("FOR", 10)) + ((comptsfor.isChecked()) ? prof[lv-1] : 0);
-        String suffix = (ts >= 0) ? "+" : "";
+        suffix = (ts >= 0) ? "+" : "";
         tsfortxt.setText(suffix + ts);
         comptsfor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -919,7 +971,7 @@ public class HomeActivity extends AppCompatActivity {
         });
         compatletica.setChecked(state.getBoolean("compatletica", false));
         expatletica.setChecked(state.getBoolean("expatletica", false));
-        int bonus = mod((state.getInt("FOR", 10)))+ ((compatletica.isChecked()) ? ((expatletica.isChecked()) ? prof[lv-1]*2 : prof[lv-1]) : 0);
+        bonus = mod((state.getInt("FOR", 10)))+ ((compatletica.isChecked()) ? ((expatletica.isChecked()) ? prof[lv-1]*2 : prof[lv-1]) : 0);
         suffix = (bonus >= 0) ? "+" : "";
         atletica.setText(suffix + bonus);
 

@@ -3,7 +3,7 @@
     <color name="colorPrimary">#3f51b5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#ff4081</color>
-    <color name="semitrasp">#64bfbfbf</color>
+    <color name="semitrasp">#babfbfbf</color>
     <color name="semitrasp2">#5a292929</color>
     <color name="semitraspblu">#5a0011ff</color>
     <color name="semitraspred">#5aff0000</color>
