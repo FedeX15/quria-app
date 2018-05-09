@@ -1683,7 +1683,6 @@ public class HomeActivity extends AppCompatActivity {
         removebtn.setText("");
         rangedatks.addView(header);
 
-
         final Set<String> rangedset = new HashSet<>(state.getStringSet("rangedatks", new HashSet<String>()));
         for (String str : rangedset) {
             String[] ranged = str.split("%");
