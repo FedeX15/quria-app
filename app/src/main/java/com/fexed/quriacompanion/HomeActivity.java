@@ -1668,20 +1668,40 @@ public class HomeActivity extends AppCompatActivity {
         });
         backgroundtxt.clearFocus();
 
+        rangedatks.removeAllViews();
+
+        TableRow header = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.rangedrow, null);
+        TextView name = (TextView) header.findViewById(R.id.rangedname);
+        TextView range = (TextView) header.findViewById(R.id.range);
+        TextView bonusrange = (TextView) header.findViewById(R.id.rangedbonus);
+        TextView damage = (TextView) header.findViewById(R.id.rangeddamage);
+        Button removebtn = (Button) header.findViewById(R.id.removeranged);
+        name.setText("Nome");
+        range.setText("Range");
+        bonusrange.setText("Bonus DEX");
+        damage.setText("Danno");
+        removebtn.setText("");
+        rangedatks.addView(header);
+
+
         final Set<String> rangedset = new HashSet<>(state.getStringSet("rangedatks", new HashSet<String>()));
         for (String str : rangedset) {
             String[] ranged = str.split("%");
             final TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.rangedrow, null);
-            TextView name = (TextView) newrow.findViewById(R.id.rangedname);
-            TextView range = (TextView) newrow.findViewById(R.id.range);
-            TextView bonusrange = (TextView) newrow.findViewById(R.id.rangedbonus);
-            TextView damage = (TextView) newrow.findViewById(R.id.rangeddamage);
+            name = (TextView) newrow.findViewById(R.id.rangedname);
+            range = (TextView) newrow.findViewById(R.id.range);
+            bonusrange = (TextView) newrow.findViewById(R.id.rangedbonus);
+            damage = (TextView) newrow.findViewById(R.id.rangeddamage);
+
+            int bonusb = mod(state.getInt("DEX", 10));
+            String suffixb = (bonus >= 0) ? "+" : "";
 
             name.setText(ranged[0]);
             range.setText(ranged[1]);
+            bonusrange.setText(suffixb + bonusb);
             damage.setText(ranged[2]);
 
-            Button removebtn = (Button) newrow.findViewById(R.id.removeranged);
+            removebtn = (Button) newrow.findViewById(R.id.removeranged);
             final String strf = str;
             removebtn.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -1696,18 +1716,35 @@ public class HomeActivity extends AppCompatActivity {
             rangedatks.addView(newrow);
         }
 
+        meleeatks.removeAllViews();
+
+        header = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.meleerow, null);
+        name = (TextView) header.findViewById(R.id.meleename);
+        bonusrange = (TextView) header.findViewById(R.id.meleebonus);
+        damage = (TextView) header.findViewById(R.id.meleedamage);
+        removebtn = (Button) header.findViewById(R.id.removemelee);
+        name.setText("Nome");
+        bonusrange.setText("Bonus FOR");
+        damage.setText("Danno");
+        removebtn.setText("");
+        meleeatks.addView(header);
+
         final Set<String> meleeset = new HashSet<>(state.getStringSet("meleeatks", new HashSet<String>()));
         for (String str : meleeset) {
             String[] melee = str.split("%");
             final TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.meleerow, null);
-            TextView name = (TextView) newrow.findViewById(R.id.meleename);
-            TextView bonusrange = (TextView) newrow.findViewById(R.id.meleebonus);
-            TextView damage = (TextView) newrow.findViewById(R.id.meleedamage);
+            name = (TextView) newrow.findViewById(R.id.meleename);
+            bonusrange = (TextView) newrow.findViewById(R.id.meleebonus);
+            damage = (TextView) newrow.findViewById(R.id.meleedamage);
+
+            int bonusb = mod(state.getInt("FOR", 10));
+            String suffixb = (bonus >= 0) ? "+" : "";
 
             name.setText(melee[0]);
+            bonusrange.setText(suffixb + bonusb);
             damage.setText(melee[1]);
 
-            Button removebtn = (Button) newrow.findViewById(R.id.removemelee);
+            removebtn = (Button) newrow.findViewById(R.id.removemelee);
             final String strf = str;
             removebtn.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override

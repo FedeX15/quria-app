@@ -114,7 +114,11 @@ public class RangedDialog extends Dialog implements View.OnClickListener {
                         }
                     });
 
+                    int bonus = HomeActivity.mod(state.getInt("DEX", 10));
+                    String suffix = (bonus >= 0) ? "+" : "";
+
                     name.setText(rangedname.getText().toString());
+                    bonusrange.setText(suffix + bonus);
                     range.setText(rangedrange.getText().toString());
                     damage.setText(rangeddamage.getText().toString());
 

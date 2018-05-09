@@ -6,48 +6,53 @@
     <Button
         android:id="@+id/removeranged"
         style="@style/Widget.AppCompat.Button.ButtonBar.AlertDialog"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Rimuovi"
         android:textSize="10sp" />
 
     <TextView
         android:id="@+id/rangedname"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Nome"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/cardview_light_background"
-        android:textSize="12sp" />
-
-    <TextView
-        android:id="@+id/range"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:text="15m"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/rangedbonus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_weight="1"
         android:text="+4"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/cardview_light_background"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/rangeddamage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+        android:layout_weight="1"
         android:text="5D8 perf."
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="@color/cardview_light_background"
-        android:textSize="12sp" />
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/range"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_weight="1"
+        android:text="15m"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="14sp" />
 
 </TableRow>

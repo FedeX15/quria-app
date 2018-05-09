@@ -97,7 +97,11 @@ public class MeleeDialog extends Dialog implements View.OnClickListener {
                         }
                     });
 
+                    int bonus = HomeActivity.mod(state.getInt("FOR", 10));
+                    String suffix = (bonus >= 0) ? "+" : "";
+
                     name.setText(meleename.getText().toString());
+                    bonusrange.setText(suffix + bonus);
                     damage.setText(meleedamage.getText().toString());
 
                     rangedatks.addView(newrow);
