@@ -23,6 +23,7 @@ import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -34,6 +35,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -55,6 +58,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import static java.lang.Math.floor;
 
@@ -260,6 +265,10 @@ public class HomeActivity extends AppCompatActivity {
         final TextView spellstat = (TextView) findViewById(R.id.spelstatselection);
         final Button PFplus = (Button) findViewById(R.id.pfplus);
         final Button PFminus = (Button) findViewById(R.id.pfminus);
+        final Button addranged = (Button) findViewById(R.id.addrangedatk);
+        final Button addmelee = (Button) findViewById(R.id.addmeleeatk);
+        final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
+        final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
         int pntdex; int moddex;
         int pntcos; int modcos;
@@ -1658,6 +1667,79 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         backgroundtxt.clearFocus();
+
+        final Set<String> rangedset = new HashSet<>(state.getStringSet("rangedatks", new HashSet<String>()));
+        for (String str : rangedset) {
+            String[] ranged = str.split("%");
+            final TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.rangedrow, null);
+            TextView name = (TextView) newrow.findViewById(R.id.rangedname);
+            TextView range = (TextView) newrow.findViewById(R.id.range);
+            TextView bonusrange = (TextView) newrow.findViewById(R.id.rangedbonus);
+            TextView damage = (TextView) newrow.findViewById(R.id.rangeddamage);
+
+            name.setText(ranged[0]);
+            range.setText(ranged[1]);
+            damage.setText(ranged[2]);
+
+            Button removebtn = (Button) newrow.findViewById(R.id.removeranged);
+            final String strf = str;
+            removebtn.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Set<String> rangedset = new HashSet<>(state.getStringSet("rangedatks", new HashSet<String>()));
+                    rangedset.remove(strf);
+                    state.edit().putStringSet("rangedatks", rangedset).apply();
+                    rangedatks.removeView(newrow);
+                    return true;
+                }
+            });
+            rangedatks.addView(newrow);
+        }
+
+        final Set<String> meleeset = new HashSet<>(state.getStringSet("meleeatks", new HashSet<String>()));
+        for (String str : meleeset) {
+            String[] melee = str.split("%");
+            final TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.meleerow, null);
+            TextView name = (TextView) newrow.findViewById(R.id.meleename);
+            TextView bonusrange = (TextView) newrow.findViewById(R.id.meleebonus);
+            TextView damage = (TextView) newrow.findViewById(R.id.meleedamage);
+
+            name.setText(melee[0]);
+            damage.setText(melee[1]);
+
+            Button removebtn = (Button) newrow.findViewById(R.id.removemelee);
+            final String strf = str;
+            removebtn.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Set<String> meleeset = new HashSet<>(state.getStringSet("meleeatks", new HashSet<String>()));
+                    meleeset.remove(strf);
+                    state.edit().putStringSet("meleeatks", meleeset).apply();
+                    meleeatks.removeView(newrow);
+                    return true;
+                }
+            });
+            meleeatks.addView(newrow);
+        }
+
+        addranged.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.rangedrow, null);
+                RangedDialog inputdialog = new RangedDialog(HomeActivity.this, state, newrow, rangedatks);
+                inputdialog.show();
+            }
+        });
+
+        addmelee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TableRow newrow = (TableRow) LayoutInflater.from(HomeActivity.this).inflate(R.layout.meleerow, null);
+                MeleeDialog inputdialog = new MeleeDialog(HomeActivity.this, state, newrow, meleeatks);
+                inputdialog.show();
+            }
+        });
+
         saveSchedaPG();
     }
 
@@ -1774,7 +1856,7 @@ public class HomeActivity extends AppCompatActivity {
         FileHelper.saveToFile(str, getApplicationContext(), state.getString("pgname", null) + "PGDATA.txt");
     }
     
-    public int mod(int punteggio) {
+    public static int mod(int punteggio) {
         double pnt = punteggio;
         return (int) floor(((pnt - 10) / 2));
     }
