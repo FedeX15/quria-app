@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:layout_margin="15dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:foreground="@color/semitrasp2"
+    android:foreground="@color/semitrasp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    app:cardBackgroundColor="@color/colorPrimaryDark"
     app:cardCornerRadius="25dp"
     app:cardElevation="25dp">
 
@@ -29,6 +29,7 @@
             android:fontFamily="serif"
             android:text="TextView"
             android:textAlignment="center"
+            android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,6 +57,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
                 android:text="TextView"
+                android:textColor="@color/cardview_light_background"
                 tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." />
         </ScrollView>
 
@@ -72,21 +74,25 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <TextView
+                android:id="@+id/npctagtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:gravity="center_horizontal"
                 android:text="NPC e Organizzazioni"
                 android:textAlignment="center"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/luoghitagtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="Luoghi"
                 android:textAlignment="center"
+                android:textColor="@color/colorAccent"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -110,6 +116,7 @@
                 android:gravity="center_horizontal"
                 android:text="TextView"
                 android:textAlignment="center"
+                android:textColor="@color/cardview_light_background"
                 tools:text="Gesù\nDio" />
 
             <TextView
@@ -120,6 +127,7 @@
                 android:gravity="center_horizontal"
                 android:text="TextView"
                 android:textAlignment="center"
+                android:textColor="@color/cardview_light_background"
                 tools:text="Paradiso\nPurgatorio" />
         </LinearLayout>
     </android.support.constraint.ConstraintLayout>

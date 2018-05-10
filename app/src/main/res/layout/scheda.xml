@@ -110,7 +110,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -124,7 +124,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -156,7 +156,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -170,7 +170,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -203,7 +203,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -217,7 +217,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -249,7 +249,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -263,7 +263,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -295,7 +295,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -309,7 +309,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -341,7 +341,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="10"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -355,7 +355,7 @@
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"
                         android:layout_weight="1"
-                        android:background="@color/semitrasp2"
+                        android:background="@color/semitrasp"
                         android:text="+0"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -1877,6 +1877,15 @@
                                         android:textColor="@color/cardview_light_background" />
                                 </LinearLayout>
 
+                                <Button
+                                    android:id="@+id/spellappbtn"
+                                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="App Spell"
+                                    android:textSize="10sp"
+                                    android:visibility="gone" />
+
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2161,21 +2170,21 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Attacchi a distanza"
+                                    android:text="Attacchi corpo a corpo"
                                     android:textAlignment="center"
                                     android:textAllCaps="true"
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
                                 <TableLayout
-                                    android:id="@+id/rangedatks"
+                                    android:id="@+id/meleeatks"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 
                                 </TableLayout>
 
                                 <Button
-                                    android:id="@+id/addrangedatk"
+                                    android:id="@+id/addmeleeatk"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -2199,21 +2208,21 @@
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="Attacchi corpo a corpo"
+                                    android:text="Attacchi a distanza"
                                     android:textAlignment="center"
                                     android:textAllCaps="true"
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
                                 <TableLayout
-                                    android:id="@+id/meleeatks"
+                                    android:id="@+id/rangedatks"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content">
 
                                 </TableLayout>
 
                                 <Button
-                                    android:id="@+id/addmeleeatk"
+                                    android:id="@+id/addrangedatk"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
@@ -2221,6 +2230,7 @@
 
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
+
                     </LinearLayout>
                 </HorizontalScrollView>
 

@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     android:background="@android:color/background_dark">
 
-    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+    <com.fexed.quriacompanion.PinView
         android:id="@+id/atlasView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:background="@color/semitrasp2"
+        android:background="@color/semitrasp"
         android:orientation="vertical">
 
         <TextView
@@ -37,7 +37,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/semitrasp2"
+                android:background="@color/semitrasp"
                 android:orientation="horizontal">
 
                 <Button

@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -26,15 +28,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -43,15 +44,12 @@ import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import com.google.api.client.util.IOUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -69,6 +67,8 @@ public class HomeActivity extends AppCompatActivity {
     private ViewFlipper vf;
     static SharedPreferences state;
     static int[] prof = {2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13};
+    ArrayList<PointF> locationspoints;
+    ArrayList<String> locationstags;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -78,12 +78,11 @@ public class HomeActivity extends AppCompatActivity {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     vf.setDisplayedChild(0);
+                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
+                    recyclerView.smoothScrollToPosition(0);
                     return true;
                 case R.id.navigation_atlante:
                     vf.setDisplayedChild(1);
-                    final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
-                    atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
-
                     return true;
                 case R.id.navigation_scheda:
                     vf.setDisplayedChild(2);
@@ -114,6 +113,15 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void preparaHome() {
+        ImageButton startbtn = (ImageButton) findViewById(R.id.endlistbtn);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
+        startbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+            }
+        });
+
         updateFromWEB();
     }
 
@@ -193,48 +201,61 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void preparaAtlante() {
-        final SubsamplingScaleImageView atlasView = (SubsamplingScaleImageView) findViewById(R.id.atlasView);
+        final PinView atlasView = (PinView) findViewById(R.id.atlasView);
         Button fisicobtn = (Button) findViewById(R.id.quriafisica);
         Button geograbtn = (Button) findViewById(R.id.quriageografica);
         Button politibtn = (Button) findViewById(R.id.quriapolitica);
         Button ayonbtn = (Button) findViewById(R.id.ayon);
         Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
-
+        atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
+        if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
         fisicobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
+                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
         geograbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
+                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
         politibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
+                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
         ayonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
+                if (locationstags != null) for (String s: locationstags) {if (s == "Ayon") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
         faeshorisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
+                if (locationstags != null) for (String s: locationstags) {if (s == "Faeshoris") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
         novaaeriabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
+                if (locationstags != null) for (String s: locationstags) {if (s == "NovaAeria") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
             }
         });
     }
@@ -271,6 +292,7 @@ public class HomeActivity extends AppCompatActivity {
         final Button PFminus = (Button) findViewById(R.id.pfminus);
         final Button addranged = (Button) findViewById(R.id.addrangedatk);
         final Button addmelee = (Button) findViewById(R.id.addmeleeatk);
+        final Button spellapp = (Button) findViewById(R.id.spellappbtn);
         final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
         final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
@@ -1780,11 +1802,22 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        /*spellapp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.package.address");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);//null pointer check in case package name was not found
+                }
+
+            }
+        });*/
+        spellapp.setVisibility(View.GONE);
+
         saveSchedaPG();
     }
 
     private void preparaRisorse() {
-        FrameLayout simpleFrameLayout = (FrameLayout) findViewById(R.id.framelyt);
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabLayout);
 
         FragmentManager fm = getSupportFragmentManager();
@@ -1814,7 +1847,6 @@ public class HomeActivity extends AppCompatActivity {
                 FragmentTransaction ft = fm.beginTransaction();
                 ft.replace(R.id.framelyt, fragment);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).addToBackStack(null).commit();
-
             }
 
             @Override
@@ -1919,7 +1951,9 @@ public class HomeActivity extends AppCompatActivity {
 
     public void updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
+        final String urlloc = "http://quria.altervista.org/locations.txt";
         final String filestory = "story.json";
+        final String fileloc = "locations.txt";
         final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
 
         Thread t = new Thread(new Runnable(){
@@ -1961,6 +1995,57 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         t.start();
+
+        Thread p = new Thread(new Runnable(){
+            public void run() {
+                StringBuilder data = new StringBuilder(""); //to read each line
+                try {
+                    // Create a URL for the desired page
+                    URL url = new URL(urlloc); //My text file location
+                    //First open the connection
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                    String str;
+                    while ((str = in.readLine()) != null) {
+                        data.append(str);
+                    }
+                    in.close();
+                    final String locations = data.toString();
+                    FileHelper.saveToFile(locations, HomeActivity.this.getApplicationContext(), fileloc);
+                    updateLocations(locations);
+                } catch (Exception e) {
+                    updateLocations("");
+                }
+            }
+        });
+        p.start();
+    }
+
+    public void updateLocations(String locations){
+        locationstags = new ArrayList<>();
+        locationspoints = new ArrayList<>();
+        if (locations != "") {
+            String[] locvect = locations.split(":");
+            for (int i = 0; i < locvect.length; i = i + 3) {
+                locationstags.add(locvect[i]);
+                locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+            }
+        } else {
+            locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
+            if (locations != "-erorr") {
+                String[] locvect = locations.split(":");
+                for (int i = 0; i < locvect.length; i = i + 3) {
+                    locationstags.add(locvect[i]);
+                    locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                }
+            }
+        }
+        HomeActivity.this.runOnUiThread(new Runnable() {
+            public void run() {
+                preparaAtlante();
+            }
+        });
     }
 
     @Override

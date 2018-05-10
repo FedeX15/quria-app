@@ -2,6 +2,7 @@ package com.fexed.quriacompanion;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,7 +33,7 @@ public class QuriaFragment extends Fragment {
         lytsovrastato.setVisibility(View.GONE);
         lytnazioni.setVisibility(View.GONE);
 
-        Button pdfbtn = view.findViewById(R.id.pdfbtn);
+        FloatingActionButton pdfbtn = view.findViewById(R.id.pdfbtn);
         pdfbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

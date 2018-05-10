@@ -3,6 +3,7 @@ package com.fexed.quriacompanion;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,6 +38,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
         TextView npctxt = holder.mCardView.findViewById(R.id.npcard);
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);
+        TextView luoghitagtxt = holder.mCardView.findViewById(R.id.luoghitagtxt);
+        TextView npctagtxt = holder.mCardView.findViewById(R.id.npctagtxt);
 
         titolo.setText(titoli.get(position));
         descr.setText(descrizioni.get(position));
@@ -44,10 +47,12 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < luoghi.get(position).size(); i++) str.append(luoghi.get(position).get(i)).append("\n");
         luoghitxt.setText(str.toString());
+        if (str.toString() == "" || str.toString().isEmpty()) {luoghitagtxt.setVisibility(View.GONE); luoghitxt.setVisibility(View.GONE);}
 
         str = new StringBuilder();
         for (int i = 0; i < npc.get(position).size(); i++) str.append(npc.get(position).get(i)).append("\n");
         npctxt.setText(str.toString());
+        if (str.toString() == "" || str.toString().isEmpty()) {npctagtxt.setVisibility(View.GONE); npctxt.setVisibility(View.GONE);}
     }
 
     @Override
