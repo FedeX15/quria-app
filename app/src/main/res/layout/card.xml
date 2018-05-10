@@ -6,9 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:layout_margin="8dp"
+    android:layout_margin="15dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
     android:foreground="@color/semitrasp2"
-    app:cardCornerRadius="15dp">
+    app:cardCornerRadius="25dp"
+    app:cardElevation="25dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
