@@ -4,12 +4,10 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.PointF;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -32,7 +30,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
@@ -43,7 +40,6 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
-import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -209,53 +205,63 @@ public class HomeActivity extends AppCompatActivity {
         Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
         atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
-        if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+        if (locationstags != null) atlasView.setPin(locationspoints.get(locationstags.indexOf("Attuale")), "Attuale");
         fisicobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
-                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                if (locationstags != null) atlasView.setPin(locationspoints.get(locationstags.indexOf("Attuale")), "Attuale");
             }
         });
         geograbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
-                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                try {
+                    if (locationstags != null) atlasView.setPin(locationspoints.get(locationstags.indexOf("Attuale")), "Attuale");
+                } catch (Exception e) {}
             }
         });
         politibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
-                if (locationstags != null) for (String s: locationstags) {if (s == "Attuale") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                try {
+                    if (locationstags != null)atlasView.setPin(locationspoints.get(locationstags.indexOf("Attuale")), "Attuale");
+                } catch (Exception e) {}
             }
         });
         ayonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
-                if (locationstags != null) for (String s: locationstags) {if (s == "Ayon") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                try {
+                   if (locationstags != null) atlasView.setPin(locationspoints.get(locationstags.indexOf("Ayon")), "Attuale");
+                } catch (Exception e) {}
             }
         });
         faeshorisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
-                if (locationstags != null) for (String s: locationstags) {if (s == "Faeshoris") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                try {
+                     if (locationstags != null) atlasView.setPin(locationspoints.get(locationstags.indexOf("Faeshoris")), "Attuale");
+                } catch (Exception e) {}
             }
         });
         novaaeriabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : locationstags) atlasView.removePin(s);
+                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
-                if (locationstags != null) for (String s: locationstags) {if (s == "NovaAeria") atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), "Attuale");}
+                try {
+                    if (locationstags != null)atlasView.setPin(locationspoints.get(locationstags.indexOf("NovaAeria")), "Attuale");
+                } catch (Exception e) {}
             }
         });
     }
