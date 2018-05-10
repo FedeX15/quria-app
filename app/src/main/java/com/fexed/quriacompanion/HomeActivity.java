@@ -58,6 +58,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -129,7 +130,6 @@ public class HomeActivity extends AppCompatActivity {
         try {
             JSONObject obj = new JSONObject(json);
             int c = 0;
-
             do {
                 c++;
                 String title = "" + c;
@@ -147,6 +147,10 @@ public class HomeActivity extends AppCompatActivity {
                 for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
             } while (true);
         } catch (JSONException e) {
+            Collections.reverse(titoli);
+            Collections.reverse(descrizioni);
+            Collections.reverse(luoghi);
+            Collections.reverse(npc);
             Log.d("JSON", "End");
             RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
             recview.setOnFlingListener(null);
