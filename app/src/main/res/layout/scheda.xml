@@ -1764,7 +1764,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/atktitle">
@@ -1783,7 +1783,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -1918,7 +1918,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -1953,7 +1953,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -1988,7 +1988,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2023,7 +2023,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2058,7 +2058,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2093,7 +2093,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2128,7 +2128,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2163,7 +2163,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2198,7 +2198,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2233,7 +2233,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2268,7 +2268,7 @@
                             android:layout_width="250dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2316,7 +2316,7 @@
                             android:layout_width="400dp"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
@@ -2354,7 +2354,7 @@
                             android:layout_width="400dp"
                             android:layout_height="match_parent"
                             android:layout_margin="5dp"
-                            app:cardBackgroundColor="@color/cardview_dark_background"
+                            app:cardBackgroundColor="@color/colorPrimaryDark"
                             app:cardElevation="15dp">
 
                             <LinearLayout
