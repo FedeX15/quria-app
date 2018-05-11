@@ -15,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -22,10 +23,12 @@ import android.support.v7.widget.SnapHelper;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -318,11 +321,34 @@ public class HomeActivity extends AppCompatActivity {
         final TextView spellatk = (TextView) findViewById(R.id.spellatktxt);
         final TextView spellcd = (TextView) findViewById(R.id.spellcdtxt);
         final TextView spellstat = (TextView) findViewById(R.id.spelstatselection);
+        final TextView spellmana = (TextView) findViewById(R.id.manatxt);
         final Button PFplus = (Button) findViewById(R.id.pfplus);
         final Button PFminus = (Button) findViewById(R.id.pfminus);
         final Button addranged = (Button) findViewById(R.id.addrangedatk);
         final Button addmelee = (Button) findViewById(R.id.addmeleeatk);
         final Button spellapp = (Button) findViewById(R.id.spellappbtn);
+        final Button cantriptn = (Button) findViewById(R.id.addcantrip);
+        final Button firstlvbtn = (Button) findViewById(R.id.addfirstlv);
+        final Button secondlvbtn = (Button) findViewById(R.id.addsecondlv);
+        final Button thirdlvbtn = (Button) findViewById(R.id.addthirdlv);
+        final Button fourthlvbtn = (Button) findViewById(R.id.addfourthlv);
+        final Button fifthlvbtn = (Button) findViewById(R.id.addfifthlv);
+        final Button sixthlvbtn = (Button) findViewById(R.id.addsixthlv);
+        final Button seventhlvbtn = (Button) findViewById(R.id.addseventhlv);
+        final Button eighthlvbtn = (Button) findViewById(R.id.addeightlv);
+        final Button ninthlvbtn = (Button) findViewById(R.id.addninthlv);
+        final Button pluslvbtn = (Button) findViewById(R.id.addpluslv);
+        final RecyclerView cantrip = (RecyclerView) findViewById(R.id.cantriplist);
+        final RecyclerView firstlv = (RecyclerView) findViewById(R.id.firstlist);
+        final RecyclerView secondlv = (RecyclerView) findViewById(R.id.secondlist);
+        final RecyclerView thirdlv = (RecyclerView) findViewById(R.id.thirdlist);
+        final RecyclerView fourthlv = (RecyclerView) findViewById(R.id.fourthlsit);
+        final RecyclerView fifthlv = (RecyclerView) findViewById(R.id.fifthlist);
+        final RecyclerView sixthlv = (RecyclerView) findViewById(R.id.sixthlist);
+        final RecyclerView seventhlv = (RecyclerView) findViewById(R.id.seventhlist);
+        final RecyclerView eighthlv = (RecyclerView) findViewById(R.id.eigththlist);
+        final RecyclerView ninthlv = (RecyclerView) findViewById(R.id.ninthlist);
+        final RecyclerView pluslv = (RecyclerView) findViewById(R.id.pluslist);
         final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
         final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
@@ -538,6 +564,37 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        spellmana.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                input.setInputType(InputType.TYPE_CLASS_NUMBER);
+                alert.setView(input);
+                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for CANCEL button here, or leave in blank
+                    }
+                });
+                final AlertDialog alertd = alert.create();
+                alert.setTitle("Inserisci il mana o i punti");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for OK button here
+                        String name = input.getText().toString();
+                        int mana = Integer.parseInt(name);
+                        spellmana.setText(name);
+                        state.edit().putInt("spellmana", mana).apply();
+                        dialog.cancel();
+                        alertd.dismiss();
+                    }
+                });
+                alert.show();
+                return true;
+            }
+        });
+        spellmana.setText("" + state.getInt("spellmana", 0));
 
         classtxt.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
@@ -1843,6 +1900,38 @@ public class HomeActivity extends AppCompatActivity {
             }
         });*/
         spellapp.setVisibility(View.GONE);
+
+        final Set<String> listset = state.getStringSet("cantrips", new HashSet<String>());
+        ArrayList<String> list = new ArrayList<>(listset);
+        cantrip.setAdapter(new RecViewAdapterSpells(list));
+        cantriptn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
+                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
+                alert.setView(input);
+                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for CANCEL button here, or leave in blank
+                    }
+                });
+                final AlertDialog alertd = alert.create();
+                alert.setTitle("Inserisci il nuovo trucchetto");
+                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //Put actions for OK button here
+                        String name = input.getText().toString();
+                        listset.add(name);
+                        state.edit().putStringSet("cantrips", listset).apply();
+                        ArrayList<String> listn = new ArrayList<>(listset);
+                        cantrip.setAdapter(new RecViewAdapterSpells(listn));
+                        dialog.cancel();
+                        alertd.dismiss();
+                    }
+                });
+                alert.show();
+            }
+        });
 
         saveSchedaPG();
     }
