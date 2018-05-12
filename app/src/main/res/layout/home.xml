@@ -7,10 +7,10 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/cards"
         android:layout_width="match_parent"
-        android:layout_height="591dp"
+        android:layout_height="0dp"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
         android:foregroundGravity="center_vertical"
         android:padding="10dp"
         android:paddingLeft="5dp"

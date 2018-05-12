@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.graphics.PointF;
@@ -338,17 +339,17 @@ public class HomeActivity extends AppCompatActivity {
         final Button eighthlvbtn = (Button) findViewById(R.id.addeightlv);
         final Button ninthlvbtn = (Button) findViewById(R.id.addninthlv);
         final Button pluslvbtn = (Button) findViewById(R.id.addpluslv);
-        final RecyclerView cantrip = (RecyclerView) findViewById(R.id.cantriplist);
-        final RecyclerView firstlv = (RecyclerView) findViewById(R.id.firstlist);
-        final RecyclerView secondlv = (RecyclerView) findViewById(R.id.secondlist);
-        final RecyclerView thirdlv = (RecyclerView) findViewById(R.id.thirdlist);
-        final RecyclerView fourthlv = (RecyclerView) findViewById(R.id.fourthlsit);
-        final RecyclerView fifthlv = (RecyclerView) findViewById(R.id.fifthlist);
-        final RecyclerView sixthlv = (RecyclerView) findViewById(R.id.sixthlist);
-        final RecyclerView seventhlv = (RecyclerView) findViewById(R.id.seventhlist);
-        final RecyclerView eighthlv = (RecyclerView) findViewById(R.id.eigththlist);
-        final RecyclerView ninthlv = (RecyclerView) findViewById(R.id.ninthlist);
-        final RecyclerView pluslv = (RecyclerView) findViewById(R.id.pluslist);
+        final EditText cantrip = (EditText) findViewById(R.id.cantriplist);
+        final EditText firstlv = (EditText) findViewById(R.id.firstlist);
+        final EditText secondlv = (EditText) findViewById(R.id.secondlist);
+        final EditText thirdlv = (EditText) findViewById(R.id.thirdlist);
+        final EditText fourthlv = (EditText) findViewById(R.id.fourthlsit);
+        final EditText fifthlv = (EditText) findViewById(R.id.fifthlist);
+        final EditText sixthlv = (EditText) findViewById(R.id.sixthlist);
+        final EditText seventhlv = (EditText) findViewById(R.id.seventhlist);
+        final EditText eighthlv = (EditText) findViewById(R.id.eigththlist);
+        final EditText ninthlv = (EditText) findViewById(R.id.ninthlist);
+        final EditText pluslv = (EditText) findViewById(R.id.pluslist);
         final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
         final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
@@ -1889,49 +1890,235 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        /*spellapp.setOnClickListener(new View.OnClickListener() {
+        spellapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.package.address");
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.spellsdd5");
                 if (launchIntent != null) {
                     startActivity(launchIntent);//null pointer check in case package name was not found
                 }
-
-            }
-        });*/
-        spellapp.setVisibility(View.GONE);
-
-        final Set<String> listset = state.getStringSet("cantrips", new HashSet<String>());
-        ArrayList<String> list = new ArrayList<>(listset);
-        cantrip.setAdapter(new RecViewAdapterSpells(list));
-        cantriptn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final AlertDialog.Builder alert = new AlertDialog.Builder(HomeActivity.this);
-                final EditText input = new EditText(HomeActivity.this.getApplicationContext());
-                alert.setView(input);
-                alert.setNegativeButton("Annulla", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        //Put actions for CANCEL button here, or leave in blank
-                    }
-                });
-                final AlertDialog alertd = alert.create();
-                alert.setTitle("Inserisci il nuovo trucchetto");
-                alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int whichButton) {
-                        //Put actions for OK button here
-                        String name = input.getText().toString();
-                        listset.add(name);
-                        state.edit().putStringSet("cantrips", listset).apply();
-                        ArrayList<String> listn = new ArrayList<>(listset);
-                        cantrip.setAdapter(new RecViewAdapterSpells(listn));
-                        dialog.cancel();
-                        alertd.dismiss();
-                    }
-                });
-                alert.show();
             }
         });
+
+        cantrip.setText(state.getString("cantripss", ""));
+        cantrip.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("cantripss", editable.toString()).apply();
+            }
+        });
+        cantrip.clearFocus();
+
+        firstlv.setText(state.getString("firstlv", ""));
+        firstlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("firstlv", editable.toString()).apply();
+            }
+        });
+        firstlv.clearFocus();
+
+        secondlv.setText(state.getString("secondlv", ""));
+        secondlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("secondlv", editable.toString()).apply();
+            }
+        });
+        secondlv.clearFocus();
+
+        thirdlv.setText(state.getString("thirdlv", ""));
+        thirdlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("thirdlv", editable.toString()).apply();
+            }
+        });
+        thirdlv.clearFocus();
+
+        fourthlv.setText(state.getString("fourthlv", ""));
+        fourthlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("fourthlv", editable.toString()).apply();
+            }
+        });
+        fourthlv.clearFocus();
+
+        fifthlv.setText(state.getString("fifthlv", ""));
+        fifthlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("fifthlv", editable.toString()).apply();
+            }
+        });
+        fifthlv.clearFocus();
+
+        sixthlv.setText(state.getString("sixthlv", ""));
+        sixthlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("sixthlv", editable.toString()).apply();
+            }
+        });
+        sixthlv.clearFocus();
+
+        seventhlv.setText(state.getString("seventhlv", ""));
+        seventhlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("seventhlv", editable.toString()).apply();
+            }
+        });
+        seventhlv.clearFocus();
+
+        eighthlv.setText(state.getString("eighthlv", ""));
+        eighthlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("eighthlv", editable.toString()).apply();
+            }
+        });
+        eighthlv.clearFocus();
+
+        ninthlv.setText(state.getString("ninthlv", ""));
+        ninthlv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("ninthlv", editable.toString()).apply();
+            }
+        });
+        ninthlv.clearFocus();
+
+        pluslv.setText(state.getString("pluslv", ""));
+        pluslv.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                saveSchedaPG();
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                state.edit().putString("pluslv", editable.toString()).apply();
+            }
+        });
+        pluslv.clearFocus();
 
         saveSchedaPG();
     }
@@ -2154,10 +2341,16 @@ public class HomeActivity extends AppCompatActivity {
             locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
             if (locations != "-erorr") {
                 String[] locvect = locations.split(":");
-                for (int i = 0; i < locvect.length; i = i + 3) {
-                    locationstags.add(locvect[i]);
-                    locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                try {
+                    for (int i = 0; i < locvect.length; i = i + 3) {
+                        locationstags.add(locvect[i]);
+                        locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                    }
+                } catch (Exception e) {
+                    locationstags = null;
+                    locationspoints = null;
                 }
+
             }
         }
         HomeActivity.this.runOnUiThread(new Runnable() {

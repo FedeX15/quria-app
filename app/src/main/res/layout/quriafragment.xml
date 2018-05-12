@@ -37,7 +37,7 @@
 
             <Button
                 android:id="@+id/indexbtn_quria"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
@@ -51,7 +51,7 @@
 
             <Button
                 android:id="@+id/indexbtn_sovrastato"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"
@@ -65,7 +65,7 @@
 
             <Button
                 android:id="@+id/indexbtn_nazioni"
-                style="@style/Widget.AppCompat.Button.Borderless"
+                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
                 android:layout_marginEnd="8dp"

@@ -415,11 +415,12 @@
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                         android:textSize="14sp" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:orientation="vertical">
 
@@ -1909,7 +1910,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="App Spell"
                                     android:textSize="10sp"
-                                    android:visibility="gone" />
+                                    android:visibility="visible" />
 
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
@@ -1935,17 +1936,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/cantriplist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content" />
+                                    android:layout_height="wrap_content"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addcantrip"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -1970,17 +1974,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/firstlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addfirstlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2005,17 +2012,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/secondlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addsecondlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2040,17 +2050,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/thirdlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addthirdlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2075,17 +2088,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/fourthlsit"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addfourthlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2110,17 +2126,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/fifthlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addfifthlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2145,17 +2164,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/sixthlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addsixthlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2180,17 +2202,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/seventhlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addseventhlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2215,17 +2240,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/eigththlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addeightlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2250,17 +2278,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/ninthlist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addninthlv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 
@@ -2285,17 +2316,20 @@
                                     android:textColor="@color/cardview_light_background"
                                     android:textStyle="bold" />
 
-                                <android.support.v7.widget.RecyclerView
+                                <EditText
                                     android:id="@+id/pluslist"
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent" />
+                                    android:layout_height="match_parent"
+                                    android:textColor="@color/cardview_light_background"
+                                    android:textSize="14sp" />
 
                                 <Button
                                     android:id="@+id/addpluslv"
                                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                                     android:layout_width="match_parent"
                                     android:layout_height="35dp"
-                                    android:text="Aggiungi" />
+                                    android:text="Aggiungi"
+                                    android:visibility="gone" />
                             </LinearLayout>
                         </android.support.v7.widget.CardView>
 

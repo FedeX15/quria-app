@@ -1,48 +1,117 @@
-{"1" :[
-  "Risveglio",
-  "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc). Vi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc. Vi hanno poi invitato a ritrare il vostro equipaggiamento",
-  ["Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia", "Cratere di Ocrilia"],
-  ["MinMonOc", "Milizia del MinMonOc"]
-],
-"2" :[
-  "Ritrovo",
-  "Dei soldati vi hanno fatto radunare all'interno di un edificio e un certo Virion, un rapper e politico molto famoso, vi ha dato la colpa di qualcosa chiamandovi \"MIM\". Di tutta risposta, avete attaccato lui e le sue guardie ma l'anno passato nel monitoraggio si è fatto sentire: le guardie hanno avuto la meglio e siete svenuti uno dopo l'altro",
-  [],
-  ["Virion"]
-], 
-"3" :[
-  "Black Out",
-  "Vi siete risvegliati all'interno di una piccola stanza. Siete riusciti ad uscire ritrovandovi all'interno di un sottomarino, che avete prontamente hackerato e fatto risalire, ritrovandovi in mare aperto a 500Km da Nova Aeria",
-  ["Sottomarino"],
-  []
-],
-"4" :[
-  "Capitale",
-  "Avete chiamato un taxi che vi ha velocemente portato a Nova Aeria. Siete atterrati al Distretto Dogana, avete superato i controlli e vi siete diretti al tunnel di entrata per la città, prendendo il treno. Una volta saliti, il notiziario ha iniziato a trasmettere notizie riguardanti un cubo enorme volante sopra la città e altri luoghi in tutto il pianeta. Viene definito un \"drone militare fuori controllo\" e i cittadini vengono invitati ad avere prudenza e rispettare le indicazioni della milizia",
-  ["Nova Aeria", "Distretto Dogana di Nova Aeria"],
-  ["Tassista di Nova Aeria", "Società di Taxi di Nova Aeria"]
-],
-"5" :[
-  "Avvistamento",
-  "Usciti dal treno vedete anche voi il cubo, che è ora circondato da caccia militari che lo tengono sotto tiro. Un pilone enorme viene sparato dal cubo e atterra nel mezzo del Distretto Centrale. Il pilone è elettrizzato, lo testimonia un bambino che lo ha toccato, ma subito delle guardie lo circondano intimandovi di allontanarvi. Dopo aver provato a convincerle, decidete di lasciare perdere e andare a fare shopping",
-  ["Distretto Centrale di Nova Aeria"],
-  ["UFO?"]
-],
-"6" :[
-  "Shopping",
-  "Dopo aver cercato online, vi siete diretti nel Distretto Commerciale A per visitare il Buon Vecchio Frank, un negozio di armi e armature piccolo ma molto fornito. Avete anche conosciuto il proprietario, Frank: un vecchietto vivace e alla mano che vi ha servito con passione e al meglio delle sue capacità",
-  ["Distretto Commerciale A di Nova Aeria"],
-  ["Frankyard Raonull Druimen II"]
-],
-"7" :[
-  "",
-  "",
-  [""],
-  [""]
-],
-"8" :[
-  "",
-  "",
-  [],
-  []
-]}
+{
+  "1": [
+    "8 Tratuk 13337: Risveglio",
+    "Vi siete risvegliati dal monitoraggio e vi siete ritrovati nel bel mezzo della distruzione della Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia (MinMonOc).\nVi hanno fatto salire su delle navicelle e trasportato fino al Cratere di Ocrilia, dove si trovano le stazioni di partenza e arrivo per il MinMonOc.\nVi hanno poi invitato a ritrare il vostro equipaggiamento, accuratamente conservato in apposite scatole ben custodite. Intorno alla piazza d'atterraggio vi sono taxi per portare chiunque alla capitale, mentre i cieli sono solcati da gigantesche astronavi lunghe 3-4Km, con i loghi del MinMonOc.\nPoco dopo, dei soldati vi hanno fatto radunare all'interno di un edificio e un certo Virion, un rapper e politico molto famoso, vi ha dato la colpa di qualcosa chiamandovi \"MIM\". Di tutta risposta, avete attaccato lui e le sue guardie, ma l'anno passato nel monitoraggio si è fatto sentire: le guardie hanno avuto la meglio e vi hanno colpito, facendovi svenire uno dopo l'altro",
+    [
+      "Stazione di Monitoraggio Principale del Ministero di Monitoraggio di Ocrilia",
+      "Cratere di Ocrilia"
+    ],
+    [
+      "MinMonOc",
+      "Milizia del MinMonOc",
+      "Monitoratori",
+      "Virion"
+    ]
+  ],
+  "2": [
+    "12 Tratuk 13337: Black Out",
+    "Vi siete risvegliati all'interno di una piccola stanza, che avete aperto grazie ad una leva trovata nascosta sotto il pavimento.\nVi siete rtrovati all'interno di un sottomarino, che avete prontamente studiato, hackerato e fatto risalire, ritrovandovi in mare aperto a 500Km da Nova Aeria. Il sottomarino, moderno e ben equipaggiato, sembrava abbandonato, e la data segnava il 12 Tratuk 13337.\nAvete chiamato un taxi che vi ha velocemente portato a Nova Aeria. Siete atterrati al Distretto Dogana, avete superato i controlli e vi siete diretti al tunnel di entrata per la città, prendendo il treno. Una volta saliti, il notiziario ha iniziato a trasmettere notizie riguardanti un cubo enorme volante sopra la città e altri luoghi in tutto il pianeta. Viene definito un \"drone militare fuori controllo\" e i cittadini vengono invitati ad avere prudenza e rispettare le indicazioni della milizia",
+    [
+      "Sottomarino",
+      "Ayon",
+      "Nova Aeria",
+      "Distretto Dogana di Nova Aeria"
+    ],
+    [
+      "Tassista di Nova Aeria",
+      "Società di Taxi di Nova Aeria"
+    ]
+  ],
+  "3": [
+    "13 Tratuk 13337: Avvistamento",
+    "Usciti dal treno vedete anche voi il cubo, che è ora circondato da caccia militari che lo tengono sotto tiro. Un pilone enorme viene sparato dal cubo e atterra nel mezzo del Distretto Centrale. Il pilone è elettrizzato, lo testimonia un bambino che lo ha toccato, ma subito delle guardie lo circondano intimandovi di allontanarvi. Dopo aver provato a convincerle, decidete di lasciare perdere e andare a fare shopping.\nDopo aver cercato online, vi siete diretti nel Distretto Commerciale A per visitare il Buon Vecchio Frank, un negozio di armi e armature piccolo ma molto fornito. Avete anche conosciuto il proprietario, Frank: un vecchietto vivace e alla mano che vi ha servito con passione e al meglio delle sue capacità",
+    [
+      "Distretto Centrale di Nova Aeria",
+      "Buon Vecchio Frank",
+      "Distretto Commerciale A di Nova Aeria"
+    ],
+    [
+      "UFO?",
+      "Frankyard Raonull Druimen II"
+    ]
+  ],
+  "4": [
+    "13 Tratuk 13337: Assalto",
+    "Durante gli acquisti un gruppo di robot bipedi ha attaccato il negozio. Grazie al Buon Vecchio Frank vi siete difesi senza grossi problemi e siete riusciti a scongiurare la minaccia, dando anche prova delle vostre abilità militari e psichiche. Avete notato che, quando un tankoped veniva colpito in uno dei punti rossi che avevano sulla struttura, da quei punti schizzava via del sangue come se fossero organici.\nFinito il combattimento, avete notato che Frank, che si era nascosto tra gli scaffali, è sparito. Poco dopo, sul vostro telefono, è apparso un videomessaggio da parte di un demone sconosciuto che vi ha comunicato d'essere stati scelti per la \"Battle Royale\" e che verrete estratti a breve. Non sentendo cambiamenti, dopo poco alcuni di voi sono andati a fare scorte di viveri, mentre Rayan si è diretto a fare rapporto dal proprio caporale.\nPoche decine di minuti dopo, però, ad uno ad uno siete iniziati a sparire, ritrovandovi tra la tempesta di sabbia radioattiva del Continente Radioattivo",
+    [
+      "Continente Radioattivo"
+    ],
+    [
+      "Tankoped"
+    ]
+  ],
+  "5": [
+    "? Tratuk 13337: Battle Royale",
+    "Dopo poco tempo, la tempesta si è diradata e un annuncio ha dato inizio alla Battle Royale. Voi, insieme a migliaia di persone, avete iniziato a correre e combattere per la propria vita: l'annuncio diceva che ne sarebbe rimasto soltanto uno. Tra boschi, deserti, città e praterie, avete corso, combattuto, rischiato la vita e dato prova di che pasta siete fatti. Dopo esservi riuniti, vi siete diretti verso la zona cittadina, per salvare Frank.",
+    [],
+    []
+  ],
+  "6": [
+    "? Tratuk 13337: Progetto Mirage",
+    "Frank si trovava all'ultimo piano di un palazzo, i cui interni davano l'idea di essere la sede di una qualche azienda. Avete trovato tracce di aziende che conoscevate a malapena o per niente, Gozreth Enterprises e String Nanosystems. Le ricerche per trovare Frank non hanno dato i risultati sperati: avete trovato il suo telefono, la tessera da ingegnere e un anello... che si è rivelato essere un cifrario. Grazie a documenti e note trovate in giro per gli uffici, siete giunti alla certezza, già intuita, che vi trovavate in una simulazione. Facendo fondo alle abilità del gruppo, avete trovato pin e password e avete spento la simulazione.",
+    [],
+    [
+      "Progetto Mirage",
+      "Gozreth Enterprises",
+      "String Nanosystems"
+    ]
+  ],
+  "7": [
+    "14 Tratuk 13337: Ritorno alla realtà",
+    "Vi siete risvegliati, di nuovo, ritrovandovi esattamente dove eravate prima di entrare in Mirage. Scoprite che sono passate poche ore nella realtà, a differenza dei quasi due giorni passati all'interno della simulazione... e un videomessaggio sui vostri telefoni. Un certo Enigma Law si presenta a voi come benefattore, stupito delle vostre capacità.\nStanchi, decidete di affidare a Frank una serie di lavori e andare a dormire affittando una stanza, riunendovi tutti poche ore dopo, di mattina, quando anche Rayan è tornato da fare rapporto.",
+    [],
+    [
+      "NovaBnB"
+    ]
+  ],
+  "8": [
+    "15 Tratuk 13337: Casa Wigger",
+    "Dopo aver mangiato pollo fritto, essersi riposati e aver ritirato i lavori richiesti a Frank, Belfagore ha proposto di andare a casa sua.\nLa Villa Wigger, sulla punta nord dell'isola principale dell'Arcipelago Faeshoris, è enorme e rimanete tutti sorpresi dalle dimensioni esagerate.\nVi riposante, ancora, mangiando e scherzando, ma Wigger ha un'altra proposta: mettere alla prova le proprie capacità in un torneo amichevole fra di voi, all'interno del suo dojo. Il torneo finirà male, con Gohua e Dromarch che sparano a Belfagore e Miles durante il loro match, e le guardie di Belfagore che sparano a Gohua e Dromarch durante il loro match finale.\nFinito il torneo un'idea balena in testa al party: provare il visore recuperato nella stazione di monitoraggio... e scoprire qualcosa sul fato di Ocrilia.",
+    [
+      "Arcipelago Faeshoris",
+      "Villa Wigger"
+    ],
+    [
+      "Famiglia Wigger"
+    ]
+  ],
+  "9": [
+    "15 Tratuk 13337: SpaceQ",
+    "Grazie ad una guida sul DarkNet, Belfagore e Rayan riescono ad accendere il visore, ma esso segnala che non è possibile stabilire una connessione. Supponendo sia necessario essere più vicino a Ocrilia, il party si attiva per trovare una navicella spaziale. Riescono ad ottenere un appuntamento, entro poche ore, con la SpaceQ di Helequa per esaminare un prototipo in qualità di tecnici esperti e consulenti (e uno stagista.). Dopo aver ottenuto identità false, trovato un modo per teletrasportarsi alla sede e essersi accordati con un sottoposto Wigger per farsi portare l'equipaggiamento, si teletrasportano alla sede.\nL'incontro con uno stupito Elon Musk, CEO della SpaceQ, meravigliato dal trovarsi di fronte un omonimo, va abbastanza bene e ottengono informazioni sullo stato del prototipo, dei passati test e degli obiettivi della società. Inoltre, Elon garantisce loro un test fly.\n\nAppena saliti a bordo, Belfagore riesce a disattivare il controllo remoto e Cassandra impara subito come pilotare il velivolo. In men che non si dica, il party si ritrova nello spazio",
+    [
+      "Helequa",
+      "Sede della SpaceQ"
+    ],
+    [
+      "Servizi di Teletrasporto Farnan",
+      "SpaceQ",
+      "Elon Musk"
+    ]
+  ],
+  "10": [
+    "15 Tratuk 13337: Ritorno a Ocrilia",
+    "L'arrivo a... ciò che è rimasto di Ocrilia è fonte di tristezza per il gruppo, che sperava di trovare qualcosa da recuperare ma viene accolto solo da grandi quantità di rocce, polvere e macerie. Tra i massi, riconoscono anche pezzi di edifici che le loro controparti monitorate hanno visitato. Una sensazione cresce in loro però: che qualcosa li stia attendendo, nell'ombra fra le stelle, e che aspetti solo di essere scoperta. Alcuni di loro decidono di infilarsi le tute e uscire nel freddo cosmo per \"toccare con mano\" le Macerie di Ocrilia.\n\nQualcosa però cattura la loro attenzione e non solo: nell'oscurità c'è qualcosa, una massa organica, informe, indefinibile, di colore rosso scuro, mutevole, come un gigantesco tumore fluttuante nello spazio, grande quanto un intero contiente. Dromarch prova a toccarla e ne viene quasi risucchiato, insieme a Rayan, ma vengono salvati grazie a Cassandra e Gohua che bloccano i cavi e fanno tornare indietro la navicella, che quasi si schiantava nella massa organica. Qualche pezzo di essa è rimasto sulle tute ed emana un fetore terribile a contatto con l'aria",
+    [
+      "Macerie di Ocrilia"
+    ],
+    [
+      "Traklyn"
+    ]
+  ],
+  "11": [
+    "15 Tratuk 13337: Traklyn",
+    "Appena atterrati alla SpaceQ vengono accolti da un Elon Musk molto contrariato, accompagnato da varie guardie corazzate. Belfagore, a nome del party, si era scusato e aveva annunciato che avevano scoperto qualcosa di molto interessante. Con la navicella portata a terra grazie al controllo remoto, riattivato per l'occasione, Elon non perde tempo e fa aprire il portello solo quando si trova davanti con le guardie in posizione.\nBelfagore si affaccia, con il resto del gruppo che rimane dietro, e mostra un campione della massa organica che hanno trovato. Musk è incuriosito ma non cede la sua posizione, quindi Wigger per tutta risposta ne lancia un pezzo contro una guardia e la blocca telepaticamente. La guardia viene ricoperta dalla massa organica, sotto gli occhi stupiti di Musk e delle guardie, e cade a terra esanime. Musk fa quindi chiudere il portello, dimostrandosi non interessato ad armi del genere. Ma il gruppo sente spari, urla e grida provenire dall'esterno della navicella poco dopo che il portello è stato chiuso. Proiettili impattano contro il velivolo, si vedono i segni anche dall'interno, urla e grida ma pochi secondi dopo silenzio... e la massa organica filtra dalle fessure della porta. Provano a colpirla con incantesimi di fuoco, ghiaccio... senza nessun effetto.\nIn poche decine di secondi la massa è filtrata completamente: ha preso la forma di un gigantesco e disgustoso umanoide dal fetore insopportabile, emettendo rumori gorgoglianti e ripugnanti. Il gruppo è con le spalle al muro, all'interno di una navicella piccola, e si prepara a proteggere la propria vita. ",
+    [],
+    []
+  ]
+}
