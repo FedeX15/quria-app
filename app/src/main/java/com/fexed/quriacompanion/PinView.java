@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
@@ -57,6 +58,11 @@ public class PinView extends SubsamplingScaleImageView {
         }
     }
 
+    public void removeAll() {
+        sPin.removeAll(sPin);
+        pinNames.removeAll(pinNames);
+    }
+
     public ArrayList<String> getPinNames(){
         return pinNames;
     }
@@ -80,12 +86,16 @@ public class PinView extends SubsamplingScaleImageView {
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);
+        paint.setTextSize(28);
+        paint.setColor(Color.WHITE);
+        paint.setTextAlign(Paint.Align.CENTER);
         for (PointF point : sPin){
             if (point != null && pin != null) {
                 PointF vPin = sourceToViewCoord(point);
                 float vX = vPin.x - (pin.getWidth()/2);
                 float vY = vPin.y - pin.getHeight();
                 canvas.drawBitmap(pin, vX, vY, paint);
+                canvas.drawText(pinNames.get(sPin.indexOf(point)), vX + 25, vY + 100, paint);
             }
         }
     }

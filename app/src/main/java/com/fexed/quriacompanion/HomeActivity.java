@@ -212,83 +212,83 @@ public class HomeActivity extends AppCompatActivity {
         if (locationstags != null)
             for (String s : locationstags)
                 if (s.contains("Quria"))
-                    atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                    atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Quria", ""));
 
         fisicobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("Quria"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Quria", ""));
                 } catch (Exception e) {}
             }
         });
         geograbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("Quria"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Quria", ""));
                 } catch (Exception e) {}
             }
         });
         politibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("Quria"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Quria", ""));
                 } catch (Exception e) {}
             }
         });
         ayonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("Ayon"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Ayon", ""));
                 } catch (Exception e) {}
             }
         });
         faeshorisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("Faeshoris"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Faeshoris", ""));
                 } catch (Exception e) {}
             }
         });
         novaaeriabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (locationstags != null) for (String s : atlasView.getPinNames()) atlasView.removePin(s);
+                if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
                 try {
                     if (locationstags != null)
                         for (String s : locationstags)
                             if (s.contains("NovaAeria"))
-                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s);
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("NovaAeria", ""));
                 } catch (Exception e) {}
             }
         });
