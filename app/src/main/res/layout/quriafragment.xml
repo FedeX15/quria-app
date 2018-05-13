@@ -72,6 +72,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
+                android:id="@+id/indexbtn_interlink"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Interlink"
+                android:textAlignment="center"
+                app:layout_constraintEnd_toStartOf="@+id/pdfbtn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
                 android:id="@+id/other"
                 style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="wrap_content"
@@ -97,7 +109,113 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingBottom="50dp">
+
+            <LinearLayout
+                android:id="@+id/interlinkinfos"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="L'Interlink"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Sin dagli albori della civiltà digitale, in tutta Quria sono nate infrastrutture per connettere terminali e macchinari, per poterne garantire controllo e monitoraggio a distanza. Con il tempo queste infrastrutture sono state  collegate fra loro fino a creare una gigantesca rete di collegamenti globali che prende il nome di Interlink.\nL'infrastruttura è su scala globale e si basa su collegamenti calbati e wireless che sfruttando le magistringhe. La velocità di comunicazione è pressoché instantanea e concetti come batterie e simili sono stati sostituiti da metodi di conservazione di energia magica ispirate a, ad esempio, pergamene magiche ed oggetti magici."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Infrastrutture di Varia Natura"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Ci sono tre macrocategorie principali di dispositivi collegati all'Interlink"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="serif"
+                    android:text="Terminali Civili"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Come ad esempio palmari, computer, portatili e dispositivi indossabili. Ogni dispositivo è alimentato e comunica attravero le magistringhe, quindi con collegamenti ad altissima velocità.\nIn questa categoria rientrano anche i dispositivi di gioco e i RobX."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="serif"
+                    android:text="Terminali Militari"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Tra cui droni, veicoli militari, particolari tipi di armi e server militari. Molti di essi hanno collegamenti crittati e quasi impossibili da accedere dai dispositivi civili. Spesso sono contenuti in edifici sorvegliati e fortificati, o addirittura sigillati in bunker sotterranei."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:fontFamily="serif"
+                    android:text="Infrastrutture"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Come ripetitori, cavi sottomarini, server, torri di controllo e di monitoraggio. Compongono il nervo dell’Interlink e sono i veri e propri responsabili delle comunicazioni."
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="serif"
+                    android:text="Utilità"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:text="Sull’Interlink è possibile accedere a molti tipi di informazioni: fare ricerche, vedere notiziari, mappe ed enciclopedie.\nL'Interlink viene sfruttato da cittadini e Sovrastato per tutte le operazioni bancarie, anagrafiche, politiche e sociali: si paga tramite di esso, ci si registra e si vota tramite di esso, si sfrutta l'Interlink per rendere i cittadini partecipi della vita politica e sociale di Quria. Inoltre, tra le centinaia di migliaia di siti, ci sono chat, social network e quant’altro per comunicare  con altre persone.\nAlla nascita ad ogni cittadino viene assegnato un account univoco, a cui può accedere da qualsiasi terminale sfruttando impronte digitali, rinoscimento della retina o del DNA. Ad esso sono collegate tutte le informazioni del cittadino: informazioni anagrafiche, finanziarie e qualsiasi altra cosa. L'account è registrato anche sul proprio smartphone, importantissimo ad esempio per i pagamenti, che avvengono passando lo smartphone su appositi terminali (non esiste più il contante)"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/sovrastatodiquriainfos"
@@ -657,6 +775,13 @@
                     android:layout_marginStart="16dp"
                     android:text="Questa suddivisione integra le tradizioni temporali adottate dai vari popoli nel tempo. Un esempio  di data è Tratuk, 8 Laerth, 13247, equivalente a 18 Tratuk, 13247."
                     android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/quria_proporzioni" />
 
             </LinearLayout>
 

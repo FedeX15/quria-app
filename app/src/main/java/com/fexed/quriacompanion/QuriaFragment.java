@@ -29,9 +29,11 @@ public class QuriaFragment extends Fragment {
         final LinearLayout lytquria = view.findViewById(R.id.quriainfos);
         final LinearLayout lytsovrastato = view.findViewById(R.id.sovrastatodiquriainfos);
         final LinearLayout lytnazioni = view.findViewById(R.id.nazioniinfos);
+        final LinearLayout lytinterlink = view.findViewById(R.id.interlinkinfos);
         lytquria.setVisibility(View.GONE);
         lytsovrastato.setVisibility(View.GONE);
         lytnazioni.setVisibility(View.GONE);
+        lytinterlink.setVisibility(View.GONE);
 
         FloatingActionButton pdfbtn = view.findViewById(R.id.pdfbtn);
         pdfbtn.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +50,7 @@ public class QuriaFragment extends Fragment {
                 lytquria.setVisibility(View.VISIBLE);
                 lytsovrastato.setVisibility(View.GONE);
                 lytnazioni.setVisibility(View.GONE);
+                lytinterlink.setVisibility(View.GONE);
             }
         });
 
@@ -58,6 +61,7 @@ public class QuriaFragment extends Fragment {
                 lytsovrastato.setVisibility(View.VISIBLE);
                 lytquria.setVisibility(View.GONE);
                 lytnazioni.setVisibility(View.GONE);
+                lytinterlink.setVisibility(View.GONE);
             }
         });
 
@@ -69,6 +73,18 @@ public class QuriaFragment extends Fragment {
                 lytnazioni.setVisibility(View.VISIBLE);
                 lytquria.setVisibility(View.GONE);
                 lytsovrastato.setVisibility(View.GONE);
+                lytinterlink.setVisibility(View.GONE);
+            }
+        });
+
+        Button indexbtn_interlink = view.findViewById(R.id.indexbtn_interlink);
+        indexbtn_interlink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lytinterlink.setVisibility(View.VISIBLE);
+                lytquria.setVisibility(View.GONE);
+                lytsovrastato.setVisibility(View.GONE);
+                lytnazioni.setVisibility(View.GONE);
             }
         });
 
