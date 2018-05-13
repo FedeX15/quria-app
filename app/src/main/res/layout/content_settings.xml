@@ -15,6 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Preferenze"
+        android:textAppearance="@android:style/TextAppearance"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +74,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:text="Credits"
+        android:textAppearance="@android:style/TextAppearance"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,6 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:text="davemorissey per subsampling-scale-image-view"
+        android:textAppearance="@android:style/TextAppearance"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -104,7 +107,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="Federico Matteoni"
+        android:textAppearance="@android:style/TextAppearance"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView8" />

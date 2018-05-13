@@ -18,6 +18,7 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         final SharedPreferences state = getApplicationContext().getSharedPreferences(getString(R.string.state), Context.MODE_PRIVATE);
+        setTitle("Preferenze");
 
         final CheckBox pinchk = findViewById(R.id.pincheck);
         pinchk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
