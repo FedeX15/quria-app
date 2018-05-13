@@ -27,6 +27,8 @@ import android.text.TextWatcher;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -2260,98 +2262,106 @@ public class HomeActivity extends AppCompatActivity {
         final String urlloc = "http://quria.altervista.org/locations.txt";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
-        final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
+        if (state.getBoolean("pref_sync", true)) {
+            final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
+            Thread t = new Thread(new Runnable() {
+                public void run() {
+                    dialog.show();
+                    StringBuilder data = new StringBuilder(""); //to read each line
+                    try {
+                        // Create a URL for the desired page
+                        URL url = new URL(urlstory); //My text file location
+                        //First open the connection
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-        Thread t = new Thread(new Runnable(){
-            public void run() {
-                dialog.show();
-                StringBuilder data = new StringBuilder(""); //to read each line
-                try {
-                    // Create a URL for the desired page
-                    URL url = new URL(urlstory); //My text file location
-                    //First open the connection
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String str;
-                    while ((str = in.readLine()) != null) {
-                        data.append(str);
-                    }
-                    in.close();
-                    final String json = data.toString();
-                    FileHelper.saveToFile(json, HomeActivity.this.getApplicationContext(), filestory);
-
-                    HomeActivity.this.runOnUiThread(new Runnable(){
-                        public void run(){
-                            Toast.makeText(HomeActivity.this.getApplicationContext(), "Dati aggiornati dall'interlink", Toast.LENGTH_SHORT).show();
-                            putJsonInRecview(json);
-                            dialog.dismiss();
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String str;
+                        while ((str = in.readLine()) != null) {
+                            data.append(str);
                         }
-                    });
-                } catch (Exception e) {
-                    Log.d("WEBUPDATE",e.toString());
-                    HomeActivity.this.runOnUiThread(new Runnable(){
-                        public void run(){
-                            Toast.makeText(HomeActivity.this.getApplicationContext(), "Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
-                            putJsonInRecview("");
-                            dialog.dismiss();
-                        }
-                    });
-                }
-            }
-        });
-        t.start();
+                        in.close();
+                        final String json = data.toString();
+                        FileHelper.saveToFile(json, HomeActivity.this.getApplicationContext(), filestory);
 
-        Thread p = new Thread(new Runnable(){
-            public void run() {
-                StringBuilder data = new StringBuilder(""); //to read each line
-                try {
-                    // Create a URL for the desired page
-                    URL url = new URL(urlloc); //My text file location
-                    //First open the connection
-                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-
-                    BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                    String str;
-                    while ((str = in.readLine()) != null) {
-                        data.append(str);
+                        HomeActivity.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(HomeActivity.this.getApplicationContext(), "Dati aggiornati dall'interlink", Toast.LENGTH_SHORT).show();
+                                putJsonInRecview(json);
+                                dialog.dismiss();
+                            }
+                        });
+                    } catch (Exception e) {
+                        Log.d("WEBUPDATE", e.toString());
+                        HomeActivity.this.runOnUiThread(new Runnable() {
+                            public void run() {
+                                Toast.makeText(HomeActivity.this.getApplicationContext(), "Errore di connessione. Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
+                                putJsonInRecview("");
+                                dialog.dismiss();
+                            }
+                        });
                     }
-                    in.close();
-                    final String locations = data.toString();
-                    FileHelper.saveToFile(locations, HomeActivity.this.getApplicationContext(), fileloc);
-                    updateLocations(locations);
-                } catch (Exception e) {
-                    updateLocations("");
                 }
-            }
-        });
-        p.start();
+            });
+            t.start();
+
+            Thread p = new Thread(new Runnable() {
+                public void run() {
+                    StringBuilder data = new StringBuilder(""); //to read each line
+                    try {
+                        // Create a URL for the desired page
+                        URL url = new URL(urlloc); //My text file location
+                        //First open the connection
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String str;
+                        while ((str = in.readLine()) != null) {
+                            data.append(str);
+                        }
+                        in.close();
+                        final String locations = data.toString();
+                        FileHelper.saveToFile(locations, HomeActivity.this.getApplicationContext(), fileloc);
+                        updateLocations(locations);
+                    } catch (Exception e) {
+                        updateLocations("");
+                    }
+                }
+            });
+            p.start();
+        } else {
+            Toast.makeText(HomeActivity.this.getApplicationContext(), "Sincronizzazione disattivata. Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
+            putJsonInRecview("");
+            updateLocations("");
+        }
     }
 
     public void updateLocations(String locations){
-        locationstags = new ArrayList<>();
-        locationspoints = new ArrayList<>();
-        if (locations != "") {
-            String[] locvect = locations.split(":");
-            for (int i = 0; i < locvect.length; i = i + 3) {
-                locationstags.add(locvect[i]);
-                locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
-            }
-        } else {
-            locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
-            if (locations != "-erorr") {
+        if (state.getBoolean("pref_pins", true)) {
+            locationstags = new ArrayList<>();
+            locationspoints = new ArrayList<>();
+            if (locations != "") {
                 String[] locvect = locations.split(":");
-                try {
-                    for (int i = 0; i < locvect.length; i = i + 3) {
-                        locationstags.add(locvect[i]);
-                        locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
-                    }
-                } catch (Exception e) {
-                    locationstags = null;
-                    locationspoints = null;
+                for (int i = 0; i < locvect.length; i = i + 3) {
+                    locationstags.add(locvect[i]);
+                    locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
                 }
+            } else {
+                locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
+                if (locations != "-erorr") {
+                    String[] locvect = locations.split(":");
+                    try {
+                        for (int i = 0; i < locvect.length; i = i + 3) {
+                            locationstags.add(locvect[i]);
+                            locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                        }
+                    } catch (Exception e) {
+                        locationstags = null;
+                        locationspoints = null;
+                    }
 
+                }
             }
+
         }
         HomeActivity.this.runOnUiThread(new Runnable() {
             public void run() {
@@ -2369,6 +2379,26 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public void onPause() {
         super.onPause();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options, menu);
+        // return true so that the menu pop up is opened
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.preferences:
+                Intent myIntent = new Intent(HomeActivity.this, Settings.class);
+                startActivity(myIntent);
+                break;
+        }
+
+        return true;
     }
 
 }
