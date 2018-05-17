@@ -46,6 +46,7 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -113,6 +114,9 @@ public class HomeActivity extends AppCompatActivity {
 
         new MessageReceiver();
         new InstanceIdService();
+        Bundle bndl = new Bundle();
+        bndl.putString("PG_Name", state.getString("pgname", "nonsettato"));
+        FirebaseAnalytics.getInstance(this).logEvent(FirebaseAnalytics.Event.APP_OPEN, bndl);
     }
 
     private void preparaHome() {
