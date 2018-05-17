@@ -110,6 +110,9 @@ public class HomeActivity extends AppCompatActivity {
         preparaSchedaPG();
         preparaRisorse();
         preparaHome();
+
+        new MessageReceiver();
+        new InstanceIdService();
     }
 
     private void preparaHome() {
