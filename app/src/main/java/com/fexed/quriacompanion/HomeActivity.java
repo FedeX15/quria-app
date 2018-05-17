@@ -2254,6 +2254,10 @@ public class HomeActivity extends AppCompatActivity {
         myRef.child("INT").setValue(state.getInt("INT", 10));
         myRef.child("SAG").setValue(state.getInt("SAG", 10));
         myRef.child("CAR").setValue(state.getInt("CAR", 10));
+
+        Bundle bndl = new Bundle();
+        bndl.putString("PG_Name", state.getString("pgname", "nonsettato"));
+        FirebaseAnalytics.getInstance(this).logEvent("pg_update", bndl);
     }
     
     public static int mod(int punteggio) {
