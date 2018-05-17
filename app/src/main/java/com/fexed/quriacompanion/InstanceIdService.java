@@ -1,5 +1,7 @@
 package com.fexed.quriacompanion;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.FirebaseInstanceIdService;
 
@@ -13,9 +15,14 @@ import java.net.URL;
  * Created by What's That Lambda on 11/6/17.
  */
 
+import android.content.SharedPreferences;
+import android.util.Log;
+
 public class InstanceIdService extends FirebaseInstanceIdService {
     public InstanceIdService() {
         super();
+        String token = FirebaseInstanceId.getInstance().getToken();
+        sendToServer(token);
     }
 
     @Override
@@ -28,31 +35,10 @@ public class InstanceIdService extends FirebaseInstanceIdService {
     }
 
     private void sendToServer(String token) {
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReferenceFromUrl("https://quriacompanion.firebaseio.com/");
+        Log.d("FADB", "ok");
 
-        try {
-            URL url = new URL("http://quria.altervista.org/store");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            connection.setDoOutput(true);
-            connection.setDoInput(true);
-
-            connection.setRequestMethod("POST");
-
-            DataOutputStream dos = new DataOutputStream(connection.getOutputStream());
-
-            dos.writeBytes("token=" + token);
-
-            connection.connect();
-
-            if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-                // Do whatever you want after the
-                // token is successfully stored on the server
-            }
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        myRef.child("users").child(HomeActivity.state.getString("pgname", "nonsettato")).setValue(token);
     }
 }

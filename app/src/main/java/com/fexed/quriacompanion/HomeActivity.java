@@ -47,6 +47,8 @@ import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -2237,8 +2239,21 @@ public class HomeActivity extends AppCompatActivity {
                 .append(state.getInt("crediti", 0)).append("|")
                 .append(state.getString("inv", "")).append("\n")
                 .toString();
-        Log.d("FILE", str);
         FileHelper.saveToFile(str, getApplicationContext(), state.getString("pgname", null) + "PGDATA.txt");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReferenceFromUrl("https://quriacompanion.firebaseio.com/");
+        myRef = myRef.child("PG").child(state.getString("pgname", "errore"));
+        myRef.child("classe").setValue(state.getString("pgclass", "errore"));
+        myRef.child("livello").setValue(state.getInt("pglv", -1));
+        myRef.child("CA").setValue(state.getInt("CA", 10));
+        myRef.child("PF").setValue(state.getInt("PF", -1));
+        myRef.child("PFMAX").setValue(state.getInt("PFMAX", -1));
+        myRef.child("FOR").setValue(state.getInt("FOR", 10));
+        myRef.child("DEX").setValue(state.getInt("DEX", 10));
+        myRef.child("COS").setValue(state.getInt("COS", 10));
+        myRef.child("INT").setValue(state.getInt("INT", 10));
+        myRef.child("SAG").setValue(state.getInt("SAG", 10));
+        myRef.child("CAR").setValue(state.getInt("CAR", 10));
     }
     
     public static int mod(int punteggio) {
