@@ -6,4 +6,5 @@
     <string name="state">com.fexed.quriacompanion</string>
     <string name="title_risorse">Risorse</string>
     <string name="title_activity_settings">Preferenze</string>
+    <string name="title_activity_oldmsg">Storico Notifiche</string>
 </resources>

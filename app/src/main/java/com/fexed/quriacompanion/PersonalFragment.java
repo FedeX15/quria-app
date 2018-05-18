@@ -35,8 +35,8 @@ public class PersonalFragment extends Fragment {
         dmchat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent telegram = new Intent(Intent.ACTION_VIEW , Uri.parse("https://telegram.me/fexed"));
-                startActivity(telegram);
+                Intent messages = new Intent(getActivity(), Oldmsg.class);
+                startActivity(messages);
             }
         });
 

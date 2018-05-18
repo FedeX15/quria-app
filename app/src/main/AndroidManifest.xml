@@ -20,23 +20,30 @@
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Settings"
             android:label="@string/title_activity_settings"
-            android:theme="@style/Tema.NoActionBar"></activity>
-        <service android:name= ".MessageReceiver">
+            android:theme="@style/Tema.NoActionBar" />
+
+        <service android:name=".MessageReceiver">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name=".InstanceIdService">
+        <service android:name=".InstanceIdService" android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".Oldmsg"
+            android:label="@string/title_activity_oldmsg"
+            android:theme="@style/Tema.NoActionBar"></activity>
     </application>
 
 </manifest>
