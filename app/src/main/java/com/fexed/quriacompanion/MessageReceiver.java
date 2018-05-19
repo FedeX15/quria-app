@@ -53,10 +53,11 @@ public class MessageReceiver extends FirebaseMessagingService {
 
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel(channelId, "Default channel", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationChannel channel = new NotificationChannel(channelId, "Quria - Interlink", NotificationManager.IMPORTANCE_DEFAULT);
             manager.createNotificationChannel(channel);
         }
-        manager.notify(NOTIFICATION_ID, notification.build());
+        NotificationManagerCompat manager2 = NotificationManagerCompat.from(this);
+        manager2.notify(NOTIFICATION_ID, notification.build());
 
         String oldtxt = FileHelper.ReadFile(this.getApplicationContext(), "messages.txt");
         oldtxt = (oldtxt == "-error") ? "" : oldtxt;
