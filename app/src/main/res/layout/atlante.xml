@@ -41,6 +41,15 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/eboris"
+                    style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="monospace"
+                    android:text="Eboris" />
+
+                <Button
                     android:id="@+id/ayon"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
                     android:layout_width="wrap_content"

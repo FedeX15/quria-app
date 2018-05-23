@@ -21,6 +21,7 @@ public class PinView extends SubsamplingScaleImageView {
     private ArrayList<PointF> sPin = new ArrayList<>();
     private ArrayList<String> pinNames = new ArrayList<>();
     private Bitmap pin;
+    private Bitmap pinel;
 
     public PinView(Context context) {
         super(context);
@@ -73,6 +74,9 @@ public class PinView extends SubsamplingScaleImageView {
         float w = (density/420f) * pin.getWidth();
         float h = (density/420f) * pin.getHeight();
         pin = Bitmap.createScaledBitmap(pin, (int)w, (int)h, true);
+
+        pinel = getBitmapFromVectorDrawable(this.getContext(), R.drawable.pinel);
+        pinel = Bitmap.createScaledBitmap(pinel, (int)w, (int)h, true);
     }
 
     @Override
@@ -90,12 +94,20 @@ public class PinView extends SubsamplingScaleImageView {
         paint.setColor(Color.WHITE);
         paint.setTextAlign(Paint.Align.CENTER);
         for (PointF point : sPin){
-            if (point != null && pin != null) {
+            if (point != null && pin != null && pinel != null ) {
+                String name = pinNames.get(sPin.indexOf(point));
                 PointF vPin = sourceToViewCoord(point);
-                float vX = vPin.x - (pin.getWidth()/2);
-                float vY = vPin.y - pin.getHeight();
-                canvas.drawBitmap(pin, vX, vY, paint);
-                canvas.drawText(pinNames.get(sPin.indexOf(point)), vX + 25, vY + 100, paint);
+                if (name.contains("EL")) {
+                    float vX = vPin.x - (pinel.getWidth()/2);
+                    float vY = vPin.y - pinel.getHeight();
+                    canvas.drawBitmap(pinel, vX, vY, paint);
+                    canvas.drawText(name, vX + 25, vY + 100, paint);
+                } else {
+                    float vX = vPin.x - (pin.getWidth()/2);
+                    float vY = vPin.y - pin.getHeight();
+                    canvas.drawBitmap(pin, vX, vY, paint);
+                    canvas.drawText(name, vX + 25, vY + 100, paint);
+                }
             }
         }
     }

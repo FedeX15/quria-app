@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -43,6 +44,11 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.decoder.CompatDecoderFactory;
+import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder;
+import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
+import com.davemorrissey.labs.subscaleview.decoder.SkiaImageRegionDecoder;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -214,6 +220,10 @@ public class HomeActivity extends AppCompatActivity {
         Button ayonbtn = (Button) findViewById(R.id.ayon);
         Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
+        Button eborisbtn = (Button) findViewById(R.id.eboris);
+        atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
+        atlasView.setRegionDecoderFactory(new CompatDecoderFactory<ImageRegionDecoder>(SkiaImageRegionDecoder.class));
+        atlasView.setMinimumTileDpi(240);
         atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
         if (locationstags != null)
             for (String s : locationstags)
@@ -295,6 +305,19 @@ public class HomeActivity extends AppCompatActivity {
                         for (String s : locationstags)
                             if (s.contains("NovaAeria"))
                                 atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("NovaAeria", ""));
+                } catch (Exception e) {}
+            }
+        });
+        eborisbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_eboris));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Eboris"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Eboris", ""));
                 } catch (Exception e) {}
             }
         });
@@ -2280,7 +2303,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
-        final String urlloc = "http://quria.altervista.org/locations.txt";
+        final String urlloc = "http://quria.altervista.org/locations_beta.txt";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
         if (state.getBoolean("pref_sync", true)) {
