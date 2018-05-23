@@ -25,6 +25,15 @@ public class CampagnaFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.campagnafragment, container, false);
+        Button el2 = view.findViewById(R.id.el2_btn);
+
+        el2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://youtu.be/uPEvPGQC47Q")));
+
+            }
+        });
 
         Button el1 = view.findViewById(R.id.el1_btn);
         el1.setOnClickListener(new View.OnClickListener() {

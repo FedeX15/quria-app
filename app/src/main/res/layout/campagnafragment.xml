@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<?xml version="1.0" encoding="utf-8"?> <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<android.support.constraint.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,20 +13,34 @@
         android:id="@+id/gelogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        app:srcCompat="@drawable/gelogo" />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/gelogo"
+        tools:layout_editor_absoluteX="8dp" />
+
+    <ImageView
+        android:id="@+id/snlogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/gelogo"
+        app:srcCompat="@drawable/snlogo" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Serie di note e documenti rivenuti all'interno di un edificio durante il Progetto Mirage"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/snlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/gelogo"
-        app:layout_constraintTop_toTopOf="@+id/gelogo" />
+        app:layout_constraintTop_toTopOf="@+id/gelogo"
+        app:layout_constraintVertical_bias="0.39" />
 
     <Button
         android:id="@+id/gof_btn"
@@ -32,7 +50,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="Progetto Mirage"
-        app:layout_constraintBottom_toBottomOf="@+id/gelogo"
+        app:layout_constraintBottom_toBottomOf="@+id/snlogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/gelogo"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -41,8 +59,9 @@
         android:id="@+id/ellogo"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="Logo EnigmaLaw"
-        app:layout_constraintTop_toBottomOf="@+id/gelogo"
+        app:layout_constraintTop_toBottomOf="@+id/snlogo"
         app:srcCompat="@drawable/ellogo" />
 
     <TextView
@@ -51,12 +70,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:text="Videomessaggio del vostro autonominatosi benefattore ricevuto all'uscita dal Progetto Mirage"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ellogo"
-        app:layout_constraintTop_toBottomOf="@+id/gelogo" />
+        app:layout_constraintTop_toTopOf="@+id/ellogo" />
 
     <Button
         android:id="@+id/el1_btn"
@@ -70,4 +88,65 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ellogo"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/spaceqlogo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Logo EnigmaLaw"
+        app:layout_constraintTop_toBottomOf="@+id/ellogo"
+        app:srcCompat="@drawable/spaceqlogo" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Logo della SpaceQ di Elon Musk"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintBottom_toBottomOf="@+id/spaceqlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spaceqlogo"
+        app:layout_constraintTop_toTopOf="@+id/spaceqlogo" />
+
+    <ImageView
+        android:id="@+id/ellogo2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Logo EnigmaLaw"
+        app:layout_constraintTop_toBottomOf="@+id/spaceqlogo"
+        app:srcCompat="@drawable/ellogo" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text='Videomessaggio di Enigma Law in cui vi rivela delle info sul "Traklyn" e vi offre aiuto'
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellogo2"
+        app:layout_constraintTop_toTopOf="@+id/ellogo2" />
+
+    <Button
+        android:id="@+id/el2_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="EnigmaLaw 2"
+        app:layout_constraintBottom_toBottomOf="@+id/ellogo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellogo"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
 </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
