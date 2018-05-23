@@ -2303,7 +2303,7 @@ public class HomeActivity extends AppCompatActivity {
 
     public void updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
-        final String urlloc = "http://quria.altervista.org/locations_beta.txt";
+        final String urlloc = "http://quria.altervista.org/locations.txt";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
         if (state.getBoolean("pref_sync", true)) {
