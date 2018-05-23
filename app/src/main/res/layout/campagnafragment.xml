@@ -15,8 +15,7 @@
         android:layout_height="100dp"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/gelogo"
-        tools:layout_editor_absoluteX="8dp" />
+        app:srcCompat="@drawable/gelogo" />
 
     <ImageView
         android:id="@+id/snlogo"
