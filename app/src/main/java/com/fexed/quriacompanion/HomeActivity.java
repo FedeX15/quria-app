@@ -70,6 +70,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import static android.os.SystemClock.sleep;
 import static java.lang.Math.floor;
 
 public class HomeActivity extends AppCompatActivity {
@@ -295,21 +296,30 @@ public class HomeActivity extends AppCompatActivity {
         Button eborisbtn = (Button) findViewById(R.id.eboris);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
-        //atlasView.setDebug(true);
         atlasView.setRegionDecoderFactory(new CompatDecoderFactory<ImageRegionDecoder>(SkiaImageRegionDecoder.class));
         atlasView.setMinimumTileDpi(240);
         atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
-        /*atlasView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                float x = motionEvent.getX();
-                float y = motionEvent.getY();
-                PointF pnt = atlasView.viewToSourceCoord(x, y);
 
-                coordtxt.setText("X " + pnt.x + " - Y " + pnt.y);
+        atlasView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                atlasView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        float x = motionEvent.getX();
+                        float y = motionEvent.getY();
+                        PointF pnt = atlasView.viewToSourceCoord(x, y);
+
+                        coordtxt.setText("X " + pnt.x + " - Y " + pnt.y);
+
+                        atlasView.setOnTouchListener(null);
+                        return true;
+                    }
+                });
                 return true;
             }
-        });*/
+        });
+
         if (locationstags != null)
             for (String s : locationstags)
                 if (s.contains("Quria"))
@@ -318,6 +328,7 @@ public class HomeActivity extends AppCompatActivity {
         fisicobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
                 try {
@@ -331,6 +342,7 @@ public class HomeActivity extends AppCompatActivity {
         geograbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
                 try {
@@ -344,6 +356,7 @@ public class HomeActivity extends AppCompatActivity {
         politibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
                 try {
@@ -357,6 +370,7 @@ public class HomeActivity extends AppCompatActivity {
         ayonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
                 try {
@@ -370,6 +384,7 @@ public class HomeActivity extends AppCompatActivity {
         faeshorisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
                 try {
@@ -383,6 +398,7 @@ public class HomeActivity extends AppCompatActivity {
         novaaeriabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
                 try {
@@ -396,6 +412,7 @@ public class HomeActivity extends AppCompatActivity {
         eborisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_eboris));
                 try {
