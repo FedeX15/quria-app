@@ -146,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
     private void putJsonInRecview(String json) {
         if (json == "") {
             json = FileHelper.ReadFile(this.getApplicationContext(), "story.json");
-            if (json == "-error") json = loadJSONFromAsset();
+            if (json == "-error") json = loadFromAsset("story.json");
         }
 
         ArrayList<String> titoli = new ArrayList<>();
@@ -224,7 +224,7 @@ public class HomeActivity extends AppCompatActivity {
     private void putNPCJsonInRecview(String json) {
         if (json == "") {
             json = FileHelper.ReadFile(this.getApplicationContext(), "npcs.json");
-            if (json == "-error") json = loadJSONFromAsset();
+            if (json == "-error") json = loadFromAsset("npcs.json");
         }
 
         ArrayList<String> titoli = new ArrayList<>();
@@ -2355,20 +2355,20 @@ public class HomeActivity extends AppCompatActivity {
         return (int) floor(((pnt - 10) / 2));
     }
 
-    public String loadJSONFromAsset() {
-        String json = null;
+    public String loadFromAsset(String title) {
+        String text = null;
         try {
-            InputStream is = getAssets().open("document.json");
+            InputStream is = getAssets().open(title);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
             is.close();
-            json = new String(buffer, "UTF-8");
+            text = new String(buffer, "UTF-8");
         } catch (IOException ex) {
             ex.printStackTrace();
             return null;
         }
-        return json;
+        return text;
     }
 
     public void updateFromWEB() {
@@ -2489,7 +2489,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             } else {
                 locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
-                if (locations != "-erorr") {
+                if (locations == "-erorr") {locations = loadFromAsset("locations.txt");
                     String[] locvect = locations.split(":");
                     try {
                         for (int i = 0; i < locvect.length; i = i + 3) {
