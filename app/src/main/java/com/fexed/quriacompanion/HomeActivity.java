@@ -470,6 +470,8 @@ public class HomeActivity extends AppCompatActivity {
         final Button eighthlvbtn = (Button) findViewById(R.id.addeightlv);
         final Button ninthlvbtn = (Button) findViewById(R.id.addninthlv);
         final Button pluslvbtn = (Button) findViewById(R.id.addpluslv);
+        final Button addmanabtn = (Button) findViewById(R.id.addmana);
+        final Button removemanabtn = (Button) findViewById(R.id.removemana);
         final EditText cantrip = (EditText) findViewById(R.id.cantriplist);
         final EditText firstlv = (EditText) findViewById(R.id.firstlist);
         final EditText secondlv = (EditText) findViewById(R.id.secondlist);
@@ -727,6 +729,29 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
         spellmana.setText("" + state.getInt("spellmana", 0));
+
+        addmanabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int mana = state.getInt("spellmana", 0);
+                mana++;
+                state.edit().putInt("spellmana", mana).apply();
+                spellmana.setText(mana + "");
+                saveSchedaPG();
+            }
+        });
+
+        removemanabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int mana = state.getInt("spellmana", 0);
+                mana--;
+                mana = (mana < 0) ? 0 : mana;
+                state.edit().putInt("spellmana", mana).apply();
+                spellmana.setText(mana + "");
+                saveSchedaPG();
+            }
+        });
 
         classtxt.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

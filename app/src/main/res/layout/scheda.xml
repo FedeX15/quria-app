@@ -1894,13 +1894,30 @@
                                         android:textColor="@color/cardview_light_background"
                                         android:textSize="12sp" />
 
+                                    <Button
+                                        android:id="@+id/removemana"
+                                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                        android:layout_width="30dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:text="-" />
+
                                     <TextView
                                         android:id="@+id/manatxt"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
                                         android:text="0"
+                                        android:textAlignment="center"
                                         android:textColor="@color/cardview_light_background" />
+
+                                    <Button
+                                        android:id="@+id/addmana"
+                                        style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                                        android:layout_width="30dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="0"
+                                        android:text="+" />
                                 </LinearLayout>
 
                                 <Button
