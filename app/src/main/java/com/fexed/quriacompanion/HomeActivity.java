@@ -234,7 +234,6 @@ public class HomeActivity extends AppCompatActivity {
             json = FileHelper.ReadFile(this.getApplicationContext(), "npcs.json");
             if (json == "-error") json = loadFromAsset("npcs.json");
         }
-
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<String> classes = new ArrayList<>();
         ArrayList<String> ages = new ArrayList<>();
@@ -256,6 +255,8 @@ public class HomeActivity extends AppCompatActivity {
                 String url = m_jArry.optString("img");
                 if (url == null) url = title;
                 images.add(url);
+
+                Log.d("IMGNPC",c + " - " + url);
             } while (true);
         } catch (JSONException e) {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);

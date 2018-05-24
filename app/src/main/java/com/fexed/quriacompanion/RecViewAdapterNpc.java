@@ -53,8 +53,8 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
         TextView age = holder.mCardView.findViewById(R.id.agecard);
         TextView race = holder.mCardView.findViewById(R.id.racecard);
-        final ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
-
+        ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
+        pic.setVisibility(View.VISIBLE);
         titolo.setText(titoli.get(position));
         classe.setText(classi.get(position));
         descr.setText(descrizioni.get(position));
@@ -71,6 +71,8 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
                     return true;
                 }
             });
+        } else {
+            pic.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -107,6 +109,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
 
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
+            bmImage.setVisibility(View.VISIBLE);
         }
     }
 
