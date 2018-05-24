@@ -29,6 +29,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -56,6 +57,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -291,10 +293,23 @@ public class HomeActivity extends AppCompatActivity {
         Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
         Button eborisbtn = (Button) findViewById(R.id.eboris);
+        final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
+        //atlasView.setDebug(true);
         atlasView.setRegionDecoderFactory(new CompatDecoderFactory<ImageRegionDecoder>(SkiaImageRegionDecoder.class));
         atlasView.setMinimumTileDpi(240);
         atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
+        /*atlasView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                float x = motionEvent.getX();
+                float y = motionEvent.getY();
+                PointF pnt = atlasView.viewToSourceCoord(x, y);
+
+                coordtxt.setText("X " + pnt.x + " - Y " + pnt.y);
+                return true;
+            }
+        });*/
         if (locationstags != null)
             for (String s : locationstags)
                 if (s.contains("Quria"))
