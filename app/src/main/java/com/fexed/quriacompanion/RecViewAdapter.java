@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        TextView titolo = holder.mCardView.findViewById(R.id.titolocard);
+        TextView titolo = holder.mCardView.findViewById(R.id.namecard);
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
         TextView npctxt = holder.mCardView.findViewById(R.id.npcard);
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);

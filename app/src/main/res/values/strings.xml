@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Quria Companion</string>
-    <string name="title_home">Home</string>
-    <string name="title_atlante">Atlante</string>
+    <string name="title_home">Storia</string>
+    <string name="title_atlante">Luoghi</string>
+    <string name="title_NPC">Persone</string>
     <string name="title_schedaPG">Scheda</string>
     <string name="state">com.fexed.quriacompanion</string>
     <string name="title_risorse">Risorse</string>

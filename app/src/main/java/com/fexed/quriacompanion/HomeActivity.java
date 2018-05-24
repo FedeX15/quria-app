@@ -83,9 +83,12 @@ public class HomeActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    vf.setDisplayedChild(0);
-                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
-                    recyclerView.smoothScrollToPosition(0);
+                    int n = vf.getDisplayedChild();
+                    if (n != 0) vf.setDisplayedChild(0);
+                    else {
+                        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
+                        recyclerView.smoothScrollToPosition(0);
+                    }
                     return true;
                 case R.id.navigation_atlante:
                     vf.setDisplayedChild(1);
@@ -97,6 +100,9 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_risorse:
                     vf.setDisplayedChild(3);
+                    return true;
+                case R.id.navigation_NPC:
+                    vf.setDisplayedChild(4);
                     return true;
             }
             return false;
@@ -176,6 +182,67 @@ public class HomeActivity extends AppCompatActivity {
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
             recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc));
+            recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+            SnapHelper helper = new LinearSnapHelper() {
+                @Override
+                public int findTargetSnapPosition(RecyclerView.LayoutManager layoutManager, int velocityX, int velocityY) {
+                    View centerView = findSnapView(layoutManager);
+                    if (centerView == null)
+                        return RecyclerView.NO_POSITION;
+
+                    int position = layoutManager.getPosition(centerView);
+                    int targetPosition = -1;
+                    if (layoutManager.canScrollHorizontally()) {
+                        if (velocityX < 0) {
+                            targetPosition = position - 1;
+                        } else {
+                            targetPosition = position + 1;
+                        }
+                    }
+                    if (layoutManager.canScrollVertically()) {
+                        if (velocityY < 0) {
+                            targetPosition = position - 1;
+                        } else {
+                            targetPosition = position + 1;
+                        }
+                    }
+
+                    final int firstItem = 0;
+                    final int lastItem = layoutManager.getItemCount() - 1;
+                    targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
+                    return targetPosition;
+                }
+            };
+            helper.attachToRecyclerView(recview);
+            recview.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    private void putNPCJsonInRecview(String json) {
+        if (json == "") {
+            json = FileHelper.ReadFile(this.getApplicationContext(), "npcs.json");
+            if (json == "-error") json = loadJSONFromAsset();
+        }
+
+        ArrayList<String> titoli = new ArrayList<>();
+        ArrayList<String> classes = new ArrayList<>();
+        ArrayList<String> descrizioni = new ArrayList<>();
+        try {
+            JSONObject obj = new JSONObject(json);
+            int c = 0;
+            do {
+                c++;
+                String title = "" + c;
+                JSONObject m_jArry = obj.getJSONObject(title);
+                titoli.add(m_jArry.getString("name"));
+                classes.add(m_jArry.getString("class"));
+                descrizioni.add(m_jArry.getString("desc"));
+            } while (true);
+        } catch (JSONException e) {
+            RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
+            recview.setOnFlingListener(null);
+            recview.setAdapter(null);
+            recview.setAdapter(new RecViewAdapterNpc(titoli, classes, descrizioni));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override
@@ -2304,8 +2371,10 @@ public class HomeActivity extends AppCompatActivity {
     public void updateFromWEB() {
         final String urlstory = "http://quria.altervista.org/story.json";
         final String urlloc = "http://quria.altervista.org/locations.txt";
+        final String urlnpc = "http://quria.altervista.org/npcs.json";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
+        final String filenpc = "npcs.json";
         if (state.getBoolean("pref_sync", true)) {
             final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
             Thread t = new Thread(new Runnable() {
@@ -2372,9 +2441,35 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
             p.start();
+
+            Thread c = new Thread(new Runnable() {
+                public void run() {
+                    StringBuilder data = new StringBuilder(""); //to read each line
+                    try {
+                        // Create a URL for the desired page
+                        URL url = new URL(urlnpc); //My text file location
+                        //First open the connection
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String str;
+                        while ((str = in.readLine()) != null) {
+                            data.append(str);
+                        }
+                        in.close();
+                        final String npcs = data.toString();
+                        FileHelper.saveToFile(npcs, HomeActivity.this.getApplicationContext(), filenpc);
+                        putNPCJsonInRecview(npcs);
+                    } catch (Exception e) {
+                        putNPCJsonInRecview("");
+                    }
+                }
+            });
+            c.start();
         } else {
             Toast.makeText(HomeActivity.this.getApplicationContext(), "Sincronizzazione disattivata. Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
             putJsonInRecview("");
+            putNPCJsonInRecview("");
             updateLocations("");
         }
     }

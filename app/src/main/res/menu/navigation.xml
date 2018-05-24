@@ -12,6 +12,11 @@
         android:title="@string/title_atlante" />
 
     <item
+        android:id="@+id/navigation_NPC"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="@string/title_NPC" />
+
+    <item
         android:id="@+id/navigation_scheda"
         android:icon="@drawable/ic_library_books_black_24dp"
         android:title="@string/title_schedaPG" />
