@@ -13,11 +13,15 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
     private ArrayList<String> titoli;
     private ArrayList<String> classi;
     private ArrayList<String> descrizioni;
+    private ArrayList<String> ages;
+    private ArrayList<String> races;
 
-    public RecViewAdapterNpc(ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni) {
+    public RecViewAdapterNpc(ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races) {
         this.titoli = titoli;
         this.classi = classi;
         this.descrizioni = descrizioni;
+        this.ages = ages;
+        this.races = races;
     }
 
     @Override
@@ -34,10 +38,14 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView titolo = holder.mCardView.findViewById(R.id.namecard);
         TextView classe = holder.mCardView.findViewById(R.id.classcard);
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
+        TextView age = holder.mCardView.findViewById(R.id.agecard);
+        TextView race = holder.mCardView.findViewById(R.id.racecard);
 
         titolo.setText(titoli.get(position));
         classe.setText(classi.get(position));
         descr.setText(descrizioni.get(position));
+        age.setText(ages.get(position));
+        race.setText(races.get(position));
     }
 
     @Override

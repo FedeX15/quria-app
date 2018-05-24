@@ -80,8 +80,8 @@ public class PinView extends SubsamplingScaleImageView {
         pinel = Bitmap.createScaledBitmap(pinel, (int)w, (int)h, true);
 
         pinhist = getBitmapFromVectorDrawable(this.getContext(), R.drawable.ic_adjust_black_24dp);
-        w = (density/420f) * pinhist.getWidth() / 2;
-        h = (density/420f) * pinhist.getHeight() / 2;
+        w = (density/420f) * pinhist.getWidth();
+        h = (density/420f) * pinhist.getHeight();
         pinhist = Bitmap.createScaledBitmap(pinhist, (int)w, (int)h, true);
     }
 
