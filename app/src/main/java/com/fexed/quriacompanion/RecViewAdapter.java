@@ -12,19 +12,21 @@ import java.util.ArrayList;
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private ArrayList<String> titoli;
     private ArrayList<String> descrizioni;
+    private ArrayList<String> date;
     private ArrayList<ArrayList<String>> luoghi;
     private ArrayList<ArrayList<String>> npc;
 
-    public RecViewAdapter(ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc) {
+    public RecViewAdapter(ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date) {
         this.titoli = titoli;
         this.descrizioni = descrizioni;
+        this.date = date;
         this.luoghi = luoghi;
         this.npc = npc;
     }
 
     @Override
     public RecViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.card, parent, false);
+        CardView v = (CardView) LayoutInflater.from(parent.getContext()).inflate(R.layout.cardhistory, parent, false);
         RecyclerView.LayoutParams lp = new RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         v.setLayoutParams(lp);
         ViewHolder vh = new ViewHolder(v);
@@ -35,6 +37,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, final int position) {
         TextView titolo = holder.mCardView.findViewById(R.id.namecard);
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
+        TextView datetxt = holder.mCardView.findViewById(R.id.datecard);
         TextView npctxt = holder.mCardView.findViewById(R.id.npcard);
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);
         TextView luoghitagtxt = holder.mCardView.findViewById(R.id.luoghitagtxt);
@@ -42,6 +45,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
         titolo.setText(titoli.get(position));
         descr.setText(descrizioni.get(position));
+        datetxt.setText(date.get(position));
 
         StringBuilder str = new StringBuilder();
         for (int i = 0; i < luoghi.get(position).size(); i++) str.append(luoghi.get(position).get(i)).append("\n");

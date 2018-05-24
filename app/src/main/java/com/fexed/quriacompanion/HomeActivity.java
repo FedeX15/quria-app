@@ -151,6 +151,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<String> descrizioni = new ArrayList<>();
+        ArrayList<String> date = new ArrayList<>();
         ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
         ArrayList<ArrayList<String>> npc = new ArrayList<>();
         try {
@@ -162,6 +163,7 @@ public class HomeActivity extends AppCompatActivity {
                 JSONObject m_jArry = obj.getJSONObject(title);
                 titoli.add(m_jArry.getString("title"));
                 descrizioni.add(m_jArry.getString("desc"));
+                date.add(m_jArry.getString("date"));
                 ArrayList<String> locos = new ArrayList<>();
                 luoghi.add(locos);
                 JSONArray luoghiarray = m_jArry.getJSONArray("places");
@@ -177,11 +179,12 @@ public class HomeActivity extends AppCompatActivity {
             Collections.reverse(descrizioni);
             Collections.reverse(luoghi);
             Collections.reverse(npc);
+            Collections.reverse(date);
             Log.d("JSON", "End");
             RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
-            recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc));
+            recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc, date));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override
