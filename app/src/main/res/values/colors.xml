@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#3f52b5</color>
     <color name="colorPrimaryDark">#303f9f</color>
-    <color name="colorAccent">#27ff00</color>
+    <color name="colorAccent">#3cac28</color>
     <color name="semitrasp">#5a292929</color>
     <color name="semitraspblu">#5a0011ff</color>
     <color name="semitraspred">#5aff0000</color>

@@ -53,7 +53,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
         TextView age = holder.mCardView.findViewById(R.id.agecard);
         TextView race = holder.mCardView.findViewById(R.id.racecard);
-        ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
+        final ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
 
         titolo.setText(titoli.get(position));
         classe.setText(classi.get(position));
@@ -105,7 +105,8 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
             return mIcon11;
         }
 
-        protected void onPostExecute(Bitmap result) {bmImage.setImageBitmap(result);
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
         }
     }
 

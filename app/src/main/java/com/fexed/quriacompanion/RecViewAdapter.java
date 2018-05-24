@@ -55,7 +55,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);
         TextView luoghitagtxt = holder.mCardView.findViewById(R.id.luoghitagtxt);
         TextView npctagtxt = holder.mCardView.findViewById(R.id.npctagtxt);
-        ImageView pic = holder.mCardView.findViewById(R.id.imagecard);
+        final ImageView pic = holder.mCardView.findViewById(R.id.imagecard);
 
         titolo.setText(titoli.get(position));
         descr.setText(descrizioni.get(position));
@@ -70,7 +70,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         for (int i = 0; i < npc.get(position).size(); i++) str.append(npc.get(position).get(i)).append("\n");
         npctxt.setText(str.toString());
         if (str.toString() == "" || str.toString().isEmpty()) {npctagtxt.setVisibility(View.GONE); npctxt.setVisibility(View.GONE);}
-
+        pic.setVisibility(View.GONE);
         if (images.get(position).contains("http")) {
             new DownloadImageTask(pic).execute(images.get(position));
             pic.setOnLongClickListener(new View.OnLongClickListener() {
@@ -82,6 +82,8 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                     return true;
                 }
             });
+        } else {
+            pic.setVisibility(View.GONE);
         }
     }
 
@@ -119,6 +121,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
+            bmImage.setVisibility(View.VISIBLE);
         }
     }
 
