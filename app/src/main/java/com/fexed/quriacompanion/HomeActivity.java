@@ -155,6 +155,7 @@ public class HomeActivity extends AppCompatActivity {
         ArrayList<String> titoli = new ArrayList<>();
         ArrayList<String> descrizioni = new ArrayList<>();
         ArrayList<String> date = new ArrayList<>();
+        ArrayList<String> images = new ArrayList<>();
         ArrayList<ArrayList<String>> luoghi = new ArrayList<>();
         ArrayList<ArrayList<String>> npc = new ArrayList<>();
         try {
@@ -176,6 +177,9 @@ public class HomeActivity extends AppCompatActivity {
                 npc.add(porsos);
                 JSONArray npciarray = m_jArry.getJSONArray("npcs");
                 for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
+                String url = m_jArry.optString("img");
+                if (url == null) url = title;
+                images.add(url);
             } while (true);
         } catch (JSONException e) {
             Collections.reverse(titoli);
@@ -183,11 +187,12 @@ public class HomeActivity extends AppCompatActivity {
             Collections.reverse(luoghi);
             Collections.reverse(npc);
             Collections.reverse(date);
+            Collections.reverse(images);
             Log.d("JSON", "End");
             RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
-            recview.setAdapter(new RecViewAdapter(titoli, descrizioni, luoghi, npc, date));
+            recview.setAdapter(new RecViewAdapter(this, titoli, descrizioni, luoghi, npc, date, images));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override
@@ -256,7 +261,7 @@ public class HomeActivity extends AppCompatActivity {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
-            recview.setAdapter(new RecViewAdapterNpc(titoli, classes, descrizioni, ages, races, images));
+            recview.setAdapter(new RecViewAdapterNpc(this, titoli, classes, descrizioni, ages, races, images));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override

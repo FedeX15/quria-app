@@ -1,27 +1,40 @@
 package com.fexed.quriacompanion;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHolder> {
     private ArrayList<String> titoli;
     private ArrayList<String> descrizioni;
     private ArrayList<String> date;
+    private ArrayList<String> images;
     private ArrayList<ArrayList<String>> luoghi;
     private ArrayList<ArrayList<String>> npc;
+    private Activity act;
 
-    public RecViewAdapter(ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date) {
+    public RecViewAdapter(Activity act, ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date, ArrayList<String> images) {
         this.titoli = titoli;
         this.descrizioni = descrizioni;
         this.date = date;
         this.luoghi = luoghi;
         this.npc = npc;
+        this.images = images;
+        this.act = act;
     }
 
     @Override
@@ -42,6 +55,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);
         TextView luoghitagtxt = holder.mCardView.findViewById(R.id.luoghitagtxt);
         TextView npctagtxt = holder.mCardView.findViewById(R.id.npctagtxt);
+        ImageView pic = holder.mCardView.findViewById(R.id.imagecard);
 
         titolo.setText(titoli.get(position));
         descr.setText(descrizioni.get(position));
@@ -56,6 +70,19 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         for (int i = 0; i < npc.get(position).size(); i++) str.append(npc.get(position).get(i)).append("\n");
         npctxt.setText(str.toString());
         if (str.toString() == "" || str.toString().isEmpty()) {npctagtxt.setVisibility(View.GONE); npctxt.setVisibility(View.GONE);}
+
+        if (images.get(position).contains("http")) {
+            new DownloadImageTask(pic).execute(images.get(position));
+            pic.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(images.get(position)));
+                    act.startActivity(i);
+                    return true;
+                }
+            });
+        }
     }
 
     @Override
@@ -68,4 +95,31 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             mCardView = v;
         }
     }
+
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 }

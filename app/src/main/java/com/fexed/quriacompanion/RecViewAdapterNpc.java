@@ -1,7 +1,10 @@
 package com.fexed.quriacompanion;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -22,14 +25,16 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
     private ArrayList<String> ages;
     private ArrayList<String> races;
     private ArrayList<String> images;
+    private Activity act;
 
-    public RecViewAdapterNpc(ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races, ArrayList<String> images) {
+    public RecViewAdapterNpc(Activity act, ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races, ArrayList<String> images) {
         this.titoli = titoli;
         this.classi = classi;
         this.descrizioni = descrizioni;
         this.ages = ages;
         this.races = races;
         this.images = images;
+        this.act = act;
     }
 
     @Override
@@ -57,6 +62,15 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         race.setText(races.get(position));
         if (images.get(position).contains("http")) {
             new DownloadImageTask(pic).execute(images.get(position));
+            pic.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(images.get(position)));
+                    act.startActivity(i);
+                    return true;
+                }
+            });
         }
     }
 
@@ -91,8 +105,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
             return mIcon11;
         }
 
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
+        protected void onPostExecute(Bitmap result) {bmImage.setImageBitmap(result);
         }
     }
 
