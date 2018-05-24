@@ -159,17 +159,17 @@ public class HomeActivity extends AppCompatActivity {
             do {
                 c++;
                 String title = "" + c;
-                JSONArray m_jArry = obj.getJSONArray(title);
-                titoli.add(m_jArry.getString(0));
-                descrizioni.add(m_jArry.getString(1));
+                JSONObject m_jArry = obj.getJSONObject(title);
+                titoli.add(m_jArry.getString("title"));
+                descrizioni.add(m_jArry.getString("desc"));
                 ArrayList<String> locos = new ArrayList<>();
                 luoghi.add(locos);
-                JSONArray luoghiarray = m_jArry.getJSONArray(2);
+                JSONArray luoghiarray = m_jArry.getJSONArray("places");
                 for (int i = 0; i < luoghiarray.length(); i++)
                     locos.add(luoghiarray.getString(i));
                 ArrayList<String> porsos = new ArrayList<>();
                 npc.add(porsos);
-                JSONArray npciarray = m_jArry.getJSONArray(3);
+                JSONArray npciarray = m_jArry.getJSONArray("npcs");
                 for (int i = 0; i < npciarray.length(); i++) porsos.add(npciarray.getString(i));
             } while (true);
         } catch (JSONException e) {

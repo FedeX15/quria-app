@@ -32,7 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Titolo dell'attività" />
+            tools:text="Nome Cognome" />
 
         <TextView
             android:id="@+id/classcard"
@@ -50,7 +50,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namecard"
-            tools:text="Titolo dell'attività" />
+            tools:text="Classe o professione" />
 
         <ScrollView
             android:id="@+id/scrollView2"
