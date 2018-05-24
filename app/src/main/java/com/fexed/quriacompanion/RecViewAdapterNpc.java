@@ -1,12 +1,18 @@
 package com.fexed.quriacompanion;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.ViewHolder> {
@@ -15,13 +21,15 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
     private ArrayList<String> descrizioni;
     private ArrayList<String> ages;
     private ArrayList<String> races;
+    private ArrayList<String> images;
 
-    public RecViewAdapterNpc(ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races) {
+    public RecViewAdapterNpc(ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races, ArrayList<String> images) {
         this.titoli = titoli;
         this.classi = classi;
         this.descrizioni = descrizioni;
         this.ages = ages;
         this.races = races;
+        this.images = images;
     }
 
     @Override
@@ -40,12 +48,16 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView descr = holder.mCardView.findViewById(R.id.desccard);
         TextView age = holder.mCardView.findViewById(R.id.agecard);
         TextView race = holder.mCardView.findViewById(R.id.racecard);
+        ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
 
         titolo.setText(titoli.get(position));
         classe.setText(classi.get(position));
         descr.setText(descrizioni.get(position));
         age.setText(ages.get(position));
         race.setText(races.get(position));
+        if (images.get(position).contains("http")) {
+            new DownloadImageTask(pic).execute(images.get(position));
+        }
     }
 
     @Override
@@ -58,4 +70,30 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
             mCardView = v;
         }
     }
+
+    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        protected Bitmap doInBackground(String... urls) {
+            String urldisplay = urls[0];
+            Bitmap mIcon11 = null;
+            try {
+                InputStream in = new java.net.URL(urldisplay).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (Exception e) {
+                Log.e("Error", e.getMessage());
+                e.printStackTrace();
+            }
+            return mIcon11;
+        }
+
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+        }
+    }
+
 }

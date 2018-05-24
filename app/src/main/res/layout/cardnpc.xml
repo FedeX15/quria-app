@@ -15,6 +15,15 @@
         android:layout_height="match_parent"
         android:layout_margin="2dp">
 
+        <ImageView
+            android:id="@+id/npcpiccard"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_person_black_24dp" />
+
         <TextView
             android:id="@+id/namecard"
             android:layout_width="wrap_content"
@@ -29,7 +38,7 @@
             android:textColor="@color/colorAccent"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/npcpiccard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Nome Cognome" />
@@ -47,7 +56,7 @@
             android:textColor="@color/colorAccent"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/npcpiccard"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/namecard"
             tools:text="Classe o professione" />
@@ -57,7 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="serif"
             android:text="TextView"
             android:textAlignment="center"
@@ -65,7 +75,8 @@
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintLeft_toRightOf="@+id/racecard"
-            app:layout_constraintTop_toBottomOf="@+id/classcard"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/racecard"
             tools:text="Età" />
 
         <TextView
@@ -87,15 +98,15 @@
         <ScrollView
             android:id="@+id/scrollView2"
             android:layout_width="match_parent"
-            android:layout_height="443dp"
-            android:layout_marginBottom="24dp"
-            android:layout_marginTop="16dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="4dp"
             android:fadeScrollbars="false"
             android:scrollbarAlwaysDrawVerticalTrack="true"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/agecard">
+            app:layout_constraintTop_toBottomOf="@+id/npcpiccard">
 
             <TextView
                 android:id="@+id/desccard"

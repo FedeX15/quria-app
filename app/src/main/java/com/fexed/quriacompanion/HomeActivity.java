@@ -235,6 +235,7 @@ public class HomeActivity extends AppCompatActivity {
         ArrayList<String> ages = new ArrayList<>();
         ArrayList<String> races = new ArrayList<>();
         ArrayList<String> descrizioni = new ArrayList<>();
+        ArrayList<String> images = new ArrayList<>();
         try {
             JSONObject obj = new JSONObject(json);
             int c = 0;
@@ -247,12 +248,15 @@ public class HomeActivity extends AppCompatActivity {
                 descrizioni.add(m_jArry.getString("desc"));
                 ages.add(m_jArry.getString("age"));
                 races.add(m_jArry.getString("race"));
+                String url = m_jArry.optString("img");
+                if (url == null) url = title;
+                images.add(url);
             } while (true);
         } catch (JSONException e) {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
-            recview.setAdapter(new RecViewAdapterNpc(titoli, classes, descrizioni, ages, races));
+            recview.setAdapter(new RecViewAdapterNpc(titoli, classes, descrizioni, ages, races, images));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override
