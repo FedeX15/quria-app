@@ -30,7 +30,7 @@
         android:layout_marginBottom="8dp"
         android:contentDescription="Start"
         android:textSize="14sp"
-        android:tint="@color/colorAccent"
+        android:tint="@color/cardview_light_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />

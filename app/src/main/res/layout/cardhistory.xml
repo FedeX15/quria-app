@@ -25,7 +25,7 @@
             android:fontFamily="serif"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@color/cardview_light_background"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:fontFamily="serif"
             android:text="TextView"
             android:textAlignment="center"
-            android:textColor="@color/colorAccent"
+            android:textColor="@android:color/darker_gray"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +72,8 @@
                     android:id="@+id/imagecard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginStart="2dp"
                     android:visibility="gone" />
 
                 <TextView
@@ -105,22 +107,24 @@
                 android:id="@+id/npctagtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.5"
+                android:layout_weight="0.1"
                 android:gravity="center_horizontal"
                 android:text="NPC e Organizzazioni"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textAllCaps="true"
+                android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/luoghitagtxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.5"
                 android:gravity="center_horizontal"
                 android:text="Luoghi"
                 android:textAlignment="center"
-                android:textColor="@color/colorAccent"
+                android:textAllCaps="true"
+                android:textColor="@android:color/darker_gray"
                 android:textStyle="bold" />
         </LinearLayout>
 
