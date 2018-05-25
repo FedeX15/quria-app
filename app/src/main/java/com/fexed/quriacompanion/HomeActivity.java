@@ -105,7 +105,12 @@ public class HomeActivity extends AppCompatActivity {
                     vf.setDisplayedChild(3);
                     return true;
                 case R.id.navigation_NPC:
-                    vf.setDisplayedChild(4);
+                    int k = vf.getDisplayedChild();
+                    if (k != 4) vf.setDisplayedChild(4);
+                    else {
+                        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.npcsrecv);
+                        recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+                    }
                     return true;
             }
             return false;
