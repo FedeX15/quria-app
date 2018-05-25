@@ -54,7 +54,6 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView age = holder.mCardView.findViewById(R.id.agecard);
         TextView race = holder.mCardView.findViewById(R.id.racecard);
         ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
-        pic.setVisibility(View.VISIBLE);
         titolo.setText(titoli.get(position));
         classe.setText(classi.get(position));
         descr.setText(descrizioni.get(position));
@@ -72,7 +71,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
                 }
             });
         } else {
-            pic.setVisibility(View.INVISIBLE);
+            pic.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_person_black_24dp));
         }
     }
 
@@ -93,6 +92,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         public DownloadImageTask(ImageView bmImage) {
             this.bmImage = bmImage;
             this.bmImage.setVisibility(View.VISIBLE);
+            this.bmImage.setAdjustViewBounds(true);
             this.bmImage.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
         }
 
