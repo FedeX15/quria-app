@@ -57,7 +57,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -70,7 +69,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import static android.os.SystemClock.sleep;
 import static java.lang.Math.floor;
 
 public class HomeActivity extends AppCompatActivity {
