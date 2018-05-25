@@ -15,6 +15,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.NestedScrollView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
@@ -89,14 +91,25 @@ public class HomeActivity extends AppCompatActivity {
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
                         recyclerView.smoothScrollToPosition(0);
                     }
+                    getSupportActionBar().show();
                     return true;
                 case R.id.navigation_atlante:
-                    vf.setDisplayedChild(1);
+                    int j = vf.getDisplayedChild();
+                    if (j != 1) {
+                        vf.setDisplayedChild(1);
+                        getSupportActionBar().hide();
+                    }
+                    else {
+                        LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
+                        if (mapslist.getVisibility() == View.VISIBLE) mapslist.setVisibility(View.GONE);
+                        else mapslist.setVisibility(View.VISIBLE);
+                    }
                     return true;
                 case R.id.navigation_scheda:
                     vf.setDisplayedChild(2);
                     ScrollView mainscrollv = (ScrollView) findViewById(R.id.mainscroll);
                     mainscrollv.smoothScrollTo(0, 0);
+                    getSupportActionBar().show();
                     return true;
                 case R.id.navigation_risorse:
                     vf.setDisplayedChild(3);
@@ -108,6 +121,7 @@ public class HomeActivity extends AppCompatActivity {
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.npcsrecv);
                         recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
                     }
+                    getSupportActionBar().show();
                     return true;
             }
             return false;
@@ -118,6 +132,11 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setElevation(0);
+        actionBar.setLogo(R.drawable.quriaicon);
+
         state = getApplicationContext().getSharedPreferences(getString(R.string.state), Context.MODE_PRIVATE);
         vf = (ViewFlipper) findViewById(R.id.vf);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -309,6 +328,7 @@ public class HomeActivity extends AppCompatActivity {
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
         Button eborisbtn = (Button) findViewById(R.id.eboris);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
+        final LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
         atlasView.setRegionDecoderFactory(new CompatDecoderFactory<ImageRegionDecoder>(SkiaImageRegionDecoder.class));
         atlasView.setMinimumTileDpi(240);
@@ -342,6 +362,7 @@ public class HomeActivity extends AppCompatActivity {
         fisicobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriafisica));
@@ -356,6 +377,7 @@ public class HomeActivity extends AppCompatActivity {
         geograbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriageografica));
@@ -370,6 +392,7 @@ public class HomeActivity extends AppCompatActivity {
         politibtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_quriapolitica));
@@ -384,6 +407,7 @@ public class HomeActivity extends AppCompatActivity {
         ayonbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_ayon));
@@ -398,6 +422,7 @@ public class HomeActivity extends AppCompatActivity {
         faeshorisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_faeshoris));
@@ -412,6 +437,7 @@ public class HomeActivity extends AppCompatActivity {
         novaaeriabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_novaaeria));
@@ -426,6 +452,7 @@ public class HomeActivity extends AppCompatActivity {
         eborisbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
                 coordtxt.setText("");
                 if (locationstags != null) atlasView.removeAll();
                 atlasView.setImage(ImageSource.resource(R.drawable.mappa_eboris));

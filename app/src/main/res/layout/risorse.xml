@@ -8,12 +8,13 @@
         android:id="@+id/tabLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/semitrasp"
+        android:background="@color/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabIndicatorColor="@color/cardview_light_background"
-        app:tabSelectedTextColor="@color/cardview_light_background">
+        app:tabSelectedTextColor="@color/cardview_light_background"
+        app:tabTextAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle.Inverse">
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
@@ -28,12 +29,12 @@
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Campagn." />
+            android:text="Campagna" />
 
         <android.support.design.widget.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personal" />
+            android:text="Personale" />
     </android.support.design.widget.TabLayout>
 
     <FrameLayout

@@ -9,33 +9,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <TextView
-        android:id="@+id/coordtxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:textColor="@android:color/background_light"
-        tools:text="x ajkdfg - y adsfgijua" />
-
     <LinearLayout
+        android:id="@+id/maplistlyt"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="bottom"
         android:background="@color/semitrasp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:fontFamily="monospace"
             android:text="Lista mappe disponibili"
+            android:textAlignment="center"
+            android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textColor="@color/colorAccent"
+            android:textSize="12sp"
             android:textStyle="bold" />
 
-        <HorizontalScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="bottom"
@@ -45,12 +42,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <Button
                     android:id="@+id/eboris"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -59,7 +57,7 @@
                 <Button
                     android:id="@+id/ayon"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -68,7 +66,7 @@
                 <Button
                     android:id="@+id/faeshoris"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -77,7 +75,7 @@
                 <Button
                     android:id="@+id/novaaeria"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -86,7 +84,7 @@
                 <Button
                     android:id="@+id/quriafisica"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -95,7 +93,7 @@
                 <Button
                     android:id="@+id/quriageografica"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
@@ -104,14 +102,22 @@
                 <Button
                     android:id="@+id/quriapolitica"
                     style="@style/Widget.AppCompat.Button.Borderless.Colored"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="monospace"
                     android:text="Quria Politica" />
 
             </LinearLayout>
-        </HorizontalScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/coordtxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:textColor="@android:color/background_light"
+        tools:text="x ajkdfg - y adsfgijua" />
 
 </FrameLayout>
