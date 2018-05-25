@@ -2,99 +2,164 @@
   "1": {
     "name": "Belfagore Wigger 647°",
     "age": "",
-    "race": "",
+    "race": "Elfo Alto",
     "class": "",
     "desc": ""
   },
   "2": {
     "name": "Cassandra Stone",
     "age": "",
-    "race": "",
+    "race": "Mezzelfa",
     "class": "",
     "desc": ""
   },
   "3": {
     "name": "Dromarch Ringabel",
     "age": "",
-    "race": "",
+    "race": "Elfo",
     "class": "",
     "desc": ""
   },
   "4": {
     "name": "Gohua Zeck",
-    "age": "",
-    "race": "",
+    "age": "14",
+    "race": "Mezzelfo",
     "class": "",
-    "desc": ""
+    "desc": "",
+    "img": "https://78.media.tumblr.com/tumblr_nigvnoPTUV1toijs6o1_1421742660_cover.jpg"
   },
   "5": {
     "name": "Miles Flamvell",
     "age": "",
-    "race": "",
+    "race": "Umano",
     "class": "",
     "desc": ""
   },
   "6": {
     "name": "Rayan Deckard",
     "age": "",
-    "race": "",
+    "race": "Umano",
     "class": "",
     "desc": ""
   },
   "7": {
+    "name": "Virion",
+    "age": "133 anni",
+    "race": "Elfo",
+    "class": "Politico, rapper",
+    "desc": "",
+    "img": "http://quria.altervista.org/virion.png"
+  },
+  "8": {
     "name": "Frankyard Raonull Druimen II",
     "class": "Ingegnere, classe D",
     "age": "70+ anni",
     "race": "Umano",
-    "desc": "Il Buon Vecchio Frank gestisce un'armeria a Nova Aeria, nel Distretto Commerciale A1, ed è molto rinomato per la qualità e la velocità dei suoi lavori, oltre che per il carattere giocoso e scherzoso.\nHa lavorato molto con esoscheletri e armature sperimentali, uno dei suoi vecchi prototipi è ora equipaggiamento standard di determinati plotoni dell'esercito.\nMolto appassionato nel suo lavoro, ama inventare e affrontare sfide che richiedano ingegno e inventiva per essere portate a termine."
+    "desc": "Il Buon Vecchio Frank gestisce un'armeria a Nova Aeria, nel Distretto Commerciale A1, ed è molto rinomato per la qualità e la velocità dei suoi lavori, oltre che per il carattere giocoso e scherzoso.\nHa lavorato molto con esoscheletri e armature sperimentali, uno dei suoi vecchi prototipi è ora equipaggiamento standard di determinati plotoni dell'esercito.\nMolto appassionato nel suo lavoro, ama inventare e affrontare sfide che richiedano ingegno e inventiva per essere portate a termine.",
+    "img": "https://davidjrodger.files.wordpress.com/2013/05/old-man-space-man-by-anthony-guebels-cyberpunk-sci-fi-wallpaper-art.jpg"
   },
-  "8": {
+  "9": {
     "name": "Enigma Law",
     "class": "? Benefattore ?",
     "age": "?",
     "race": "?",
-    "desc": "La sua identità è completamente sconosciuta, così come i suoi obiettivi e i suoi mezzi. La sua ingiustificata generosità, unità all'assenza di richieste, lo rende enigmatico."
+    "desc": "La sua identità è completamente sconosciuta, così come i suoi obiettivi e i suoi mezzi. La sua ingiustificata generosità, unità all'assenza di richieste, lo rende enigmatico.",
+    "img": "http://quria.altervista.org/ellogo.png"
   },
-  "9": {
+  "10": {
     "name": "Elon Musk",
     "class": "Imprenditore",
     "age": "45+ anni",
     "race": "Umano",
-    "desc": "CEO della SpaceQ, con sede vicino ad Helequa nelle Repubbliche Elfiche del Farnan, Elon è un magnante dell'industria e un appassionato di spazio. Ha fondato la SpaceQ con l'obiettivo di rendere a portata di tutti i viaggi spaziali: attualmente stanno sviluppando un velivolo che definiscono un \"bus spaziale\", che ha l'obiettivo di portare piccoli gruppi di turisti in orbita e magari anche su asteroidi, tutto questo ad un prezzo mediamente abbordabile."
+    "desc": "CEO della SpaceQ, con sede vicino ad Helequa nelle Repubbliche Elfiche del Farnan, Elon è un magnante dell'industria e un appassionato di spazio. Ha fondato la SpaceQ con l'obiettivo di rendere a portata di tutti i viaggi spaziali: attualmente stanno sviluppando un velivolo che definiscono un \"bus spaziale\", che ha l'obiettivo di portare piccoli gruppi di turisti in orbita e magari anche su asteroidi, tutto questo ad un prezzo mediamente abbordabile.",
+    "img": "https://i.pinimg.com/originals/90/4a/7b/904a7b123dfa0fcdb04b053220bb0593.png"
   },
-  "10": {
+  "11": {
     "name": "Alaion Liacan",
     "class": "Xenobiologo",
     "age": "557 anni",
     "race": "Elfo",
-    "desc": "Alaion è uno dei più rinomati Xenobiologi di Quria. La sua fama è dovuta ai numerosi studi e scoperte di batteri e spore arrivate su Quria tramite asteroidi e comete, detriti di altri corpi celesti del sistema stellare di Ontalia. Sarà responsabile di una futura missione di raccolta, in via di sviluppo. Attualmente è sotto le direttive di Erisec Greyjaw e della SpaceQ."
+    "desc": "Alaion è uno dei più rinomati Xenobiologi di Quria. La sua fama è dovuta ai numerosi studi e scoperte di batteri e spore arrivate su Quria tramite asteroidi e comete, detriti di altri corpi celesti del sistema stellare di Ontalia. Sarà responsabile di una futura missione di raccolta, in via di sviluppo. Attualmente è sotto le direttive di Erisec Greyjaw e della SpaceQ.",
+    "img": "https://img00.deviantart.net/2cd2/i/2014/320/4/7/seneca_crane_by_karenscarlet-d86kn0q.png"
   },
-  "11": {
+  "12": {
     "name": "Kyrion Adsys",
     "class": "Geologo",
     "age": "689 anni",
     "race": "Elfo",
-    "desc": "Kyrion è incaricato da un certo Dhovan di svolgere ricerche nei Fiordi degli Dei per scoprire i segreti che rendono quel luogo tanto affascinante.\nOltre a questo, Kyrion è conosciuto dalla popolazione di Quria per aver scoperto un minerale, chiamato Kyrionite in suo onore, dalla particolare proprietà che più carica elettrica assorbe meno massa ha."
+    "desc": "Kyrion è incaricato da un certo Dhovan di svolgere ricerche nei Fiordi degli Dei per scoprire i segreti che rendono quel luogo tanto affascinante.\nOltre a questo, Kyrion è conosciuto dalla popolazione di Quria per aver scoperto un minerale, chiamato Kyrionite in suo onore, dalla particolare proprietà che più carica elettrica assorbe meno massa ha.",
+    "img": "https://i.pinimg.com/originals/eb/49/bc/eb49bc11851fed23354281e5d5a3b64d.png"
   },
-  "12": {
+  "13": {
     "name": "Aimon Valamer",
     "class": "Fisico Quantico",
     "age": "689 anni",
     "race": "Elfo",
-    "desc": "Aimon collabora con l'organizzazione fondata da Naesala Heican, la \"Ecto\", per studiare metodologie di applicazione delle conoscenze in campo quantistico in ambiti quotidiani.\nConosciuto per aver affinato le tecniche di teletrasporto per mezzo di entanglement quantistico, tecnologia che attualemente è sotto stretto segreto militare coperto dal Sovrastato di Quria."
+    "desc": "Aimon collabora con l'organizzazione fondata da Naesala Heican, la \"Ecto\", per studiare metodologie di applicazione delle conoscenze in campo quantistico in ambiti quotidiani.\nConosciuto per aver affinato le tecniche di teletrasporto per mezzo di entanglement quantistico, tecnologia che attualemente è sotto stretto segreto militare coperto dal Sovrastato di Quria.",
+    "img": "https://i.pinimg.com/originals/91/d9/18/91d9187498bad175475d5eb4b3e4b246.jpg"
   },
-  "13": {
+  "14": {
     "name": "Ylyndar Thecan",
     "class": "Biologa Molecolare",
     "age": "348 anni",
     "race": "Elfa",
-    "desc": "Insieme a sua sorella Lierin, una biologa anche lei, partecipa alle attività del progetto Nautilus, fondato da Caeda Springs, che ha l'obiettivo di riportare in vita molte delle specie marine estinte durante le guerre nucleari degli scorsi millenni.\nRiconosciuta dalla comunità scientifica per essere stata la prima ad aver creato un batterio da zero, in laboratorio. Il lavoro gli ha garantito premi e riconoscimenti, ma anche sguardi di diffidenza da chi crede che voglia giocare a fare Dio."
+    "desc": "Insieme a sua sorella Lierin, una biologa anche lei, partecipa alle attività del progetto Nautilus, fondato da Caeda Springs, che ha l'obiettivo di riportare in vita molte delle specie marine estinte durante le guerre nucleari degli scorsi millenni.\nRiconosciuta dalla comunità scientifica per essere stata la prima ad aver creato un batterio da zero, in laboratorio. Il lavoro gli ha garantito premi e riconoscimenti, ma anche sguardi di diffidenza da chi crede che voglia giocare a fare Dio.",
+    "img": "https://i.pinimg.com/originals/5e/b5/7a/5eb57a8e1bd160cde5adff3e9bab6157.png"
   },
-  "14": {
+  "15": {
     "name": "Aias Fengwyn",
     "class": "Biologa",
     "age": "97 anni",
     "race": "Mezzelfa",
-    "desc": "Conosciuta per aver trovato metodi per prolungare esponenzialmente la vita di alcuni piccoli esseri viventi. La fama le ha garantito un contratto con Ulgux, un draconide che da secoli finanzia studi aventi l'obiettivo di allungare la vita degli esseri viventi."
+    "desc": "Conosciuta per aver trovato metodi per prolungare esponenzialmente la vita di alcuni piccoli esseri viventi. La fama le ha garantito un contratto con Ulgux, un draconide che da secoli finanzia studi aventi l'obiettivo di allungare la vita degli esseri viventi.",
+    "img": "https://i.pinimg.com/originals/1f/95/66/1f9566da5f2530b19e181179c66278e7.png"
+  },
+  "16": {
+    "name": "Erisec Greyjaw",
+    "class": "Project Manager",
+    "age": "116 anni",
+    "race": "Nano",
+    "desc": "Project Manager per una futura missione di raccolta campioni dalla superficie di Meomia, Liatis e più avanti anche satelliti naturali di Apoth e Larak ",
+    "img": "https://i.pinimg.com/originals/f4/88/9a/f4889a02f084ceadcde330f77acadd8d.png"
+  },
+  "17": {
+    "name": "Dhovan",
+    "class": "?",
+    "age": "?",
+    "race": "Ghoul",
+    "desc": "Sull'interlink si trova solo qualche foto appartenente ad un vecchio profilo di un social network.",
+    "img": "https://i.pinimg.com/originals/5a/df/03/5adf036f6378a06c4b2a52464a8f9f91.png"
+  },
+  "18": {
+    "name": "Naesala Heican",
+    "class": "Imprenditrice",
+    "age": "141 anni",
+    "race": "Mezzelfa",
+    "desc": "CEO della \"Ecto\", azienda con l'obiettivo di studiare metodologie per l'applicazione delle conoscenze in campo quantistico in ambiti quotidiani. Finanzia un team di 15 fisici, teorici e sperimentali, tra cui Aimon Valamer.",
+    "img": "https://i.pinimg.com/236x/0e/ed/81/0eed8198f2ad7ef851ab5d570f5edb1b--shadowrun-dragonfall-shadowrun-returns.jpg"
+  },
+  "19": {
+    "name": "Caeda Springs",
+    "class": "Biologa Marina",
+    "age": "236 anni",
+    "race": "Elfa",
+    "desc": "Promotrice del progetto Nautilus, volto a recuperare le specie marine estinte durante le guerre nucleari di millenni passati. Considerata una delle più importanti biologhe marine mai esistite, è responsabile della scoperta e catalogazione di più di 80 specie, tra cui il mammifero marino più piccolo mai scoperto: Pril, dalla lunghezza media di 2mm.",
+    "img": "https://lpix.org/1986635/npc_elffemale_absinthe.png"
+  },
+  "20": {
+    "name": "Lierin Thecan",
+    "class": "Biologa Marina",
+    "age": "132 anni",
+    "race": "Elfa",
+    "desc": "Sorella di Ylyndar, biologa ben più famosa, Lierin è altrettanto brava e promettente anche se non ha ancora avuto modo di provare la sua competenza.",
+    "img": "https://i.pinimg.com/736x/6d/f4/72/6df4725b73df8af3c9701ef1deb75e17--shadowrun-characters-female-characters.jpg"
+  },
+  "21": {
+    "name": "Ulgux",
+    "class": "Imprenditore e finanziere",
+    "age": "188 anni",
+    "race": "Draconide",
+    "desc": "",
+    "img": "https://i.pinimg.com/originals/55/c1/73/55c173658cf996f86eacc910e1dd4225.jpg"
   }
 }
