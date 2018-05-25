@@ -92,6 +92,8 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
 
         public DownloadImageTask(ImageView bmImage) {
             this.bmImage = bmImage;
+            this.bmImage.setVisibility(View.VISIBLE);
+            this.bmImage.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
         }
 
         protected Bitmap doInBackground(String... urls) {

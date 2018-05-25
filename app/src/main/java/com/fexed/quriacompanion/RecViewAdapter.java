@@ -82,8 +82,6 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
                     return true;
                 }
             });
-        } else {
-            pic.setVisibility(View.GONE);
         }
     }
 
@@ -104,6 +102,9 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
 
         public DownloadImageTask(ImageView bmImage) {
             this.bmImage = bmImage;
+            this.bmImage.setVisibility(View.VISIBLE);
+            this.bmImage.setAdjustViewBounds(true);
+            this.bmImage.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
         }
 
         protected Bitmap doInBackground(String... urls) {
