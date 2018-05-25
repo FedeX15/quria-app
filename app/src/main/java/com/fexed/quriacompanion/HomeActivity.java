@@ -260,8 +260,6 @@ public class HomeActivity extends AppCompatActivity {
                 String url = m_jArry.optString("img");
                 if (url == null) url = title;
                 images.add(url);
-
-                Log.d("IMGNPC",c + " - " + url);
             } while (true);
         } catch (JSONException e) {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
@@ -2565,7 +2563,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
             } else {
                 locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
-                if (locations == "-erorr") {locations = loadFromAsset("locations.txt");
+                if (locations == "-errorr") {locations = loadFromAsset("locations.txt");
                     String[] locvect = locations.split(":");
                     try {
                         for (int i = 0; i < locvect.length; i = i + 3) {

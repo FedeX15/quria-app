@@ -26,6 +26,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
     private ArrayList<String> races;
     private ArrayList<String> images;
     private Activity act;
+    private ImageLoader imgloader;
 
     public RecViewAdapterNpc(Activity act, ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races, ArrayList<String> images) {
         this.titoli = titoli;
@@ -35,6 +36,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         this.races = races;
         this.images = images;
         this.act = act;
+        this.imgloader = new ImageLoader(act.getApplicationContext());
     }
 
     @Override
@@ -60,7 +62,9 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         age.setText(ages.get(position));
         race.setText(races.get(position));
         if (images.get(position).contains("http")) {
-            new DownloadImageTask(pic).execute(images.get(position));
+            pic.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
+            pic.setAdjustViewBounds(true);
+            imgloader.DisplayImage(images.get(position), pic);
             pic.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
@@ -85,34 +89,4 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
             mCardView = v;
         }
     }
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-            this.bmImage.setVisibility(View.VISIBLE);
-            this.bmImage.setAdjustViewBounds(true);
-            this.bmImage.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-            bmImage.setVisibility(View.VISIBLE);
-        }
-    }
-
 }

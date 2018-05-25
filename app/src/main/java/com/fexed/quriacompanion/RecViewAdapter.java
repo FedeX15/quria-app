@@ -26,6 +26,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private ArrayList<ArrayList<String>> luoghi;
     private ArrayList<ArrayList<String>> npc;
     private Activity act;
+    private ImageLoader imgloader;
 
     public RecViewAdapter(Activity act, ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date, ArrayList<String> images) {
         this.titoli = titoli;
@@ -35,6 +36,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         this.npc = npc;
         this.images = images;
         this.act = act;
+        this.imgloader = new ImageLoader(act.getApplicationContext());
     }
 
     @Override
@@ -70,9 +72,13 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         for (int i = 0; i < npc.get(position).size(); i++) str.append(npc.get(position).get(i)).append("\n");
         npctxt.setText(str.toString());
         if (str.toString() == "" || str.toString().isEmpty()) {npctagtxt.setVisibility(View.GONE); npctxt.setVisibility(View.GONE);}
+
         pic.setVisibility(View.GONE);
         if (images.get(position).contains("http")) {
-            new DownloadImageTask(pic).execute(images.get(position));
+            pic.setVisibility(View.VISIBLE);
+            pic.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
+            pic.setAdjustViewBounds(true);
+            imgloader.DisplayImage(images.get(position), pic);
             pic.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
@@ -95,35 +101,4 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
             mCardView = v;
         }
     }
-
-
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-            this.bmImage.setVisibility(View.VISIBLE);
-            this.bmImage.setAdjustViewBounds(true);
-            this.bmImage.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-            bmImage.setVisibility(View.VISIBLE);
-        }
-    }
-
 }
