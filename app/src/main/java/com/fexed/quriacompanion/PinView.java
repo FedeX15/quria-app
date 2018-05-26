@@ -80,8 +80,8 @@ public class PinView extends SubsamplingScaleImageView {
         pinel = Bitmap.createScaledBitmap(pinel, (int)w, (int)h, true);
 
         pinhist = getBitmapFromVectorDrawable(this.getContext(), R.drawable.ic_adjust_black_24dp);
-        w = (density/420f) * pinhist.getWidth();
-        h = (density/420f) * pinhist.getHeight();
+        w = (density/420f) * pinhist.getWidth() / 2;
+        h = (density/420f) * pinhist.getHeight() / 2;
         pinhist = Bitmap.createScaledBitmap(pinhist, (int)w, (int)h, true);
     }
 
@@ -96,7 +96,6 @@ public class PinView extends SubsamplingScaleImageView {
 
         Paint paint = new Paint();
         paint.setAntiAlias(true);
-        paint.setTextSize(28);
         paint.setColor(Color.WHITE);
         paint.setTextAlign(Paint.Align.CENTER);
         for (PointF point : sPin){
@@ -106,16 +105,19 @@ public class PinView extends SubsamplingScaleImageView {
                 if (name.contains("EL")) {
                     float vX = vPin.x - (pinel.getWidth() / 2);
                     float vY = vPin.y - pinel.getHeight();
+                    paint.setTextSize(28);
                     canvas.drawBitmap(pinel, vX, vY, paint);
                 } else if (name.contains("history")) {
                     float vX = vPin.x - (pinhist.getWidth() / 2);
                     float vY = vPin.y - pinhist.getHeight() / 2;
                     canvas.drawBitmap(pinhist, vX, vY, paint);
-                    canvas.drawText(name.replace("history", ""), vX + 32, vY + 100, paint);
+                    paint.setTextSize(22);
+                    canvas.drawText(name.replace("history", ""), vX + 20, vY + 50, paint);
                 } else{
                     float vX = vPin.x - (pin.getWidth()/2);
                     float vY = vPin.y - pin.getHeight();
                     canvas.drawBitmap(pin, vX, vY, paint);
+                    paint.setTextSize(28);
                     canvas.drawText(name, vX + 32, vY + 100, paint);
                 }
             }

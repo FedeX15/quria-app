@@ -2580,19 +2580,23 @@ public class HomeActivity extends AppCompatActivity {
             locationstags = new ArrayList<>();
             locationspoints = new ArrayList<>();
             if (locations != "") {
-                String[] locvect = locations.split(":");
-                for (int i = 0; i < locvect.length; i = i + 3) {
-                    locationstags.add(locvect[i]);
-                    locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                Log.d("LOCSA", locations);
+                String[] locvect = locations.split("/");
+                for (int i = 0; i < locvect.length; i++) {
+                    String[] str = locvect[i].split(":");
+                    locationstags.add(str[0]);
+                    locationspoints.add(new PointF(Float.parseFloat(str[1]), Float.parseFloat(str[2])));
                 }
             } else {
                 locations = FileHelper.ReadFile(this.getApplicationContext(), "locations.txt");
                 if (locations == "-errorr") {locations = loadFromAsset("locations.txt");
-                    String[] locvect = locations.split(":");
+                    Log.d("LOCSA", locations);
+                    String[] locvect = locations.split("/");
                     try {
-                        for (int i = 0; i < locvect.length; i = i + 3) {
-                            locationstags.add(locvect[i]);
-                            locationspoints.add(new PointF(Float.parseFloat(locvect[i + 1]), Float.parseFloat(locvect[i + 2])));
+                        for (int i = 0; i < locvect.length; i++) {
+                            String[] str = locvect[i].split(":");
+                            locationstags.add(str[0]);
+                            locationspoints.add(new PointF(Float.parseFloat(str[1]), Float.parseFloat(str[2])));
                         }
                     } catch (Exception e) {
                         locationstags = null;
