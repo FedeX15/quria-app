@@ -1,0 +1,14 @@
+QuriaPosizione Attuale:4034:2547/
+EborisPosizione Attuale:1886:568/
+QuriahistoryAtterraggio:3243:1065/
+QuriahistoryNova Aeria:2688:2531/
+QuriahistoryVilla Wigger:6206:1106/
+QuriahistorySpaceQ:5699:2178/
+AyonhistoryNova Aeria:4106:2254/
+FaeshorishistorySpaceQ:1469:6358/
+FaeshorishistoryVilla Wigger:3981:1025/
+NovaAeriahistoryDogana:895:2755/
+NovaAeriahistoryDistretto Centrale:2541:1298/
+NovaAeriahistoryBuon Vecchio Frank:3170:1106/
+NovaAeriahistoryDistretto Militare:2546:1558/
+NovaAeriahistoryNova BnB:2766:935/
