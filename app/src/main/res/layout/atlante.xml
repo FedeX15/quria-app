@@ -51,8 +51,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Eboris" />
+                    android:text="Eboris"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/ayon"
@@ -60,8 +60,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Ayon" />
+                    android:text="Ayon"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/faeshoris"
@@ -69,8 +69,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Faeshoris" />
+                    android:text="Faeshoris"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/novaaeria"
@@ -78,8 +78,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Nova Aeria" />
+                    android:text="Nova Aeria"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/quriafisica"
@@ -87,8 +87,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Quria Fisica" />
+                    android:text="Quria Fisica"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/quriageografica"
@@ -96,8 +96,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Quria Geografica" />
+                    android:text="Quria Geografica"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/quriapolitica"
@@ -105,8 +105,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="monospace"
-                    android:text="Quria Politica" />
+                    android:text="Quria Politica"
+                    android:textSize="18sp" />
+
+                <Button
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Altre WIP"
+                    android:textSize="12sp" />
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
