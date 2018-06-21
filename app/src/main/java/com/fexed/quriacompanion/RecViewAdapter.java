@@ -23,12 +23,13 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
     private ArrayList<String> descrizioni;
     private ArrayList<String> date;
     private ArrayList<String> images;
+    private ArrayList<String> n;
     private ArrayList<ArrayList<String>> luoghi;
     private ArrayList<ArrayList<String>> npc;
     private Activity act;
     private ImageLoader imgloader;
 
-    public RecViewAdapter(Activity act, ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date, ArrayList<String> images) {
+    public RecViewAdapter(Activity act, ArrayList<String> titoli, ArrayList<String> descrizioni, ArrayList<ArrayList<String>> luoghi, ArrayList<ArrayList<String>> npc, ArrayList<String> date, ArrayList<String> images, ArrayList<String> n) {
         this.titoli = titoli;
         this.descrizioni = descrizioni;
         this.date = date;
@@ -36,6 +37,7 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         this.npc = npc;
         this.images = images;
         this.act = act;
+        this.n = n;
         this.imgloader = new ImageLoader(act.getApplicationContext());
     }
 
@@ -57,8 +59,10 @@ public class RecViewAdapter extends RecyclerView.Adapter<RecViewAdapter.ViewHold
         TextView luoghitxt = holder.mCardView.findViewById(R.id.loccard);
         TextView luoghitagtxt = holder.mCardView.findViewById(R.id.luoghitagtxt);
         TextView npctagtxt = holder.mCardView.findViewById(R.id.npctagtxt);
+        TextView ncardtxt = holder.mCardView.findViewById(R.id.ncard);
         final ImageView pic = holder.mCardView.findViewById(R.id.imagecard);
 
+        ncardtxt.setText(n.get(position));
         titolo.setText(titoli.get(position));
         descr.setText(descrizioni.get(position));
         datetxt.setText(date.get(position));
