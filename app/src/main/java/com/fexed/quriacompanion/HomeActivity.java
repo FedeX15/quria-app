@@ -257,9 +257,13 @@ public class HomeActivity extends AppCompatActivity {
             };
             helper.attachToRecyclerView(recview);
             recyclerView.scrollToPosition(state.getInt("lastcardviewed", 0));
+            if (state.getInt("lastcardviewed", 0) == recyclerView.getAdapter().getItemCount() - 1) {
+                ImageButton startbtn = (ImageButton) findViewById(R.id.endlistbtn);
+                startbtn.setVisibility(View.INVISIBLE);
+            }
             recview.getAdapter().notifyDataSetChanged();
             TextView stattxt = (TextView) findViewById(R.id.stattxtv);
-            stattxt.setText(recview.getAdapter().getItemCount() + " schede - " + state.getString("nsessioni", "__") + " sessioni di gioco");
+            stattxt.setText(recview.getAdapter().getItemCount() + " schede - " + state.getString("nsessioni", "__") + " sessioni di gioco - " + state.getString("ndays", "__") + " giorni passati su Quria");
         }
     }
 
@@ -2607,6 +2611,7 @@ public class HomeActivity extends AppCompatActivity {
                     if (task.isSuccessful()) {
                         remoteConfig.activateFetched();
                         state.edit().putString("nsessioni", remoteConfig.getString("n_sessioni")).apply();
+                        state.edit().putString("ndays", remoteConfig.getString("n_days")).apply();
                     }
                 }
             });
