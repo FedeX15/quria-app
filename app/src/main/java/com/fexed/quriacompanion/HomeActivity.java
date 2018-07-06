@@ -271,14 +271,16 @@ public class HomeActivity extends AppCompatActivity {
                 c++;
                 String title = "" + c;
                 JSONObject m_jArry = obj.getJSONObject(title);
-                titoli.add(m_jArry.getString("name"));
-                classes.add(m_jArry.getString("class"));
-                descrizioni.add(m_jArry.getString("desc"));
-                ages.add(m_jArry.getString("age"));
-                races.add(m_jArry.getString("race"));
-                String url = m_jArry.optString("img");
-                if (url == null) url = title;
-                images.add(url);
+                if (m_jArry.getString("show").equals("true")) {
+                    titoli.add(m_jArry.getString("name"));
+                    classes.add(m_jArry.getString("class"));
+                    descrizioni.add(m_jArry.getString("desc"));
+                    ages.add(m_jArry.getString("age"));
+                    races.add(m_jArry.getString("race"));
+                    String url = m_jArry.optString("img");
+                    if (url == null) url = title;
+                    images.add(url);
+                }
             } while (true);
         } catch (JSONException e) {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
