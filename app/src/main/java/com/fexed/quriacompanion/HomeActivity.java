@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.PointF;
 import android.os.Bundle;
@@ -51,9 +53,14 @@ import com.davemorrissey.labs.subscaleview.decoder.ImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageDecoder;
 import com.davemorrissey.labs.subscaleview.decoder.SkiaImageRegionDecoder;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,6 +83,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ViewFlipper vf;
     static SharedPreferences state;
+    FirebaseRemoteConfig remoteConfig;
     static int[] prof = {2, 2, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12, 12, 12, 12, 13};
     ArrayList<PointF> locationspoints;
     ArrayList<String> locationstags;
@@ -90,6 +98,7 @@ public class HomeActivity extends AppCompatActivity {
                     else {
                         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
                         recyclerView.smoothScrollToPosition(0);
+                        state.edit().putInt("lastcardviewed", 0).apply();
                     }
                     getSupportActionBar().show();
                     return true;
@@ -161,9 +170,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 recyclerView.smoothScrollToPosition(recyclerView.getAdapter().getItemCount());
+                state.edit().putInt("lastcardviewed", recyclerView.getAdapter().getItemCount()).apply();
             }
         });
-
         updateFromWEB();
     }
 
@@ -205,13 +214,7 @@ public class HomeActivity extends AppCompatActivity {
                 images.add(url);
             } while (true);
         } catch (JSONException e) {
-            Collections.reverse(titoli);
-            Collections.reverse(descrizioni);
-            Collections.reverse(luoghi);
-            Collections.reverse(npc);
-            Collections.reverse(date);
-            Collections.reverse(images);
-            Collections.reverse(n);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.cards);
             Log.d("JSON", "End");
             RecyclerView recview = (RecyclerView) findViewById(R.id.cards);
             recview.setOnFlingListener(null);
@@ -245,11 +248,18 @@ public class HomeActivity extends AppCompatActivity {
                     final int firstItem = 0;
                     final int lastItem = layoutManager.getItemCount() - 1;
                     targetPosition = Math.min(lastItem, Math.max(targetPosition, firstItem));
+                    state.edit().putInt("lastcardviewed", targetPosition).apply();
+                    ImageButton startbtn = (ImageButton) findViewById(R.id.endlistbtn);
+                    if (targetPosition == lastItem) startbtn.setVisibility(View.INVISIBLE);
+                    else startbtn.setVisibility(View.VISIBLE);
                     return targetPosition;
                 }
             };
             helper.attachToRecyclerView(recview);
+            recyclerView.scrollToPosition(state.getInt("lastcardviewed", 0));
             recview.getAdapter().notifyDataSetChanged();
+            TextView stattxt = (TextView) findViewById(R.id.stattxtv);
+            stattxt.setText(recview.getAdapter().getItemCount() + " schede - " + state.getString("nsessioni", "__") + " sessioni di gioco");
         }
     }
 
@@ -2447,6 +2457,24 @@ public class HomeActivity extends AppCompatActivity {
         myRef.child("INT").setValue(state.getInt("INT", 10));
         myRef.child("SAG").setValue(state.getInt("SAG", 10));
         myRef.child("CAR").setValue(state.getInt("CAR", 10));
+        if (state.getBoolean("comptsfor", false)) myRef.child("FOR_TS").setValue("X");
+        else myRef.child("FOR_TS").removeValue();
+        if (state.getBoolean("comptsdex", false)) myRef.child("DEX_TS").setValue("X");
+        else myRef.child("DEX_TS").removeValue();
+        if (state.getBoolean("comptscos", false)) myRef.child("COS_TS").setValue("X");
+        else myRef.child("COS_TS").removeValue();
+        if (state.getBoolean("comptsint", false)) myRef.child("INT_TS").setValue("X");
+        else myRef.child("INT_TS").removeValue();
+        if (state.getBoolean("comptssag", false)) myRef.child("SAG_TS").setValue("X");
+        else myRef.child("SAG_TS").removeValue();
+        if (state.getBoolean("comptscar", false)) myRef.child("CAR_TS").setValue("X");
+        else myRef.child("CAR_TS").removeValue();
+        PackageInfo pInfo = null;
+        try {
+            pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
+            int currentAppVersionCode = pInfo.versionCode;
+            myRef.child("AppVersion").setValue(currentAppVersionCode);
+        } catch (PackageManager.NameNotFoundException e) {}
 
         Bundle bndl = new Bundle();
         bndl.putString("PG_Name", state.getString("pgname", "nonsettato"));
@@ -2572,6 +2600,16 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
             c.start();
+            remoteConfig = FirebaseRemoteConfig.getInstance();
+            remoteConfig.fetch().addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if (task.isSuccessful()) {
+                        remoteConfig.activateFetched();
+                        state.edit().putString("nsessioni", remoteConfig.getString("n_sessioni")).apply();
+                    }
+                }
+            });
         } else {
             Toast.makeText(HomeActivity.this.getApplicationContext(), "Sincronizzazione disattivata. Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
             putJsonInRecview("");
