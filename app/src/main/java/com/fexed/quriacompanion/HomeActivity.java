@@ -2612,6 +2612,14 @@ public class HomeActivity extends AppCompatActivity {
                         remoteConfig.activateFetched();
                         state.edit().putString("nsessioni", remoteConfig.getString("n_sessioni")).apply();
                         state.edit().putString("ndays", remoteConfig.getString("n_days")).apply();
+                        state.edit().putString("lastversion", remoteConfig.getString("latest_version")).apply();
+                        try {
+                            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+                            String version = pInfo.versionCode + "";
+                            if (!(version.equals(state.getString("lastversion", version)))) Toast.makeText(HomeActivity.this.getApplicationContext(), "Sul Play Store è disponibile una nuova versione!", Toast.LENGTH_LONG).show();
+                        } catch (PackageManager.NameNotFoundException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             });
