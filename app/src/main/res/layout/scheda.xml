@@ -463,7 +463,7 @@
                             android:foregroundGravity="right"
                             android:text="-"
                             android:textAlignment="textEnd"
-                            android:textSize="12sp" />
+                            android:textSize="10sp" />
 
                         <TextView
                             android:id="@+id/PF"
@@ -488,7 +488,7 @@
                             android:foregroundGravity="left"
                             android:text="+"
                             android:textAlignment="textStart"
-                            android:textSize="12sp" />
+                            android:textSize="10sp" />
                     </LinearLayout>
 
                     <TextView
@@ -1987,14 +1987,15 @@
                                         android:layout_width="30dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="0"
-                                        android:text="-" />
+                                        android:text="-"
+                                        android:textSize="10sp" />
 
                                     <TextView
                                         android:id="@+id/manatxt"
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="1"
-                                        android:text="0"
+                                        android:text="0/nn"
                                         android:textAlignment="center"
                                         android:textColor="@color/cardview_light_background" />
 
@@ -2004,7 +2005,8 @@
                                         android:layout_width="30dp"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="0"
-                                        android:text="+" />
+                                        android:text="+"
+                                        android:textSize="10sp" />
                                 </LinearLayout>
 
                                 <Button
