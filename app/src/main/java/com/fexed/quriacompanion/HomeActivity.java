@@ -272,12 +272,7 @@ public class HomeActivity extends AppCompatActivity {
             json = FileHelper.ReadFile(this.getApplicationContext(), "npcs.json");
             if (json == "-error") json = loadFromAsset("npcs.json");
         }
-        ArrayList<String> titoli = new ArrayList<>();
-        ArrayList<String> classes = new ArrayList<>();
-        ArrayList<String> ages = new ArrayList<>();
-        ArrayList<String> races = new ArrayList<>();
-        ArrayList<String> descrizioni = new ArrayList<>();
-        ArrayList<String> images = new ArrayList<>();
+        ArrayList<NPC> npcslst = new ArrayList<>();
         try {
             JSONObject obj = new JSONObject(json);
             int c = 0;
@@ -286,21 +281,16 @@ public class HomeActivity extends AppCompatActivity {
                 String title = "" + c;
                 JSONObject m_jArry = obj.getJSONObject(title);
                 if (m_jArry.getString("show").equals("true")) {
-                    titoli.add(m_jArry.getString("name"));
-                    classes.add(m_jArry.getString("class"));
-                    descrizioni.add(m_jArry.getString("desc"));
-                    ages.add(m_jArry.getString("age"));
-                    races.add(m_jArry.getString("race"));
                     String url = m_jArry.optString("img");
                     if (url == null) url = title;
-                    images.add(url);
+                    npcslst.add(new NPC(m_jArry.getString("name"), m_jArry.getString("class"), m_jArry.getString("desc"), m_jArry.getString("age"), m_jArry.getString("race"), url));
                 }
             } while (true);
         } catch (JSONException e) {
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);
-            recview.setAdapter(new RecViewAdapterNpc(this, titoli, classes, descrizioni, ages, races, images));
+            recview.setAdapter(new RecViewAdapterNpc(this, npcslst));
             recview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
             SnapHelper helper = new LinearSnapHelper() {
                 @Override

@@ -19,22 +19,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.ViewHolder> {
-    private ArrayList<String> titoli;
-    private ArrayList<String> classi;
-    private ArrayList<String> descrizioni;
-    private ArrayList<String> ages;
-    private ArrayList<String> races;
-    private ArrayList<String> images;
+    private ArrayList<NPC> npclst;
     private Activity act;
     private ImageLoader imgloader;
 
-    public RecViewAdapterNpc(Activity act, ArrayList<String> titoli, ArrayList<String> classi, ArrayList<String> descrizioni, ArrayList<String> ages, ArrayList<String> races, ArrayList<String> images) {
-        this.titoli = titoli;
-        this.classi = classi;
-        this.descrizioni = descrizioni;
-        this.ages = ages;
-        this.races = races;
-        this.images = images;
+    public RecViewAdapterNpc(Activity act, ArrayList<NPC> npclst) {
+        this.npclst = npclst;
         this.act = act;
         this.imgloader = new ImageLoader(act.getApplicationContext());
     }
@@ -56,20 +46,20 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
         TextView age = holder.mCardView.findViewById(R.id.agecard);
         TextView race = holder.mCardView.findViewById(R.id.racecard);
         ImageView pic = holder.mCardView.findViewById(R.id.npcpiccard);
-        titolo.setText(titoli.get(position));
-        classe.setText(classi.get(position));
-        descr.setText(descrizioni.get(position));
-        age.setText(ages.get(position));
-        race.setText(races.get(position));
-        if (images.get(position).contains("http")) {
+        titolo.setText(npclst.get(position).name);
+        classe.setText(npclst.get(position).clas);
+        descr.setText(npclst.get(position).desc);
+        age.setText(npclst.get(position).age);
+        race.setText(npclst.get(position).race);
+        if (npclst.get(position).img.contains("http")) {
             pic.setImageDrawable(act.getResources().getDrawable(R.drawable.ic_file_download_black_24dp));
             pic.setAdjustViewBounds(true);
-            imgloader.DisplayImage(images.get(position), pic);
+            imgloader.DisplayImage(npclst.get(position).img, pic);
             pic.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
                 public boolean onLongClick(View view) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(images.get(position)));
+                    i.setData(Uri.parse(npclst.get(position).img));
                     act.startActivity(i);
                     return true;
                 }
@@ -80,7 +70,7 @@ public class RecViewAdapterNpc extends RecyclerView.Adapter<RecViewAdapterNpc.Vi
     }
 
     @Override
-    public int getItemCount() { return titoli.size(); }
+    public int getItemCount() { return npclst.size(); }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public CardView mCardView;
