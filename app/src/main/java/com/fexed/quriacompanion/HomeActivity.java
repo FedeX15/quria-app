@@ -772,14 +772,14 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 });
                 final AlertDialog alertd = alert.create();
-                alert.setTitle("Inserisci il mana o i punti");
+                alert.setTitle("Inserisci il mana massimo o i punti massimi");
                 alert.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         //Put actions for OK button here
                         String name = input.getText().toString();
                         int mana = Integer.parseInt(name);
-                        spellmana.setText(name);
-                        state.edit().putInt("spellmana", mana).apply();
+                        spellmana.setText(state.getInt("spellmana", 0) + "/" + name);
+                        state.edit().putInt("spellmanamax", mana).apply();
                         dialog.cancel();
                         alertd.dismiss();
                     }
@@ -788,15 +788,17 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             }
         });
-        spellmana.setText("" + state.getInt("spellmana", 0));
+        spellmana.setText(state.getInt("spellmana", 0) + "/" + state.getInt("spellmanamax", 0));
 
         addmanabtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int mana = state.getInt("spellmana", 0);
+                int manamax = state.getInt("spellmanamax", 0);
                 mana++;
+                mana = (mana > manamax) ? manamax : mana;
                 state.edit().putInt("spellmana", mana).apply();
-                spellmana.setText(mana + "");
+                spellmana.setText(mana + "/" + manamax);
                 saveSchedaPG();
             }
         });
@@ -808,7 +810,7 @@ public class HomeActivity extends AppCompatActivity {
                 mana--;
                 mana = (mana < 0) ? 0 : mana;
                 state.edit().putInt("spellmana", mana).apply();
-                spellmana.setText(mana + "");
+                spellmana.setText(mana + "/" + state.getInt("spellmanamax", 0));
                 saveSchedaPG();
             }
         });
@@ -2326,7 +2328,6 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 saveSchedaPG();
-
             }
 
             @Override
