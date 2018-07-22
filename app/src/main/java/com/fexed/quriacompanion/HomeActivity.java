@@ -122,6 +122,7 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
                 case R.id.navigation_risorse:
                     vf.setDisplayedChild(3);
+                    getSupportActionBar().show();
                     return true;
                 case R.id.navigation_NPC:
                     int k = vf.getDisplayedChild();
