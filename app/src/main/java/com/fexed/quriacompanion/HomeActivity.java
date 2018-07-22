@@ -287,6 +287,9 @@ public class HomeActivity extends AppCompatActivity {
                 }
             } while (true);
         } catch (JSONException e) {
+            if (state.getBoolean("pref_ordernpc", false)) {
+                Collections.sort(npcslst);
+            }
             RecyclerView recview = (RecyclerView) findViewById(R.id.npcsrecv);
             recview.setOnFlingListener(null);
             recview.setAdapter(null);

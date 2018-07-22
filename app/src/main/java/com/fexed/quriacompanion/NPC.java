@@ -1,6 +1,6 @@
 package com.fexed.quriacompanion;
 
-public class NPC {
+public class NPC implements Comparable<NPC> {
     public String name;
     public String clas;
     public String desc;
@@ -15,5 +15,10 @@ public class NPC {
         this.age = age;
         this.race = race;
         this.img = img;
+    }
+
+    @Override
+    public int compareTo(NPC npc) {
+        return this.name.compareTo(npc.name);
     }
 }

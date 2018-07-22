@@ -37,6 +37,15 @@ public class Settings extends AppCompatActivity {
             }
         });
         syncchk.setChecked(state.getBoolean("pref_sync", true));
+
+        final CheckBox ordernpcchk = findViewById(R.id.ordernpccheck);
+        ordernpcchk.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                state.edit().putBoolean("pref_ordernpc", ordernpcchk.isChecked()).apply();
+            }
+        });
+        ordernpcchk.setChecked(state.getBoolean("pref_ordernpc", false));
     }
 
 }
