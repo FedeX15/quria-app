@@ -12,6 +12,7 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.TabLayout;
@@ -41,6 +42,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TableLayout;
@@ -543,6 +545,7 @@ public class HomeActivity extends AppCompatActivity {
         final SeekBar fatigueseek = (SeekBar) findViewById(R.id.fatiguebar);
         final TextView madtag = (TextView) findViewById(R.id.madtag);
         final TextView fatiguetag = (TextView) findViewById(R.id.fatiguetag);
+        final CheckBox inspirationtbn = (CheckBox) findViewById(R.id.inspirationbtn);
         final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
         final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
@@ -2391,6 +2394,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        inspirationtbn.setChecked(state.getBoolean("inspiration", false));
+        inspirationtbn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                state.edit().putBoolean("inspiration", b).apply();
+                saveSchedaPG();
+            }
+        });
+
         saveSchedaPG();
     }
 
@@ -2442,6 +2454,7 @@ public class HomeActivity extends AppCompatActivity {
     private void saveSchedaPG() {
         String str = new StringBuilder("").append(state.getString("pgname", null)).append("|")
                 .append(state.getString("pgclass", null)).append("|")
+                .append(state.getBoolean("inspiration", false)).append("|")
                 .append(state.getInt("pglv", 1)).append("|")
                 .append(state.getInt("CA", 10)).append("|")
                 .append(state.getInt("PF", -1)).append("|")
@@ -2508,6 +2521,7 @@ public class HomeActivity extends AppCompatActivity {
         DatabaseReference myRef = database.getReferenceFromUrl("https://quriacompanion.firebaseio.com/");
         myRef = myRef.child("PG").child(state.getString("pgname", "errore"));
         myRef.child("classe").setValue(state.getString("pgclass", "errore"));
+        myRef.child("ispirazione").setValue(state.getBoolean("inspiration", false));
         myRef.child("livello").setValue(state.getInt("pglv", -1));
         myRef.child("CA").setValue(state.getInt("CA", 10));
         myRef.child("PF").setValue(state.getInt("PF", -1));
