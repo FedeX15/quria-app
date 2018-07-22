@@ -41,6 +41,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.SeekBar;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -537,6 +538,10 @@ public class HomeActivity extends AppCompatActivity {
         final EditText eighthlv = (EditText) findViewById(R.id.eigththlist);
         final EditText ninthlv = (EditText) findViewById(R.id.ninthlist);
         final EditText pluslv = (EditText) findViewById(R.id.pluslist);
+        final SeekBar madseek = (SeekBar) findViewById(R.id.madbar);
+        final SeekBar fatigueseek = (SeekBar) findViewById(R.id.fatiguebar);
+        final TextView madtag = (TextView) findViewById(R.id.madtag);
+        final TextView fatiguetag = (TextView) findViewById(R.id.fatiguetag);
         final TableLayout rangedatks = (TableLayout) findViewById(R.id.rangedatks);
         final TableLayout meleeatks = (TableLayout) findViewById(R.id.meleeatks);
         int pntfor; int modfor;
@@ -2330,6 +2335,38 @@ public class HomeActivity extends AppCompatActivity {
         });
         pluslv.clearFocus();
 
+        madseek.setProgress(state.getInt("madness", 0));
+        madtag.setText("Pazzia: " + state.getInt("madness", 0));
+        madseek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                state.edit().putInt("madness", i).apply();
+                madtag.setText("Pazzia: " + i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        fatigueseek.setProgress(state.getInt("fatigue", 0));
+        fatiguetag.setText("Affaticamento: " + state.getInt("fatigue", 0));
+        fatigueseek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                state.edit().putInt("fatigue", i).apply();
+                fatiguetag.setText("Affaticamento: " + i);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {}
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
         saveSchedaPG();
     }
 
@@ -2437,6 +2474,8 @@ public class HomeActivity extends AppCompatActivity {
                 .append(state.getBoolean("expintrattenere", false)).append("|")
                 .append(state.getBoolean("comppersuadere", false)).append("|")
                 .append(state.getBoolean("exppersuadere", false)).append("|")
+                .append(state.getInt("fatigue", 0)).append("|")
+                .append(state.getInt("madness", 0)).append("|")
                 .append(state.getInt("crediti", 0)).append("|")
                 .append(state.getString("inv", "")).append("\n")
                 .toString();
@@ -2455,6 +2494,8 @@ public class HomeActivity extends AppCompatActivity {
         myRef.child("INT").setValue(state.getInt("INT", 10));
         myRef.child("SAG").setValue(state.getInt("SAG", 10));
         myRef.child("CAR").setValue(state.getInt("CAR", 10));
+        myRef.child("Affaticamento").setValue(state.getInt("fatigue", 0));
+        myRef.child("Pazzia").setValue(state.getInt("madness", 0));
         if (state.getBoolean("comptsfor", false)) myRef.child("FOR_TS").setValue("X");
         else myRef.child("FOR_TS").removeValue();
         if (state.getBoolean("comptsdex", false)) myRef.child("DEX_TS").setValue("X");
@@ -2467,6 +2508,7 @@ public class HomeActivity extends AppCompatActivity {
         else myRef.child("SAG_TS").removeValue();
         if (state.getBoolean("comptscar", false)) myRef.child("CAR_TS").setValue("X");
         else myRef.child("CAR_TS").removeValue();
+        myRef.child("txtsaved").setValue(str);
         PackageInfo pInfo = null;
         try {
             pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
