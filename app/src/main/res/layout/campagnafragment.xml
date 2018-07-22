@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Videomessaggio del vostro autonominatosi benefattore ricevuto all'uscita dal Progetto Mirage"
+        android:text="Videomessaggio dell'autonominatosi benefattore ricevuto all'uscita dal Progetto Mirage"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ellogo"
@@ -89,36 +89,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
-        android:id="@+id/spaceqlogo"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="Logo EnigmaLaw"
-        app:layout_constraintTop_toBottomOf="@+id/ellogo"
-        app:srcCompat="@drawable/spaceqlogo" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Logo della SpaceQ di Elon Musk"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="@+id/spaceqlogo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spaceqlogo"
-        app:layout_constraintTop_toTopOf="@+id/spaceqlogo" />
-
-    <ImageView
         android:id="@+id/ellogo2"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="24dp"
         android:contentDescription="Logo EnigmaLaw"
-        app:layout_constraintTop_toBottomOf="@+id/spaceqlogo"
+        app:layout_constraintTop_toBottomOf="@+id/ellogo"
         app:srcCompat="@drawable/ellogo" />
 
     <TextView
@@ -128,7 +104,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text='Videomessaggio di Enigma Law in cui vi rivela delle info sul "Traklyn" e vi offre aiuto'
+        android:text='Videomessaggio di Enigma Law in cui rivela delle info sul "Traklyn" e offre aiuto'
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/ellogo2"
@@ -138,14 +114,53 @@
         android:id="@+id/el2_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="EnigmaLaw 2"
-        app:layout_constraintBottom_toBottomOf="@+id/ellogo2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ellogo"
+        app:layout_constraintStart_toEndOf="@+id/ellogo2"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <ImageView
+        android:id="@+id/ellogo3"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="24dp"
+        android:contentDescription="Logo EnigmaLaw"
+        app:layout_constraintTop_toBottomOf="@+id/ellogo2"
+        app:srcCompat="@drawable/ellogo" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Videomessaggio sbrigativo in cui EL espone pensieri e consigli sul da farsi in seguito alla creazione del Traklyn nelle segrete di villa Wigger."
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ellogo3"
+        app:layout_constraintTop_toTopOf="@+id/ellogo3" />
+
+    <Button
+        android:id="@+id/el3_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="EnigmaLaw 3"
+        app:layout_constraintStart_toEndOf="@+id/ellogo3"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
+
+    <Button
+        android:id="@+id/el3_btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Dossier"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/el3_btn"
+        app:layout_constraintTop_toBottomOf="@+id/textView17" />
 </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
