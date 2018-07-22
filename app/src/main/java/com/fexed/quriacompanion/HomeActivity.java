@@ -1,6 +1,7 @@
 package com.fexed.quriacompanion;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -2351,6 +2352,17 @@ public class HomeActivity extends AppCompatActivity {
             public void onStopTrackingTouch(SeekBar seekBar) {}
         });
 
+        madtag.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("0: nessun effetto\n1: svantaggio in TS INT, TS SAG, TS CAR\n2: 50% di possibilità di fare un'azione casuale ad ogni turno / ogni minuto\n3: paranoia e terrore, attacchi chiunque nelle tue vicinanze\n4: il tuo corpo è una prigione, devi liberartene\n5: consegna la scheda al Master, avrai un malus permanente a sua dicrezione");
+                builder.setTitle("Pazzia");
+                builder.create().show();
+                return true;
+            }
+        });
+
         fatigueseek.setProgress(state.getInt("fatigue", 0));
         fatiguetag.setText("Affaticamento: " + state.getInt("fatigue", 0));
         fatigueseek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -2365,6 +2377,17 @@ public class HomeActivity extends AppCompatActivity {
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {}
+        });
+
+        fatiguetag.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("0: nessun effetto\n1: svantaggio in TS FOR, TS DEX, TS COS\n2: velocità dimezzata e svantaggio in tutti i tiri per colpire\n3: svantaggio in prove di FOR, DEX e COS\n4: malus di -10 in tutte le prove fisiche\n5: 0 PF e svieni");
+                builder.setTitle("Affaticamento");
+                builder.create().show();
+                return true;
+            }
         });
 
         saveSchedaPG();
