@@ -354,6 +354,9 @@ public class HomeActivity extends AppCompatActivity {
         Button onathbtn = (Button) findViewById(R.id.onath);
         Button sluzuanbtn = (Button) findViewById(R.id.sluzuan);
         Button tiabulbtn = (Button) findViewById(R.id.tiabul);
+        Button agosbtn = (Button) findViewById(R.id.agos);
+        Button eutraxbtn = (Button) findViewById(R.id.eutrax);
+        Button monathbtn = (Button) findViewById(R.id.monath);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         final LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
@@ -638,6 +641,53 @@ public class HomeActivity extends AppCompatActivity {
                         for (String s : locationstags)
                             if (s.contains("Tiabul"))
                                 atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Tiabul", ""));
+                } catch (Exception e) {}
+            }
+        });
+
+        agosbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_agos));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Agos"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Agos", ""));
+                } catch (Exception e) {}
+            }
+        });
+        eutraxbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_eutrax));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Eutrax"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Eutrax", ""));
+                } catch (Exception e) {}
+            }
+        });
+
+        monathbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_monath));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Monath"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Monath", ""));
                 } catch (Exception e) {}
             }
         });

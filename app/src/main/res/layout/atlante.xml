@@ -134,6 +134,7 @@
                     android:layout_weight="1"
                     android:text="Euhivith"
                     android:textSize="18sp" />
+
                 <Button
                     android:id="@+id/eplax"
                     style="@style/Widget.AppCompat.Button.Colored"
@@ -141,6 +142,30 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Eplax"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/agos"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Agos"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/eutrax"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eutrax"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/monath"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Monath"
                     android:textSize="18sp" />
 
                 <Button
