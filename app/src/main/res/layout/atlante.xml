@@ -55,6 +55,95 @@
                     android:textSize="18sp" />
 
                 <Button
+                    android:id="@+id/tiabul"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tiabul"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/sluzuan"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sluzuan"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/onath"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Onath"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/miblath"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Miblath"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/kruzuth"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kruzuth"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/kriasira"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kriasira"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/itos"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Itos"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/glinux"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Glinux"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:id="@+id/euhivith"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Euhivith"
+                    android:textSize="18sp" />
+                <Button
+                    android:id="@+id/eplax"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eplax"
+                    android:textSize="18sp" />
+
+                <Button
                     android:id="@+id/ayon"
                     style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="match_parent"

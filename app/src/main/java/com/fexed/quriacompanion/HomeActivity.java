@@ -344,6 +344,16 @@ public class HomeActivity extends AppCompatActivity {
         Button faeshorisbtn = (Button) findViewById(R.id.faeshoris);
         Button novaaeriabtn = (Button) findViewById(R.id.novaaeria);
         Button eborisbtn = (Button) findViewById(R.id.eboris);
+        Button eplaxbtn = (Button) findViewById(R.id.eplax);
+        Button euhivithbtn = (Button) findViewById(R.id.euhivith);
+        Button glinuxbtn = (Button) findViewById(R.id.glinux);
+        Button itosbtn = (Button) findViewById(R.id.itos);
+        Button kriasirabtn = (Button) findViewById(R.id.kriasira);
+        Button kruzuthbtn = (Button) findViewById(R.id.kruzuth);
+        Button miblathbtn = (Button) findViewById(R.id.miblath);
+        Button onathbtn = (Button) findViewById(R.id.onath);
+        Button sluzuanbtn = (Button) findViewById(R.id.sluzuan);
+        Button tiabulbtn = (Button) findViewById(R.id.tiabul);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         final LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
@@ -478,6 +488,156 @@ public class HomeActivity extends AppCompatActivity {
                         for (String s : locationstags)
                             if (s.contains("Eboris"))
                                 atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Eboris", ""));
+                } catch (Exception e) {}
+            }
+        });
+        eplaxbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_eplax));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Eplax"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Eplax", ""));
+                } catch (Exception e) {}
+            }
+        });
+        euhivithbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_euhivith));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Euhivith"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Euhivith", ""));
+                } catch (Exception e) {}
+            }
+        });
+        glinuxbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_glinux));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Glinux"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Glinux", ""));
+                } catch (Exception e) {}
+            }
+        });
+        itosbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_itos));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Itos"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Itos", ""));
+                } catch (Exception e) {}
+            }
+        });
+        kriasirabtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_kriasira));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Kriasira"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Kriasira", ""));
+                } catch (Exception e) {}
+            }
+        });
+        kruzuthbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_kruzuth));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Kruzuth"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Kruzuth", ""));
+                } catch (Exception e) {}
+            }
+        });
+        miblathbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_miblath));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Miblath"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Miblath", ""));
+                } catch (Exception e) {}
+            }
+        });
+        onathbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_onath));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Onath"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Onath", ""));
+                } catch (Exception e) {}
+            }
+        });
+        sluzuanbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_sluzuan));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Sluzuan"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Sluzuan", ""));
+                } catch (Exception e) {}
+            }
+        });
+        tiabulbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_tiabul));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("Tiabul"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Tiabul", ""));
                 } catch (Exception e) {}
             }
         });
