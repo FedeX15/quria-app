@@ -7,13 +7,14 @@ QuriahistoryNova Aeria:2688:2531/
 QuriahistoryVilla Wigger:6206:1106/
 QuriahistorySpaceQ:5699:2178/
 QuriahistoryAudi:6187:1042/
-AyonhistoryNova Aeria:4106:2254/
-FaeshorishistorySpaceQ:1469:6358/
-FaeshorishistoryAudi:3890:700/
-FaeshorisPosizione Attuale:3981:1025/
-FaeshorishistoryVilla Wigger:3981:1025/
+AyonhistoryNova Aeria:4468:2970/
+FaeshorishistorySpaceQ:735:3177/
+FaeshorishistoryAudi:1947:356/
+FaeshorisPosizione Attuale:1990:511/
+FaeshorishistoryVilla Wigger:1990:511/
 NovaAeriahistoryDogana:895:2755/
 NovaAeriahistoryDistretto Centrale:2541:1298/
 NovaAeriahistoryBuon Vecchio Frank:3170:1106/
 NovaAeriahistoryDistretto Militare:2546:1558/
 NovaAeriahistoryNova BnB:2766:935/
+GozrethEnterpriseshistoryBuon Vecchio Frank:117:128/

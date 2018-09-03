@@ -357,6 +357,7 @@ public class HomeActivity extends AppCompatActivity {
         Button agosbtn = (Button) findViewById(R.id.agos);
         Button eutraxbtn = (Button) findViewById(R.id.eutrax);
         Button monathbtn = (Button) findViewById(R.id.monath);
+        Button gozrethbtn = (Button) findViewById(R.id.gozreth);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         final LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
@@ -688,6 +689,22 @@ public class HomeActivity extends AppCompatActivity {
                         for (String s : locationstags)
                             if (s.contains("Monath"))
                                 atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("Monath", ""));
+                } catch (Exception e) {}
+            }
+        });
+
+        gozrethbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mapslist.setVisibility(View.GONE);
+                coordtxt.setText("");
+                if (locationstags != null) atlasView.removeAll();
+                atlasView.setImage(ImageSource.resource(R.drawable.mappa_gozrethenterprises));
+                try {
+                    if (locationstags != null)
+                        for (String s : locationstags)
+                            if (s.contains("GozrethEnterprises"))
+                                atlasView.setPin(locationspoints.get(locationstags.indexOf(s)), s.replace("GozrethEnterprises", ""));
                 } catch (Exception e) {}
             }
         });
