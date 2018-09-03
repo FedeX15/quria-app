@@ -42,193 +42,341 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:gravity="left"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/quriapolitica"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Quria Politica" />
+
+                    <Button
+                        android:id="@+id/quriafisica"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Quria" />
+
+                    <Button
+                        android:id="@+id/quriageografica"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:text="Quria Geografica" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Pobros, Ushad, Gluenga, Frueland"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/eboris"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eboris" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Eboris"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Adrain, Etresil, Gleaya, Smedal"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/tiabul"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Tiabul" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Tiabul"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Uchijan, Shionga"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/sluzuan"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Sluzuan" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sluzuan"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Ograd"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/onath"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Onath"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/miblath"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Miblath"
-                    android:textSize="18sp" />
+                    android:text="Onath" />
 
                 <Button
                     android:id="@+id/kruzuth"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kruzuth" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Kruzuth"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+                <Button
+                    android:id="@+id/miblath"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Miblath" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Shionga"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/kriasira"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Kriasira" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Kriasira"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Efrea"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/itos"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Itos" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Itos"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Jaskana"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/glinux"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Glinux" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Glinux"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Fablein"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/euhivith"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Euhivith" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Euhivith"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Eplax Meridionale, Eplax Settentrionale"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/eplax"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eplax" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Eplax"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Skuoy Plana"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
                 <Button
                     android:id="@+id/agos"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Agos" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Agos"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Vablesh"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
                 <Button
                     android:id="@+id/eutrax"
                     style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Eutrax" />
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Eutrax"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Thaun Plar"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
                 <Button
                     android:id="@+id/monath"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Monath"
-                    android:textSize="18sp" />
+                    android:text="Monath" />
 
-                <Button
-                    android:id="@+id/ayon"
-                    style="@style/Widget.AppCompat.Button.Colored"
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ayon"
-                    android:textSize="18sp" />
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Sovrastato di Quria"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/ayon"
+                        style="@style/Widget.AppCompat.Button.Colored"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Ayon" />
+
+                    <Button
+                        android:id="@+id/novaaeria"
+                        style="@style/Widget.AppCompat.Button.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Nova Aeria" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Farnan"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
 
                 <Button
                     android:id="@+id/faeshoris"
                     style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Faeshoris"
-                    android:textSize="18sp" />
+                    android:text="Faeshoris" />
 
                 <Button
-                    android:id="@+id/novaaeria"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nova Aeria"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/quriafisica"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Quria Fisica"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/quriageografica"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Quria Geografica"
-                    android:textSize="18sp" />
-
-                <Button
-                    android:id="@+id/quriapolitica"
-                    style="@style/Widget.AppCompat.Button.Colored"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Quria Politica"
-                    android:textSize="18sp" />
-
-                <Button
-                    style="@style/Widget.AppCompat.Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
                     android:layout_weight="1"
                     android:text="Altre WIP"
-                    android:textSize="12sp" />
+                    android:textColor="@android:color/white"
+                    android:textSize="10sp" />
 
             </LinearLayout>
         </android.support.v4.widget.NestedScrollView>
