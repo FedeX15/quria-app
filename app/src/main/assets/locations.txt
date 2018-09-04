@@ -12,10 +12,10 @@ FaeshorishistorySpaceQ:735:3177/
 FaeshorishistoryAudi:1947:356/
 FaeshorisPosizione Attuale:1990:511/
 FaeshorishistoryVilla Wigger:1990:511/
-NovaAeriahistoryDogana:895:2755/
-NovaAeriahistoryDistretto Centrale:2541:1298/
-NovaAeriahistoryBuon Vecchio Frank:3170:1106/
-NovaAeriahistoryDistretto Militare:2546:1558/
-NovaAeriahistoryNova BnB:2766:935/
+NovaAeriahistoryDogana:1183:3665/
+NovaAeriahistoryDistretto Centrale:3392:1716/
+NovaAeriahistoryBuon Vecchio Frank:4321:1406/
+NovaAeriahistoryDistretto Militare:3426:2074/
+NovaAeriahistoryNova BnB:3613:1318/
 GozrethEnterpriseshistoryBuon Vecchio Frank:117:128/
-MonathELNimbusyle:927:76/
+MonathELNimbusyle:2448:204/
