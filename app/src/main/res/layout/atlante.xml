@@ -197,7 +197,7 @@
                     android:layout_weight="1"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
-                    android:text="Efrea"
+                    android:text="Efrea, Skailand"
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 
