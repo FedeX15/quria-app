@@ -790,7 +790,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -799,6 +799,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/utharflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -834,6 +835,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/vableshflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -869,6 +871,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/skuoyplanaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -905,6 +908,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/thauplarflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -940,6 +944,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/farnanflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -975,6 +980,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/skailandflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1010,6 +1016,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/cheylesflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1045,6 +1052,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/efreaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1080,6 +1088,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/smedalflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1115,6 +1124,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/gleayaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1150,6 +1160,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/etresilflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1185,6 +1196,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/adrainflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1220,6 +1232,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/preitanflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1255,6 +1268,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/fruelandflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1290,6 +1304,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/gluengaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1325,6 +1340,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/ushadflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1360,6 +1376,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/pobrosflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1395,6 +1412,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/naskeuflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1430,6 +1448,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/druisalflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1465,6 +1484,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/shiongaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1500,6 +1520,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/uchijanflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1535,6 +1556,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/awhaitflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1570,6 +1592,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/ethosflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1605,6 +1628,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/meplaxflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1640,6 +1664,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/seplaxflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1675,6 +1700,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/breovsnehnflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1710,6 +1736,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/fableinflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1745,6 +1772,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/ogradflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
@@ -1779,6 +1807,7 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/jaskanaflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
