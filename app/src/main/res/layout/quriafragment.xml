@@ -792,402 +792,6 @@
                 android:orientation="vertical"
                 android:visibility="visible">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/utharflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_uthar" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Stati Coesi d'Uthar"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica federale centralizzata multirazziale"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/vableshflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_vablesh" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Vablesh"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Federazione di tribù, repubbliche e monarchie dichiaratesi in constrasto con il Sovrastato"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/skuoyplanaflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_skuoyplana" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Skuoy Plana"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Governo autarchico e dittatoriale. Abitato principalmente da mezzorchi, nei continenti di Onath e Kruzuth"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp"
-                            tools:text="Oligarchia klim molto protezionista e chiusa. Aderisce al Sovrastato ma con esso intrattiene solo poche relazioni diplomatiche" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/thauplarflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_thauplar" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Thau Plar"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica klim fortemente religiosa"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/farnanflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_farnan" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubbliche Elfiche del Farnan"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Stato federale di repubbliche a maggioranza elfica"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/skailandflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_skailand" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Skailand"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Oligarchia nanica, draconica e orchesca"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/cheylesflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_cheyles" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Cheyles"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica umana, elfica e nanica"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/efreaflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_efrea" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Efrea"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Comunità di piccole nazioni e città in un continente molto pericoloso. Abitata più che altro da avventurieri"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/smedalflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_smedal" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Smedal"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica multirazziale ed eterogenea"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/gleayaflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_gleaya" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Gleaya"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica elfica e umana naturalista e promotrice del Gran Rinnovo"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/etresilflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_etresil" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Etresil"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Oligarchia draconica molto protezionista ma non razzista. Nazione molto antica"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1220,330 +824,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Monarchia nanica con un culto del sovrano molto spiccato"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/preitanflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_preitan" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Preitan"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica nanica e draconica al cui vertice del governo vi è una coppia di consoli"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/fruelandflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_frueland" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Frueland"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Oligarchia nanica, con grandi comunità umane e orchesche"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/gluengaflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_gluenga" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Gluenga"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Comunità di città libere e autogovernate. Multirazziale e dichiaratasi in contrasto con il Sovrastato di Quria"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/ushadflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_ushad" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Ushad"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica umana fortemente religiosa"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/pobrosflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_pobros" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Pobros"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica a rappresentanza diretta, con popolazione a maggioranza nanica e draconica"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/naskeuflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_naskeau" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Naskeau"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Oligarchia, popolazione draconica e mezzorchesca"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/druisalflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_drusial" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Drusial"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Città libere in comunità, governate da un consiglio di anziani"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/shiongaflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_shionga" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Shionga"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Repubblica centralizzata con popolazione umana e nanica"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="14sp" />
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="0"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/uchijanflag"
-                        android:layout_width="100dp"
-                        android:layout_height="80dp"
-                        android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_conglomeratouchijan" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Conglomerato Uchijan"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                            android:textSize="24sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="Federazione di stati multirazziali"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -1592,11 +872,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/ethosflag"
+                        android:id="@+id/breovsnehnflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_ethos" />
+                        app:srcCompat="@drawable/bandiera_breovsnehn" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1607,7 +887,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Ethos"
+                            android:text="Breov Snehn"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -1615,12 +895,116 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Monarchia naturalista a maggioranza umana e elfica"
+                            android:text="Piccola monarchia a maggioranza klim"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:id="@+id/cheylesflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_cheyles" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Cheyles"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica umana, elfica e nanica"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/druisalflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_drusial" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Drusial"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Città libere in comunità, governate da un consiglio di anziani"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/efreaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_efrea" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Efrea"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Comunità di piccole nazioni e città in un continente molto pericoloso. Abitata più che altro da avventurieri"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -1692,7 +1076,6 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -1700,11 +1083,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/breovsnehnflag"
+                        android:id="@+id/ethosflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_breovsnehn" />
+                        app:srcCompat="@drawable/bandiera_ethos" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1715,7 +1098,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Breov Snehn"
+                            android:text="Ethos"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -1723,12 +1106,46 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Piccola monarchia a maggioranza klim"
+                            android:text="Monarchia naturalista a maggioranza umana e elfica"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:id="@+id/etresilflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_etresil" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Etresil"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oligarchia draconica molto protezionista ma non razzista. Nazione molto antica"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -1764,7 +1181,216 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
 
+                    <ImageView
+                        android:id="@+id/farnanflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_farnan" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubbliche Elfiche del Farnan"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Stato federale di repubbliche a maggioranza elfica"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/fruelandflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_frueland" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Frueland"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oligarchia nanica, con grandi comunità umane e orchesche"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gleayaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_gleaya" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gleaya"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica elfica e umana naturalista e promotrice del Gran Rinnovo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/gluengaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_gluenga" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Gluenga"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Comunità di città libere e autogovernate. Multirazziale e dichiaratasi in contrasto con il Sovrastato di Quria"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/jaskanaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_jaskana" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jaskana"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oligarchia. Popolazione ben distribuita tra umani e mezzorchi, ma con gli ultimi ai vertici del governo"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/naskeuflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_naskeau" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Naskeau"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oligarchia, popolazione draconica e mezzorchesca"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -1800,18 +1426,18 @@
                             android:textSize="14sp" />
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/jaskanaflag"
+                        android:id="@+id/pobrosflag"
                         android:layout_width="100dp"
                         android:layout_height="80dp"
                         android:layout_weight="0"
-                        app:srcCompat="@drawable/bandiera_jaskana" />
+                        app:srcCompat="@drawable/bandiera_pobros" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1822,7 +1448,7 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Jaskana"
+                            android:text="Pobros"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="24sp"
                             android:textStyle="bold" />
@@ -1830,7 +1456,360 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Oligarchia. Popolazione ben distribuita tra umani e mezzorchi, ma con gli ultimi ai vertici del governo"
+                            android:text="Repubblica a rappresentanza diretta, con popolazione a maggioranza nanica e draconica"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/preitanflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_preitan" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Preitan"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica nanica e draconica al cui vertice del governo vi è una coppia di consoli"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/shiongaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_shionga" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Shionga"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica centralizzata con popolazione umana e nanica"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/skailandflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_skailand" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Skailand"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Oligarchia nanica, draconica e orchesca"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/skuoyplanaflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_skuoyplana" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Skuoy Plana"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Governo autarchico e dittatoriale. Abitato principalmente da mezzorchi, nei continenti di Onath e Kruzuth"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp"
+                            tools:text="Oligarchia klim molto protezionista e chiusa. Aderisce al Sovrastato ma con esso intrattiene solo poche relazioni diplomatiche" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/smedalflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_smedal" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Smedal"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica multirazziale ed eterogenea"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/thauplarflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_thauplar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thau Plar"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica klim fortemente religiosa"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/uchijanflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_conglomeratouchijan" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Conglomerato Uchijan"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Federazione di stati multirazziali"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/ushadflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_ushad" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Ushad"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica umana fortemente religiosa"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/utharflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_uthar" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Stati Coesi d'Uthar"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Repubblica federale centralizzata multirazziale"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/vableshflag"
+                        android:layout_width="100dp"
+                        android:layout_height="80dp"
+                        android:layout_weight="0"
+                        app:srcCompat="@drawable/bandiera_vablesh" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Vablesh"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Federazione di tribù, repubbliche e monarchie dichiaratesi in constrasto con il Sovrastato"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                             android:textSize="14sp" />
                     </LinearLayout>
