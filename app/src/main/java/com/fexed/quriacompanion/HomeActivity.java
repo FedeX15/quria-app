@@ -41,6 +41,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.ScrollView;
@@ -665,9 +666,13 @@ public class HomeActivity extends AppCompatActivity {
         final TextView PFmax = (TextView) findViewById(R.id.PFmax);
         final TextView pgfirma = (TextView) findViewById(R.id.pgfirma);
         final TextView abilitatalenti = (TextView) findViewById(R.id.skillstitle);
+        final ImageView abilitatalentiarrow = (ImageView) findViewById(R.id.dwna1);
         final TextView inventario = (TextView) findViewById(R.id.invtitle);
+        final ImageView inventarioarrow = (ImageView) findViewById(R.id.dwna3);
         final TextView background = (TextView) findViewById(R.id.bgtitle);
+        final ImageView backgroundarrow = (ImageView) findViewById(R.id.dwna4);
         final TextView attacchi = (TextView) findViewById(R.id.atktitle);
+        final ImageView attacchiarrow = (ImageView) findViewById(R.id.dwna2);
         final TextView spellatk = (TextView) findViewById(R.id.spellatktxt);
         final TextView spellcd = (TextView) findViewById(R.id.spellcdtxt);
         final TextView spellstat = (TextView) findViewById(R.id.spelstatselection);
@@ -822,8 +827,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LinearLayout skilllyt = (LinearLayout) findViewById(R.id.skills);
-                if (skilllyt.getVisibility() == View.VISIBLE) skilllyt.setVisibility(View.GONE);
-                else skilllyt.setVisibility(View.VISIBLE);
+                if (skilllyt.getVisibility() == View.VISIBLE) {
+                    skilllyt.setVisibility(View.GONE);
+                    abilitatalentiarrow.setImageResource(R.drawable.downarrow);
+                }
+                else {
+                    skilllyt.setVisibility(View.VISIBLE);
+                    abilitatalentiarrow.setImageResource(R.drawable.uparrow);
+                }
             }
         });
 
@@ -831,8 +842,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LinearLayout invlyt = (LinearLayout) findViewById(R.id.inventory);
-                if (invlyt.getVisibility() == View.VISIBLE) invlyt.setVisibility(View.GONE);
-                else invlyt.setVisibility(View.VISIBLE);
+                if (invlyt.getVisibility() == View.VISIBLE) {
+                    invlyt.setVisibility(View.GONE);
+                    inventarioarrow.setImageResource(R.drawable.downarrow);
+                }
+                else {
+                    invlyt.setVisibility(View.VISIBLE);
+                    inventarioarrow.setImageResource(R.drawable.uparrow);
+                }
             }
         });
 
@@ -840,8 +857,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LinearLayout bglyt = (LinearLayout) findViewById(R.id.background);
-                if (bglyt.getVisibility() == View.VISIBLE) bglyt.setVisibility(View.GONE);
-                else bglyt.setVisibility(View.VISIBLE);
+                if (bglyt.getVisibility() == View.VISIBLE) {
+                    bglyt.setVisibility(View.GONE);
+                    backgroundarrow.setImageResource(R.drawable.downarrow);
+                }
+                else {
+                    bglyt.setVisibility(View.VISIBLE);
+                    backgroundarrow.setImageResource(R.drawable.uparrow);
+                }
             }
         });
 
@@ -849,8 +872,14 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LinearLayout atklyt = (LinearLayout) findViewById(R.id.atk);
-                if (atklyt.getVisibility() == View.VISIBLE) atklyt.setVisibility(View.GONE);
-                else atklyt.setVisibility(View.VISIBLE);
+                if (atklyt.getVisibility() == View.VISIBLE) {
+                    atklyt.setVisibility(View.GONE);
+                    attacchiarrow.setImageResource(R.drawable.downarrow);
+                }
+                else {
+                    atklyt.setVisibility(View.VISIBLE);
+                    attacchiarrow.setImageResource(R.drawable.uparrow);
+                }
             }
         });
 

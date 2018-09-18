@@ -102,7 +102,7 @@
                 app:layout_constraintTop_toTopOf="@+id/inspirationbtn" />
 
             <ImageView
-                android:id="@+id/imageView"
+                android:id="@+id/bandieraquria"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
@@ -618,6 +618,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/madfatigue" />
+
+            <ImageView
+                android:id="@+id/dwna1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/skillstitle"
+                app:layout_constraintStart_toEndOf="@+id/skillstitle"
+                app:layout_constraintTop_toTopOf="@+id/skillstitle"
+                app:srcCompat="@drawable/downarrow" />
 
             <LinearLayout
                 android:id="@+id/skills"
@@ -1847,6 +1857,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/skills" />
 
+            <ImageView
+                android:id="@+id/dwna2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/atktitle"
+                app:layout_constraintStart_toEndOf="@+id/atktitle"
+                app:layout_constraintTop_toTopOf="@+id/atktitle"
+                app:srcCompat="@drawable/downarrow" />
+
             <LinearLayout
                 android:id="@+id/atk"
                 android:layout_width="match_parent"
@@ -2550,6 +2570,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/atk" />
 
+            <ImageView
+                android:id="@+id/dwna3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/invtitle"
+                app:layout_constraintStart_toEndOf="@+id/invtitle"
+                app:layout_constraintTop_toTopOf="@+id/invtitle"
+                app:srcCompat="@drawable/downarrow" />
+
             <LinearLayout
                 android:id="@+id/inventory"
                 android:layout_width="match_parent"
@@ -2618,6 +2648,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inventory" />
+
+            <ImageView
+                android:id="@+id/dwna4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bgtitle"
+                app:layout_constraintStart_toEndOf="@+id/bgtitle"
+                app:layout_constraintTop_toTopOf="@+id/bgtitle"
+                app:srcCompat="@drawable/downarrow" />
 
             <LinearLayout
                 android:id="@+id/background"
