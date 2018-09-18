@@ -243,6 +243,10 @@ public class HomeActivity extends AppCompatActivity {
                 mapid = R.drawable.mappa_tremonasteri;
                 suffix = "TreMonasteri";
                 break;
+            case "cirp" :
+                mapid = R.drawable.mappa_cirp;
+                suffix = "CIRP";
+                break;
 
 
             default:
@@ -478,6 +482,7 @@ public class HomeActivity extends AppCompatActivity {
         Button monathbtn = (Button) findViewById(R.id.monath);
         Button gozrethbtn = (Button) findViewById(R.id.gozreth);
         Button tremonasteributton = (Button) findViewById(R.id.tremonasteri);
+        Button cirpbutton = (Button) findViewById(R.id.cirp);
         final TextView coordtxt = (TextView) findViewById(R.id.coordtxt);
         final LinearLayout mapslist = (LinearLayout) findViewById(R.id.maplistlyt);
         atlasView.setBitmapDecoderFactory(new CompatDecoderFactory<ImageDecoder>(SkiaImageDecoder.class));
@@ -626,6 +631,11 @@ public class HomeActivity extends AppCompatActivity {
         tremonasteributton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {visualizzaMappa("tremonasteri");
+            }
+        });
+        cirpbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {visualizzaMappa("cirp");
             }
         });
     }
@@ -2731,11 +2741,13 @@ public class HomeActivity extends AppCompatActivity {
         final String urlstory = "http://quria.altervista.org/story.json";
         final String urlloc = "http://quria.altervista.org/locations.txt";
         final String urlnpc = "http://quria.altervista.org/npcs.json";
+        final String urlcfg = "http://quria.altervista.org/cfg.txt";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
         final String filenpc = "npcs.json";
         if (state.getBoolean("pref_sync", true)) {
             final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
+
             Thread t = new Thread(new Runnable() {
                 public void run() {
                     dialog.show();
