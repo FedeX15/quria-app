@@ -174,7 +174,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="I Tre Monasteri" />
+                        android:text="I Tre Monasteri"
+                        android:visibility="gone" />
                 </LinearLayout>
                 <TextView
                     android:layout_width="match_parent"
@@ -349,7 +350,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Chiesa Illuminata della Rivelazione Psionica"
-                        android:textSize="10sp" />
+                        android:textSize="10sp"
+                        android:visibility="gone" />
                 </LinearLayout>
 
                 <TextView

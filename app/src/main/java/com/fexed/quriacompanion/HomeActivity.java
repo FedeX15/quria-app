@@ -279,10 +279,10 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        preparaHome();
         preparaAtlante();
         preparaSchedaPG();
         preparaRisorse();
-        preparaHome();
 
         new MessageReceiver();
         new InstanceIdService();
@@ -628,11 +628,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        if (state.getBoolean("showtremonasteri", false)) tremonasteributton.setVisibility(View.VISIBLE);
         tremonasteributton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {visualizzaMappa("tremonasteri");
             }
         });
+
+        if (state.getBoolean("showcirp", false)) cirpbutton.setVisibility(View.VISIBLE);
         cirpbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {visualizzaMappa("cirp");
@@ -2741,16 +2744,15 @@ public class HomeActivity extends AppCompatActivity {
         final String urlstory = "http://quria.altervista.org/story.json";
         final String urlloc = "http://quria.altervista.org/locations.txt";
         final String urlnpc = "http://quria.altervista.org/npcs.json";
-        final String urlcfg = "http://quria.altervista.org/cfg.txt";
+        final String urlcfg = "http://quria.altervista.org/config.txt";
         final String filestory = "story.json";
         final String fileloc = "locations.txt";
         final String filenpc = "npcs.json";
         if (state.getBoolean("pref_sync", true)) {
             final ProgressDialog dialog = ProgressDialog.show(this, "Aggiornamento", "Sto aggiornando i dati dall'interlink", true);
 
-            Thread t = new Thread(new Runnable() {
+            final Thread t = new Thread(new Runnable() {
                 public void run() {
-                    dialog.show();
                     StringBuilder data = new StringBuilder(""); //to read each line
                     try {
                         // Create a URL for the desired page
@@ -2786,9 +2788,8 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
             });
-            t.start();
 
-            Thread p = new Thread(new Runnable() {
+            final Thread p = new Thread(new Runnable() {
                 public void run() {
                     StringBuilder data = new StringBuilder(""); //to read each line
                     try {
@@ -2811,9 +2812,8 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
             });
-            p.start();
 
-            Thread c = new Thread(new Runnable() {
+            final Thread c = new Thread(new Runnable() {
                 public void run() {
                     StringBuilder data = new StringBuilder(""); //to read each line
                     try {
@@ -2836,26 +2836,55 @@ public class HomeActivity extends AppCompatActivity {
                     }
                 }
             });
-            c.start();
-            remoteConfig = FirebaseRemoteConfig.getInstance();
-            remoteConfig.fetch().addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                @Override
-                public void onComplete(@NonNull Task<Void> task) {
-                    if (task.isSuccessful()) {
-                        remoteConfig.activateFetched();
-                        state.edit().putString("nsessioni", remoteConfig.getString("n_sessioni")).apply();
-                        state.edit().putString("ndays", remoteConfig.getString("n_days")).apply();
-                        state.edit().putString("lastversion", remoteConfig.getString("latest_version")).apply();
-                        try {
-                            PackageInfo pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
-                            String version = pInfo.versionCode + "";
-                            if (!(version.equals(state.getString("lastversion", version)))) Toast.makeText(HomeActivity.this.getApplicationContext(), "Sul Play Store è disponibile una nuova versione!", Toast.LENGTH_LONG).show();
-                        } catch (PackageManager.NameNotFoundException e) {
-                            e.printStackTrace();
+
+            Thread d = new Thread(new Runnable() {
+                public void run() {
+                    dialog.show();
+                    StringBuilder data = new StringBuilder(""); //to read each line
+                    try {
+                        // Create a URL for the desired page
+                        URL url = new URL(urlcfg); //My text file location
+                        //First open the connection
+                        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+                        BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                        String str;
+                        while ((str = in.readLine()) != null) {
+                            data.append(str);
                         }
+                        in.close();
+                        final String cfgstr = data.toString();
+                        String[] cfg = cfgstr.split("/");
+                        Log.d("DATAS", cfg[0] + cfg[1] + cfg[2]);
+                        for (String s : cfg) {
+                            String[] datas = s.split(":");
+                            switch (datas[0]) {
+                                case "nsessioni":
+                                    state.edit().putString("nsessioni", datas[1]).apply();
+                                    break;
+                                case "ndays":
+                                    state.edit().putString("ndays", datas[1]).apply();
+                                    break;
+                                case "lastversion":
+                                    state.edit().putString("lastversion", datas[1]).apply();
+                                    break;
+                                case "cirp":
+                                    state.edit().putBoolean("showcirp", (datas[1].equals("on")) ? true : false).apply();
+                                    break;
+                                case "tremonasteri":
+                                    state.edit().putBoolean("showtremonasteri", (datas[1].equals("on")) ? true : false).apply();
+                                    break;
+                            }
+                        }
+                    } catch (IOException e) {
+
                     }
+                    t.start();
+                    p.start();
+                    c.start();
                 }
             });
+            d.start();
         } else {
             Toast.makeText(HomeActivity.this.getApplicationContext(), "Sincronizzazione disattivata. Utilizzo dati salvati in locale", Toast.LENGTH_SHORT).show();
             putJsonInRecview("");
